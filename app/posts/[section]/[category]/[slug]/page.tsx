@@ -18,8 +18,8 @@ export default async function PostPage({ params }: PageProps) {
   if (!post) return notFound();
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-8">
-      <article className="max-w-none p-4">
+    <div className="relative flex justify-center">
+      <article className="p-4 max-w-3xl w-full">
         <h1 className="text-4xl font-bold text-center">{post.title}</h1>
         <p className="text-sm text-gray-400 text-right mt-2">{post.date}</p>
         <div

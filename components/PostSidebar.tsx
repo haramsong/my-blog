@@ -49,7 +49,7 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
   if (!toc || toc.length === 0) return null;
 
   return (
-    <aside className="fixed top-16 right-0 w-[250px] max-h-[calc(100vh-4rem)] z-40 overflow-y-auto p-4">
+    <aside className="fixed hidden lg:block top-16 right-0 w-[250px] max-h-[calc(100vh-4rem)] z-40 overflow-y-auto p-4">
       <h2 className="font-semibold mb-2 text-black dark:text-white">
         Table of Contents
       </h2>
@@ -57,9 +57,10 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
         {toc.map((item) => (
           <li
             key={item.id}
-            className={`ml-${
-              (item.level - 1) * 2
-            } hover:underline cursor-pointer`}
+            style={{ marginLeft: `${(item.level - 1) * 8}px` }}
+            className={`hover:underline cursor-pointer ${
+              activeId === item.id ? "text-orange-500 font-semibold" : ""
+            }`}
             onClick={() => handleScrollTo(item.id)}
           >
             {item.text}

@@ -51,10 +51,10 @@ export default function Header({ modalTree }: HeaderProps) {
           borderBottom: "1px solid var(--border)",
         }}
       >
-        <div className="flex items-center justify-between px-4 py-1 md:justify-between">
+        <div className="flex items-center justify-between px-4 py-1">
           {/* 햄버거 메뉴: md 이하에서만 보임 */}
           <button
-            className="cursor-pointer block md:hidden"
+            className="hover:scale-110 duration-150 cursor-pointer block md:hidden"
             onClick={() => setIsModalOpen(true)}
             aria-label="Open GNB Modal"
           >
@@ -64,7 +64,7 @@ export default function Header({ modalTree }: HeaderProps) {
           {/* 블로그 타이틀 */}
           <Link
             href="/"
-            className="text-xl font-bold flex-1 text-center md:text-left md:flex-none"
+            className="text-xl font-bold text-center md:text-left md:flex-none"
           >
             Haram's Blog
           </Link>

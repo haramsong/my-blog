@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { PostMeta } from "@/lib/posts";
-import Link from "next/link";
+import { HiOutlineMenu } from "react-icons/hi";
+
 import ProfileSection from "@/components/ProfileSection";
+import { PostMeta } from "@/lib/posts";
 
 interface GNBModalProps {
   isOpen: boolean;
@@ -43,6 +45,16 @@ export default function GNBModal({ isOpen, onClose, tree }: GNBModalProps) {
         }`}
         onClick={(e) => e.stopPropagation()}
       >
+        <div className="px-6 py-5">
+          <button
+            className="hover:scale-110 duration-150 cursor-pointer"
+            onClick={onClose}
+            aria-label="Open GNB Modal"
+          >
+            <HiOutlineMenu size={24} />
+          </button>
+        </div>
+
         <ProfileSection />
 
         <div className="p-4">

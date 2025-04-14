@@ -26,8 +26,8 @@ export default function RootLayout({
         className={`${inter.className} bg-white text-black dark:bg-gray-900 dark:text-white`}
       >
         <div className="flex flex-col min-h-screen">
-          <Header />
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-[250px_1fr_250px]">
+          <Header modalTree={tree} />
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-[250px_1fr] lg:grid-cols-[250px_1fr_250px]">
             {/* 좌측 GNB */}
             <div className="hidden md:block">
               <div className="fixed top-16 left-0 w-[250px] h-[calc(100vh-4rem)]">

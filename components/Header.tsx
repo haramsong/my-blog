@@ -1,11 +1,20 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { HiOutlineMenu } from "react-icons/hi";
 
 import ThemeToggleButton from "@/components/ThemeToggleButton";
+import GNBModal from "@/components/GNBModal";
+import { PostMeta } from "@/lib/posts";
 
-export default function Header() {
+interface HeaderProps {
+  modalTree: Record<string, Record<string, PostMeta[]>>;
+}
+
+export default function Header({ modalTree }: HeaderProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -19,12 +28,12 @@ export default function Header() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
+      {/* 스크롤 진행바 */}
       <div className="fixed top-0 left-0 w-full h-1 bg-transparent z-[9999]">
         <div
           id="scroll-progress-bar"
@@ -32,6 +41,8 @@ export default function Header() {
           style={{ transform: "scaleX(0)", transformOrigin: "left" }}
         />
       </div>
+
+      {/* 헤더 영역 */}
       <header
         className="p-2 text-xl font-bold sticky top-0 z-10"
         style={{
@@ -40,13 +51,48 @@ export default function Header() {
           borderBottom: "1px solid var(--border)",
         }}
       >
-        <div className="flex justify-between items-center px-4 py-1">
-          <Link href={`/`} className={`text-xl font-bold cursor-pointer`}>
+        <div className="flex items-center justify-between px-4 py-1 md:justify-between">
+          {/* 햄버거 메뉴: md 이하에서만 보임 */}
+          <button
+            className="cursor-pointer block md:hidden"
+            onClick={() => setIsModalOpen(true)}
+            aria-label="Open GNB Modal"
+          >
+            <HiOutlineMenu size={24} />
+          </button>
+
+          {/* 블로그 타이틀 */}
+          <Link
+            href="/"
+            className="text-xl font-bold flex-1 text-center md:text-left md:flex-none"
+          >
             Haram's Blog
           </Link>
+
+          {/* 테마 토글 버튼 */}
           <ThemeToggleButton />
         </div>
       </header>
+
+      {/* GNB 모달: md 이하에서만 띄움 */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex justify-start md:hidden">
+          <div
+            className={`w-[250px] bg-white dark:bg-gray-800 h-full shadow-lg p-4 transform transition-transform duration-300 ease-in-out ${
+              isModalOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
+          >
+            <GNBModal
+              isOpen={isModalOpen}
+              onClose={() => setIsModalOpen(false)}
+              tree={modalTree}
+            />
+          </div>
+
+          {/* 바깥 영역 클릭 시 닫기 */}
+          <div className="flex-1" onClick={() => setIsModalOpen(false)} />
+        </div>
+      )}
     </>
   );
 }

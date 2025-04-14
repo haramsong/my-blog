@@ -8,7 +8,7 @@ interface TagListProps {
 
 export default function TagList({ sortedTags }: TagListProps) {
   return (
-    <div>
+    <div className="mt-8">
       <h2 className="font-semibold mb-2">Tags</h2>
       <div className="flex flex-wrap gap-2">
         {sortedTags.map(([tag, count]) => (

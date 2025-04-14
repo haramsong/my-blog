@@ -50,7 +50,7 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
 
   return (
     <aside className="fixed hidden lg:block top-16 right-0 w-[250px] max-h-[calc(100vh-4rem)] z-40 overflow-y-auto p-4">
-      <h2 className="font-semibold mb-2 text-black dark:text-white">
+      <h2 className="font-semibold mb-2 !text-black dark:!text-white">
         Table of Contents
       </h2>
       <ul className="text-sm space-y-1 text-gray-700 dark:text-gray-300">

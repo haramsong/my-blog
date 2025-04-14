@@ -1,4 +1,3 @@
-// components/Sidebar.tsx
 "use client";
 
 import { usePathname } from "next/navigation";
@@ -17,7 +16,7 @@ export default function Sidebar({ tagCounts }: TagSidebarProps) {
   const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
 
   return (
-    <aside className="w-full p-4 border-l bg-gray-50 h-full">
+    <aside className="w-full p-4 h-full">
       <TagList sortedTags={sortedTags} />
     </aside>
   );

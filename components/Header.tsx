@@ -1,6 +1,7 @@
 // components/Header.tsx
 "use client";
 import { useEffect } from "react";
+import Link from "next/link";
 
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 
@@ -43,7 +44,9 @@ export default function Header() {
         }}
       >
         <div className="flex justify-between items-center px-4 py-1">
-          <h1 className="text-xl font-bold">My Blog</h1>
+          <Link href={`/`} className={`text-xl font-bold cursor-pointer`}>
+            My Blog
+          </Link>
           <ThemeToggleButton />
         </div>
       </header>

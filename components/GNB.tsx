@@ -107,7 +107,7 @@ export default function GNB({ tree }: GNBProps) {
                             selectedCategory?.toLowerCase() ===
                             category.toLowerCase()
                               ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
-                              : "text-gray-700 dark:!text-gray-400"
+                              : "text-gray-700 dark:text-gray-200"
                           }`}
                         >
                           {category.charAt(0).toUpperCase() + category.slice(1)}

@@ -18,7 +18,7 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
     if (el) {
       el.scrollIntoView({
         behavior: "smooth",
-        block: "start", // 보장
+        block: "start",
       });
     }
   };
@@ -29,7 +29,7 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
         document.getElementById(item.id)
       );
 
-      const scrollTop = window.scrollY + 100; // 헤더 여백 고려
+      const scrollTop = window.scrollY + 100;
 
       for (let i = headingElements.length - 1; i >= 0; i--) {
         const el = headingElements[i];
@@ -41,7 +41,7 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // 초기 체크
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [toc, pathname]);

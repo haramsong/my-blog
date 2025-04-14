@@ -16,6 +16,14 @@ export default function GNB({ tree }: GNBProps) {
   const [collapsed, setCollapsed] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
+  const toggleSection = (section: string) => {
+    setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
+  };
+
+  const toggleCollapse = () => {
+    setCollapsed((prev) => !prev);
+  };
+
   useEffect(() => {
     const storedCollapsed = localStorage.getItem("gnb-collapsed");
     if (storedCollapsed === "true") setCollapsed(true);
@@ -29,14 +37,6 @@ export default function GNB({ tree }: GNBProps) {
     const segments = pathname.split("/").filter(Boolean);
     if (segments[2]) setSelectedCategory(segments[2]);
   }, [pathname]);
-
-  const toggleSection = (section: string) => {
-    setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
-  };
-
-  const toggleCollapse = () => {
-    setCollapsed((prev) => !prev);
-  };
 
   return (
     <aside

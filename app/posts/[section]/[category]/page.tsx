@@ -1,7 +1,7 @@
-// app/posts/[section]/[category]/page.tsx
-import { getPostList } from "@/lib/posts";
 import { notFound } from "next/navigation";
-import PostCard from "@/components/PostCard"; // PostCard 위치에 따라 경로 확인해줘!
+
+import PostCard from "@/components/PostCard";
+import { getPostList } from "@/lib/posts";
 import { generateCategoryParams } from "@/lib/staticParams";
 
 interface PageProps {

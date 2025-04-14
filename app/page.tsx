@@ -1,5 +1,5 @@
-import { getPostMeta } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
+import { getPostMeta } from "@/lib/posts";
 
 export default function HomePage() {
   const posts = getPostMeta();

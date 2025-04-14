@@ -1,6 +1,8 @@
-import { getPostBySlugArray } from "@/lib/posts";
 import { notFound } from "next/navigation";
-import PostSidebar from "@/components/PostSidebar"; // 👈 추가
+
+import { getPostBySlugArray } from "@/lib/posts";
+
+import PostSidebar from "@/components/PostSidebar";
 
 interface PageProps {
   params: {
@@ -11,7 +13,7 @@ interface PageProps {
 }
 
 export default async function PostPage({ params }: PageProps) {
-  const { section, category, slug } = params;
+  const { section, category, slug } = await params;
 
   const post = await getPostBySlugArray([section, category, slug]);
 

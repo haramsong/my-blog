@@ -1,4 +1,3 @@
-// lib/posts.ts
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -18,8 +17,8 @@ export interface PostMeta {
   thumbnail: string;
   tags: string[];
   slug: string[];
-  category: string; // ex) frontend
-  section: string; // ex) dev
+  category: string;
+  section: string;
 }
 
 export interface TocItem {
@@ -37,6 +36,7 @@ function extractText(node: any): string {
   if (Array.isArray(node.children)) {
     return node.children.map(extractText).join("");
   }
+
   return "";
 }
 
@@ -49,8 +49,8 @@ export function getPostMeta(): PostMeta[] {
     const content = fs.readFileSync(filePath, "utf8");
     const { data } = matter(content);
 
-    const relativePath = path.relative(postsDir, filePath); // dev/frontend/hello.md
-    const slug = relativePath.replace(/\.md$/, "").split(path.sep); // ['dev', 'frontend', 'hello']
+    const relativePath = path.relative(postsDir, filePath);
+    const slug = relativePath.replace(/\.md$/, "").split(path.sep);
     const [section, category] = slug;
 
     return {
@@ -67,7 +67,8 @@ export async function getPost(slug: string) {
 }
 
 export async function getPostList(section: string, category: string) {
-  const allPosts = getPostMeta(); // 전체 포스트 가져오기
+  const allPosts = getPostMeta();
+
   return allPosts.filter(
     (post) => post.slug[0] === section && post.slug[1] === category
   );
@@ -79,9 +80,8 @@ export function getPostMetaTree() {
     const content = fs.readFileSync(filePath, "utf8");
     const { data } = matter(content);
 
-    const relativePath = path.relative(postsDir, filePath); // dev/frontend/hello.md
-    const slug = relativePath.replace(/\.md$/, "").split(path.sep); // ['dev', 'frontend', 'hello']
-
+    const relativePath = path.relative(postsDir, filePath);
+    const slug = relativePath.replace(/\.md$/, "").split(path.sep);
     const [section, category] = slug;
 
     return {
@@ -97,13 +97,13 @@ export function getPostMetaTree() {
     if (!acc[post.section][post.category])
       acc[post.section][post.category] = [];
     acc[post.section][post.category].push(post);
+
     return acc;
   }, {} as Record<string, Record<string, PostMeta[]>>);
 
   return tree;
 }
 
-// 재귀적으로 .md 파일 모으기
 function getAllMarkdownFiles(dir: string): string[] {
   let results: string[] = [];
   const list = fs.readdirSync(dir);
@@ -116,14 +116,13 @@ function getAllMarkdownFiles(dir: string): string[] {
       results.push(filePath);
     }
   });
+
   return results;
 }
 
 export function getAllSlugs(): string[] {
   const files = getAllMarkdownFiles(postsDir);
-  return files.map(
-    (filePath) => path.basename(filePath, ".md") // hello.md → hello
-  );
+  return files.map((filePath) => path.basename(filePath, ".md"));
 }
 
 export function getTagsWithCount(): Record<string, number> {
@@ -143,13 +142,12 @@ export function getTagsWithCount(): Record<string, number> {
   return tagCounts;
 }
 
-// 전체 파일 경로 → ['Frontend', 'hello']
 export function getAllSlugArrays(): string[][] {
   const files = getAllMarkdownFiles(postsDir);
   return files.map((filePath) => {
-    const relativePath = path.relative(postsDir, filePath); // e.g. Frontend/hello.md
+    const relativePath = path.relative(postsDir, filePath);
     const noExt = relativePath.replace(/\.md$/, "");
-    return noExt.split(path.sep); // ['Frontend', 'hello']
+    return noExt.split(path.sep);
   });
 }
 
@@ -184,8 +182,6 @@ export async function getPostBySlugArray(slugArr: string[]) {
           text,
           level: node.depth,
         });
-
-        console.log(toc);
       });
     })
     .use(remarkRehype, { allowDangerousHtml: true })

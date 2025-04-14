@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+
 import { PostMeta } from "@/lib/posts";
 
 export default function PostCard({ post }: { post: PostMeta }) {

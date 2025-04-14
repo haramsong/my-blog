@@ -1,4 +1,3 @@
-// lib/static-params.ts
 import { getPostMeta } from "./posts";
 
 export async function generateCategoryParams() {

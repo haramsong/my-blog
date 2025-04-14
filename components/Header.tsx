@@ -45,7 +45,7 @@ export default function Header() {
       >
         <div className="flex justify-between items-center px-4 py-1">
           <Link href={`/`} className={`text-xl font-bold cursor-pointer`}>
-            My Blog
+            Haram's Blog
           </Link>
           <ThemeToggleButton />
         </div>

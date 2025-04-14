@@ -3,13 +3,13 @@ import { Inter } from "next/font/google";
 import GNB from "@/components/GNB";
 import Sidebar from "@/components/Sidebar";
 import { getPostMetaTree, getTagsWithCount } from "@/lib/posts";
-import Header from "@/components/Header"; // 👈 추가
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "My Blog",
-  description: "SSG Blog with Next.js App Router",
+  title: "Haram's 개발 Blog",
+  description: "Haram's 개발 Blog 입니다.",
 };
 
 export default function RootLayout({

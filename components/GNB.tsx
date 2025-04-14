@@ -16,21 +16,18 @@ export default function GNB({ tree }: GNBProps) {
   const [collapsed, setCollapsed] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  // 접힘 상태 복원
   useEffect(() => {
     const storedCollapsed = localStorage.getItem("gnb-collapsed");
     if (storedCollapsed === "true") setCollapsed(true);
   }, []);
 
-  // 접힘 상태 저장
   useEffect(() => {
     localStorage.setItem("gnb-collapsed", collapsed.toString());
   }, [collapsed]);
 
-  // 현재 카테고리 추출
   useEffect(() => {
     const segments = pathname.split("/").filter(Boolean);
-    if (segments[2]) setSelectedCategory(segments[2]); // /posts/section/category 구조라고 가정
+    if (segments[2]) setSelectedCategory(segments[2]);
   }, [pathname]);
 
   const toggleSection = (section: string) => {
@@ -80,45 +77,59 @@ export default function GNB({ tree }: GNBProps) {
 
       <div
         className={`p-4 transition-opacity duration-300 ${
-          collapsed ? "opacity-0 pointer-events-none" : "opacity-100"
+          collapsed ? "opacity-0" : "opacity-100"
         }`}
       >
         {!collapsed &&
-          Object.entries(tree).map(([section, categories]) => (
-            <div key={section} className="mb-4">
-              <button
-                onClick={() => toggleSection(section)}
-                className="text-lg font-bold w-full text-left"
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </button>
+          Object.entries(tree).map(([section, categories]) => {
+            const sectionCount = Object.values(categories).reduce(
+              (sum, posts) => sum + posts.length,
+              0
+            );
 
-              {openSections[section] && (
-                <div className="mt-2 pl-2 space-y-2">
-                  {Object.entries(categories).map(([category, posts]) => (
-                    <div key={category}>
-                      <div
-                        className={`font-semibold mb-1 pl-1 rounded cursor-pointer`}
-                      >
-                        <Link
-                          href={`/posts/${section}/${category}`}
-                          className={`block font-semibold mb-1 pl-1 rounded cursor-pointer
+            return (
+              <div key={section} className="mb-4">
+                <button
+                  onClick={() => toggleSection(section)}
+                  className="text-m font-bold w-full text-left cursor-pointer"
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}{" "}
+                  <span className="text-xs text-gray-400">
+                    ({sectionCount})
+                  </span>
+                </button>
+
+                {openSections[section] && (
+                  <div className="mt-2 pl-2 space-y-2">
+                    {Object.entries(categories).map(([category, posts]) => (
+                      <div key={category}>
+                        <div
+                          className={`font-semibold mb-1 pl-1 rounded cursor-pointer`}
+                        >
+                          <Link
+                            href={`/posts/${section}/${category}`}
+                            className={`block text-sm font-semibold mb-1 pl-1 rounded cursor-pointer
                           ${
                             selectedCategory?.toLowerCase() ===
                             category.toLowerCase()
                               ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
                               : "text-gray-700 dark:text-gray-200"
                           }`}
-                        >
-                          {category.charAt(0).toUpperCase() + category.slice(1)}
-                        </Link>
+                          >
+                            {category.charAt(0).toUpperCase() +
+                              category.slice(1)}{" "}
+                            <span className="text-xs text-gray-400">
+                              ({posts.length})
+                            </span>
+                          </Link>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
       </div>
     </aside>
   );

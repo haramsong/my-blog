@@ -30,7 +30,7 @@ export default function RootLayout({
           <div className="flex-1 grid grid-cols-1 md:grid-cols-[250px_1fr_250px]">
             {/* 좌측 GNB */}
             <div className="hidden md:block">
-              <div className="fixed top-16 left-0 w-[250px] h-[calc(100vh-4rem)] overflow-y-auto">
+              <div className="fixed top-16 left-0 w-[250px] h-[calc(100vh-4rem)]">
                 <GNB tree={tree} />
               </div>
             </div>

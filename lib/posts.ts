@@ -205,3 +205,7 @@ export async function getPostBySlugArray(slugArr: string[]) {
     toc,
   };
 }
+
+export function getPostsByTag(tag: string): PostMeta[] {
+  return getPostMeta().filter((post) => post.tags.includes(tag));
+}

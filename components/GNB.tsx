@@ -1,10 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { PostMeta } from "@/lib/posts";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+
+import ProfileSection from "@/components/ProfileSection";
+import { PostMeta } from "@/lib/posts";
 
 interface GNBProps {
   tree: Record<string, Record<string, PostMeta[]>>;
@@ -64,7 +66,7 @@ export default function GNB({ tree }: GNBProps) {
               alignItems: "center",
               justifyContent: "center",
             }}
-            aria-label="Toggle Sidebar"
+            aria-label="Toggle GNB"
           >
             {collapsed ? (
               <ChevronRightIcon className="w-4 h-4" />
@@ -73,6 +75,14 @@ export default function GNB({ tree }: GNBProps) {
             )}
           </button>
         </div>
+      </div>
+
+      <div
+        className={`transition-all duration-300 overflow-hidden ${
+          collapsed ? "opacity-0 max-h-0" : "opacity-100 max-h-96"
+        }`}
+      >
+        <ProfileSection />
       </div>
 
       <div

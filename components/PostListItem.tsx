@@ -12,7 +12,7 @@ interface PostListItemProps {
 export default function PostListItem({ post }: PostListItemProps) {
   return (
     <Link
-      href={`/${post.slug.join("/")}`}
+      href={`/posts/${post.slug.join("/")}`}
       className="flex flex-col sm:flex-row gap-4 hover:bg-gray-100 dark:hover:bg-gray-800 p-4 rounded transition-colors"
     >
       <div className="relative w-full sm:w-40 h-40 flex-shrink-0 rounded overflow-hidden">

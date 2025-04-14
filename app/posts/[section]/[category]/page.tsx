@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import PostCard from "@/components/PostCard";
+import InfinitePostList from "@/components/InfinitePostList";
 import { getPostList } from "@/lib/posts";
 import { generateCategoryParams } from "@/lib/staticParams";
 
@@ -28,11 +28,7 @@ export default async function CategoryPage({ params }: PageProps) {
       <h1 className="text-2xl font-bold">
         {decodedSection} / {decodedCategory}
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {posts.map((post) => (
-          <PostCard key={post.slug.join("/")} post={post} />
-        ))}
-      </div>
+      <InfinitePostList allPosts={posts} />
     </div>
   );
 }

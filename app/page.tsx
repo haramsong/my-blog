@@ -1,14 +1,8 @@
-import PostCard from "@/components/PostCard";
+import InfinitePostList from "@/components/InfinitePostList";
 import { getPostMeta } from "@/lib/posts";
 
 export default function HomePage() {
   const posts = getPostMeta();
 
-  return (
-    <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {posts.map((post) => (
-        <PostCard key={post.slug.join("/")} post={post} />
-      ))}
-    </div>
-  );
+  return <InfinitePostList allPosts={posts} />;
 }

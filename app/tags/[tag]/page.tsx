@@ -1,4 +1,4 @@
-import PostCard from "@/components/PostCard";
+import InfinitePostList from "@/components/InfinitePostList";
 import { getPostsByTag, getTagsWithCount } from "@/lib/posts";
 
 interface TagPageProps {
@@ -19,11 +19,7 @@ export default function TagPage({ params }: TagPageProps) {
   return (
     <div className="p-4">
       <h1 className="text-xl font-bold mb-4">#{decodedTag}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {posts.map((post) => (
-          <PostCard key={post.slug.join("/")} post={post} />
-        ))}
-      </div>
+      <InfinitePostList allPosts={posts} />
     </div>
   );
 }

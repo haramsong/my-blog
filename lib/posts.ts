@@ -31,15 +31,6 @@ const slugger = new GithubSlugger();
 
 const postsDir = path.join(process.cwd(), "posts");
 
-function extractText(node: any): string {
-  if (node.type === "text") return node.value;
-  if (Array.isArray(node.children)) {
-    return node.children.map(extractText).join("");
-  }
-
-  return "";
-}
-
 export function getPostSlugs(): string[] {
   return fs.readdirSync(postsDir).filter((file) => file.endsWith(".md"));
 }

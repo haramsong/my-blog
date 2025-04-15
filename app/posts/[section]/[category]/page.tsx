@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 
 import InfinitePostList from "@/components/InfinitePostList";
 import { getPostList } from "@/lib/posts";
-import { generateCategoryParams } from "@/lib/staticParams";
+import { generateCategoryPageParams } from "@/lib/generateStaticParams";
 
-interface PageProps {
+interface CategoryPageProps {
   params: {
     section: string;
     category: string;
@@ -12,10 +12,10 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return await generateCategoryParams();
+  return await generateCategoryPageParams();
 }
 
-export default async function CategoryPage({ params }: PageProps) {
+export default async function CategoryPage({ params }: CategoryPageProps) {
   const { section, category } = await params;
   const decodedSection = decodeURIComponent(section);
   const decodedCategory = decodeURIComponent(category);

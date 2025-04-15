@@ -1,5 +1,6 @@
 import InfinitePostList from "@/components/InfinitePostList";
-import { getPostsByTag, getTagsWithCount } from "@/lib/posts";
+import { getPostsByTag } from "@/lib/posts";
+import { generateTagPageParams } from "@/lib/generateStaticParams";
 
 interface TagPageProps {
   params: {
@@ -8,8 +9,7 @@ interface TagPageProps {
 }
 
 export function generateStaticParams() {
-  const tagCounts = Object.entries(getTagsWithCount());
-  return tagCounts.map(([tag]) => ({ tag }));
+  return generateTagPageParams();
 }
 
 export default function TagPage({ params }: TagPageProps) {

@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
 
 import { getPostBySlugArray } from "@/lib/posts";
+import { generatePostPageParams } from "@/lib/generateStaticParams";
 
 import PostSidebar from "@/components/PostSidebar";
 
-interface PageProps {
+interface PostPageProps {
   params: {
     section: string;
     category: string;
@@ -12,7 +13,11 @@ interface PageProps {
   };
 }
 
-export default async function PostPage({ params }: PageProps) {
+export async function generateStaticParams() {
+  return await generatePostPageParams();
+}
+
+export default async function PostPage({ params }: PostPageProps) {
   const { section, category, slug } = await params;
 
   const post = await getPostBySlugArray([section, category, slug]);

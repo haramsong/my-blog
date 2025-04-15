@@ -20,7 +20,7 @@ export default function ProfileSection() {
           className="rounded-full object-cover border-2 border-gray-300 dark:border-gray-600"
         />
       </div>
-      <div className="text-lg font-semibold italic">@hotram</div>
+      <p className="text-5xl leading-9 font-[Champignon]">@h0tr4m</p>
       <div className="flex gap-5 mt-1 text-gray-600 dark:text-gray-300">
         <a
           href="https://github.com/haramsong/haramsong"

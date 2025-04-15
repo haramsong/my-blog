@@ -1,11 +1,8 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 import GNB from "@/components/GNB";
 import Sidebar from "@/components/Sidebar";
 import { getPostMetaTree, getTagsWithCount } from "@/lib/posts";
 import Header from "@/components/Header";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Haram's 개발 Blog",
@@ -22,9 +19,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="">
-      <body
-        className={`${inter.className} bg-white text-black dark:bg-gray-900 dark:text-white`}
-      >
+      <body className={`bg-white text-black dark:bg-gray-900 dark:text-white`}>
         <div className="flex flex-col min-h-screen">
           <Header modalTree={tree} />
           <div className="flex-1 grid grid-cols-1 md:grid-cols-[250px_1fr] lg:grid-cols-[250px_1fr_250px]">

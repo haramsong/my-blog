@@ -3,8 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  FolderIcon,
+  FolderOpenIcon,
+} from "@heroicons/react/24/outline";
+import { GoTriangleRight } from "react-icons/go";
 import ProfileSection from "@/components/ProfileSection";
 import { PostMeta } from "@/lib/posts";
 
@@ -96,47 +101,78 @@ export default function GNB({ tree }: GNBProps) {
               (sum, posts) => sum + posts.length,
               0
             );
+            const isOpen = openSections[section];
 
             return (
               <div key={section} className="mb-4">
                 <button
                   onClick={() => toggleSection(section)}
-                  className="text-m font-bold w-full text-left cursor-pointer"
+                  className="text-m font-bold w-full text-left cursor-pointer flex items-center"
                 >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}{" "}
+                  <span
+                    className={`transition-transform duration-300 ease-in-out mr-1 ${
+                      isOpen ? "rotate-90" : ""
+                    }`}
+                  >
+                    <GoTriangleRight className="w-5 h-5" />
+                  </span>
+                  <span className="mr-1.5 flex items-center">
+                    {isOpen ? (
+                      <FolderOpenIcon
+                        className="w-5.5 h-5.5 text-yellow-700 dark:text-yellow-500"
+                        strokeWidth={2}
+                      />
+                    ) : (
+                      <FolderIcon
+                        className="w-5.5 h-5.5 text-yellow-700 dark:text-yellow-500"
+                        strokeWidth={2}
+                      />
+                    )}
+                  </span>
+                  <span className="mr-1.5">
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </span>
                   <span className="text-xs text-gray-400">
                     ({sectionCount})
                   </span>
                 </button>
 
-                {openSections[section] && (
-                  <div className="mt-2 pl-2 space-y-2">
-                    {Object.entries(categories).map(([category, posts]) => (
-                      <div key={category}>
-                        <div
-                          className={`font-semibold mb-1 pl-1 rounded cursor-pointer`}
-                        >
-                          <Link
-                            href={`/posts/${section}/${category}`}
-                            className={`block text-sm font-semibold mb-1 pl-1 rounded cursor-pointer
+                <div
+                  className={`mt-1 pl-2 space-y-2 transition-all duration-300 ease-in-out overflow-hidden ${
+                    openSections[section] ? "max-h-[500px]" : "max-h-0"
+                  }`}
+                >
+                  {Object.entries(categories).map(
+                    ([category, posts], index, arr) => {
+                      const isLast = index === arr.length - 1;
+                      return (
+                        <div key={category}>
+                          <div
+                            className={`font-semibold mb-1 pl-1 rounded cursor-pointer`}
+                          >
+                            <Link
+                              href={`/posts/${section}/${category}`}
+                              className={`block text-sm font-semibold mb-1 pl-3 rounded transition-colors duration-300 cursor-pointer
                           ${
                             selectedCategory?.toLowerCase() ===
                             category.toLowerCase()
                               ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
                               : "text-gray-700 dark:text-gray-200"
                           }`}
-                          >
-                            {category.charAt(0).toUpperCase() +
-                              category.slice(1)}{" "}
-                            <span className="text-xs text-gray-400">
-                              ({posts.length})
-                            </span>
-                          </Link>
+                            >
+                              {isLast ? "└── " : "├── "}
+                              {category.charAt(0).toUpperCase() +
+                                category.slice(1)}{" "}
+                              <span className="text-xs text-gray-400">
+                                ({posts.length})
+                              </span>
+                            </Link>
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                      );
+                    }
+                  )}
+                </div>
               </div>
             );
           })}

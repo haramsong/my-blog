@@ -44,7 +44,7 @@ export default function Header({ modalTree }: HeaderProps) {
 
       {/* 헤더 영역 */}
       <header
-        className="p-2 text-xl font-bold sticky top-0 z-10"
+        className="p-2 text-xl font-bold sticky top-0 z-20"
         style={{
           backgroundColor: "var(--background)",
           color: "var(--foreground)",

@@ -13,33 +13,36 @@ export default function PostListItem({ post }: PostListItemProps) {
   return (
     <Link
       href={`/posts/${post.slug.join("/")}`}
-      className="flex flex-col sm:flex-row gap-4 hover:bg-gray-100 dark:hover:bg-gray-800 p-4 rounded transition-colors"
+      className="relative flex items-center h-60 rounded-lg overflow-hidden transition border border-transparent hover:border-gray-300 dark:hover:border-gray-600"
     >
-      <div className="relative w-full sm:w-40 h-40 flex-shrink-0 rounded overflow-hidden">
-        <Image
-          src={post.thumbnail}
-          alt={post.title}
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="flex flex-col justify-between">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+      {/* 배경 이미지 */}
+      <Image
+        src={post.thumbnail}
+        alt={post.title}
+        fill
+        className="absolute inset-0 w-full h-full object-cover object-center opacity-10"
+      />
+
+      {/* 텍스트 레이어 */}
+      <div className="relative z-10 w-full h-full flex flex-col justify-between p-4">
+        <h1 className="text-4xl text-center font-semibold text-gray-900 dark:text-white">
           {post.title}
-        </h3>
-        <p className="text-sm text-gray-700 dark:text-gray-300 mt-1 line-clamp-2">
+        </h1>
+        <p className="text-lg text-gray-700 dark:text-gray-300 mt-1 line-clamp-2">
           {post.summary}
         </p>
-        <div className="text-xs text-gray-500 mt-2 flex flex-wrap gap-2">
-          <span>{post.date}</span>
-          {post.tags.map((tag) => (
-            <span
-              key={tag}
-              className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded-full"
-            >
-              #{tag}
-            </span>
-          ))}
+        <div className="text-gray-500 mt-2 flex flex-wrap justify-between">
+          <span>
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-md bg-gray-200 dark:bg-gray-700 text-gray-800 mx-1 dark:text-gray-200 px-3 py-1 rounded-full"
+              >
+                #{tag}
+              </span>
+            ))}
+          </span>
+          <span className="text-sm">{post.date}</span>
         </div>
       </div>
     </Link>

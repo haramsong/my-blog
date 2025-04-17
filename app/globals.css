@@ -92,8 +92,8 @@
 
 html,
 body {
-  height: 100%;
-  overflow-x: hidden;
+  height: auto;
+  /* overflow-x: hidden; */
   overscroll-behavior: none; /* 바운스 방지 */
 }
 
@@ -105,7 +105,7 @@ body {
 }
 
 main {
-  height: 100%;
+  height: auto;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
 }

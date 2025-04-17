@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { HiOutlineMenu } from "react-icons/hi";
 
 import ThemeToggleButton from "@/components/ThemeToggleButton";
@@ -14,6 +15,8 @@ interface HeaderProps {
 
 export default function Header({ modalTree }: HeaderProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const pathname = usePathname();
+  const isPostPage = /^\/posts\/[^/]+\/[^/]+\/[^/]+$/.test(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,14 +36,16 @@ export default function Header({ modalTree }: HeaderProps) {
 
   return (
     <>
-      {/* 스크롤 진행바 */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-transparent z-[9999]">
-        <div
-          id="scroll-progress-bar"
-          className="h-full bg-orange-500 origin-left transition-transform duration-100 ease-out"
-          style={{ transform: "scaleX(0)", transformOrigin: "left" }}
-        />
-      </div>
+      {isPostPage && (
+        // 스크롤 진행바
+        <div className="fixed top-0 left-0 w-full h-1 bg-transparent z-[9999]">
+          <div
+            id="scroll-progress-bar"
+            className="h-full bg-orange-500 origin-left transition-transform duration-100 ease-out"
+            style={{ transform: "scaleX(0)", transformOrigin: "left" }}
+          />
+        </div>
+      )}
 
       {/* 헤더 영역 */}
       <header

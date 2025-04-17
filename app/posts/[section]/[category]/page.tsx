@@ -24,8 +24,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   if (!posts || posts.length === 0) return notFound();
 
   return (
-    <div className="p-4 space-y-4">
-      <h1 className="text-2xl font-bold">
+    <div className="space-y-2">
+      <h1 className="p-4 text-2xl font-bold">
         {decodedSection} / {decodedCategory}
       </h1>
       <InfinitePostList allPosts={posts} />

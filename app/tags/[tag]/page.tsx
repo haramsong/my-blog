@@ -17,8 +17,8 @@ export default function TagPage({ params }: TagPageProps) {
   const posts = getPostsByTag(decodedTag);
 
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">#{decodedTag}</h1>
+    <div className="space-y-2">
+      <h1 className="p-4 text-2xl font-bold">#{decodedTag}</h1>
       <InfinitePostList allPosts={posts} />
     </div>
   );

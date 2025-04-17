@@ -23,7 +23,11 @@ export default function GNBDirectoryTree({ tree }: GNBDirectoryTreeProps) {
 
   useEffect(() => {
     const segments = pathname.split("/").filter(Boolean);
-    if (segments[2]) setSelectedCategory(segments[2]);
+    if (segments[0] === "posts" && segments[2]) {
+      setSelectedCategory(decodeURIComponent(segments[2]));
+    } else {
+      setSelectedCategory(null);
+    }
   }, [pathname]);
 
   return (
@@ -39,7 +43,7 @@ export default function GNBDirectoryTree({ tree }: GNBDirectoryTreeProps) {
           <div key={section} className="mb-4">
             <button
               onClick={() => toggleSection(section)}
-              className="text-m font-bold w-full text-left cursor-pointer flex items-center"
+              className="text-m font-bold w-full text-left cursor-pointer flex items-center group"
             >
               <span
                 className={`transition-transform duration-300 ease-in-out mr-1 ${
@@ -51,12 +55,12 @@ export default function GNBDirectoryTree({ tree }: GNBDirectoryTreeProps) {
               <span className="mr-1.5 flex items-center">
                 {isOpen ? (
                   <FolderOpenIcon
-                    className="w-5.5 h-5.5 text-yellow-700 dark:text-yellow-500"
+                    className="w-5.5 h-5.5 text-yellow-700 dark:text-yellow-500 group-hover:scale-110 transition-transform duration-300"
                     strokeWidth={2}
                   />
                 ) : (
                   <FolderIcon
-                    className="w-5.5 h-5.5 text-yellow-700 dark:text-yellow-500"
+                    className="w-5.5 h-5.5 text-yellow-700 dark:text-yellow-500 group-hover:scale-110 transition-transform duration-300"
                     strokeWidth={2}
                   />
                 )}
@@ -87,7 +91,7 @@ export default function GNBDirectoryTree({ tree }: GNBDirectoryTreeProps) {
                             selectedCategory?.toLowerCase() ===
                             category.toLowerCase()
                               ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
-                              : "text-gray-700 dark:text-gray-200"
+                              : "text-gray-700 dark:text-gray-200 hover:dark:bg-gray-700 hover:bg-gray-200"
                           }`}
                         >
                           {isLast ? "└── " : "├── "}

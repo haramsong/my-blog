@@ -14,7 +14,7 @@ export default function PostListItem({ post }: PostListItemProps) {
     <li>
       <Link
         href={`/posts/${post.slug.join("/")}`}
-        className="relative flex items-center h-60 rounded-lg overflow-hidden transition border border-transparent hover:border-gray-300 dark:hover:border-gray-600"
+        className="relative flex items-center h-80 overflow-hidden transition hover:opacity-80 hover:bg-gray-300 dark:hover:bg-gray-700"
       >
         {/* 배경 이미지 */}
         <Image
@@ -26,7 +26,7 @@ export default function PostListItem({ post }: PostListItemProps) {
 
         {/* 텍스트 레이어 */}
         <div className="relative z-10 w-full h-full flex flex-col justify-between p-4">
-          <h1 className="text-4xl text-center font-semibold text-gray-900 dark:text-white">
+          <h1 className="text-5xl text-center font-semibold text-gray-900 dark:text-white">
             {post.title}
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 mt-1 line-clamp-2">

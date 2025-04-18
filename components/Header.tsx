@@ -16,7 +16,7 @@ interface HeaderProps {
 export default function Header({ modalTree }: HeaderProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
-  const isPostPage = /^\/posts\/[^/]+\/[^/]+\/[^/]+$/.test(pathname);
+  const isPostPage = /^\/posts\/[^/]+\/[^/]+\/[^/]+\/?$/.test(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,7 +71,7 @@ export default function Header({ modalTree }: HeaderProps) {
             href="/"
             className="text-xl font-bold text-center md:text-left md:flex-none"
           >
-            Haram's Blog
+            {"Haram's Blog"}
           </Link>
 
           {/* 테마 토글 버튼 */}

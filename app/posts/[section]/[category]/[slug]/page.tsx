@@ -13,12 +13,15 @@ interface PostPageProps {
   };
 }
 
+export const dynamic = "force-static";
 export async function generateStaticParams() {
   return await generatePostPageParams();
 }
 
-export default async function PostPage({ params }: PostPageProps) {
-  const { section, category, slug } = await params;
+export type Params = Promise<PostPageProps["params"]>;
+
+export default async function PostPage(props: { params: Params }) {
+  const { section, category, slug } = await props.params;
 
   const post = await getPostBySlugArray([section, category, slug]);
 

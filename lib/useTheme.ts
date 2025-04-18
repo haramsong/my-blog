@@ -11,9 +11,13 @@ export function useTheme() {
 
   const toggleTheme = () => {
     const next = !isDark;
-    localStorage.setItem("theme", next ? "dark" : "light");
+    const newTheme = next ? "dark" : "light";
+
+    localStorage.setItem("theme", newTheme);
     updateDom(next);
     setIsDark(next);
+
+    window.dispatchEvent(new CustomEvent("theme-change", { detail: newTheme }));
   };
 
   useEffect(() => {

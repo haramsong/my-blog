@@ -9,6 +9,7 @@ import rehypeSlug from "rehype-slug";
 import { visit } from "unist-util-visit";
 import { toString } from "mdast-util-to-string";
 import GithubSlugger from "github-slugger";
+import type { Heading } from "mdast";
 
 export interface PostMeta {
   title: string;
@@ -148,8 +149,7 @@ export function getAllSlugArrays(): string[][] {
 export async function getPostBySlugArray(slugArr: string[]) {
   slugger.reset();
 
-  const decodedSlugArr = slugArr.map((s) => decodeURIComponent(s));
-  const fullPath = path.join(postsDir, ...decodedSlugArr) + ".md";
+  const fullPath = path.join(postsDir, ...slugArr) + ".md";
 
   if (!fs.existsSync(fullPath)) return null;
 
@@ -161,15 +161,17 @@ export async function getPostBySlugArray(slugArr: string[]) {
   const processedContent = await remark()
     .use(remarkParse)
     .use(() => (tree) => {
-      visit(tree, "heading", (node: any) => {
+      visit(tree, "heading", (node: Heading) => {
         if (node.depth > 3) return;
 
         const text = toString(node);
         const id = slugger.slug(text);
 
-        node.data ||= {};
-        node.data.hProperties = { id };
-        node.data.id = id;
+        node.data = {
+          ...(node.data || {}),
+          hProperties: { id },
+          id,
+        } as Heading["data"] & { id: string; hProperties: { id: string } };
 
         toc.push({
           id,
@@ -184,10 +186,10 @@ export async function getPostBySlugArray(slugArr: string[]) {
     .process(content);
 
   const contentHtml = processedContent.toString();
-  const [section = "", category = "", slug = ""] = decodedSlugArr;
+  const [section = "", category = "", slug = ""] = slugArr;
 
   return {
-    slug: decodedSlugArr.join("/"),
+    slug: slugArr.join("/"),
     id: data.id ?? 0,
     title: data.title ?? slug,
     date: data.date ?? "",

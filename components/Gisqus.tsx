@@ -4,44 +4,55 @@ import { useState, useEffect, useRef } from "react";
 
 export default function Giscus() {
   const ref = useRef<HTMLDivElement>(null);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
   useEffect(() => {
-    // 현재 html class에서 theme 가져오기
     const htmlTheme = document.documentElement.classList.contains("dark")
       ? "dark"
       : "light";
     setTheme(htmlTheme);
+
+    const onThemeChange = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      const newTheme = customEvent.detail;
+      setTheme(newTheme);
+    };
+
+    window.addEventListener("theme-change", onThemeChange);
+    return () => window.removeEventListener("theme-change", onThemeChange);
   }, []);
 
   useEffect(() => {
     if (!ref.current || ref.current.hasChildNodes()) return;
+    if (!theme) return;
 
-    const scriptElem = document.createElement("script");
-    scriptElem.src = "https://giscus.app/client.js";
-    scriptElem.async = true;
-    scriptElem.crossOrigin = "anonymous";
+    const scriptElement = document.createElement("script");
+    scriptElement.src = "https://giscus.app/client.js";
+    scriptElement.async = true;
+    scriptElement.crossOrigin = "anonymous";
 
-    scriptElem.setAttribute("data-repo", "haramsong/my-blog-discussions");
-    scriptElem.setAttribute("data-repo-id", "R_kgDOObhCGw");
-    scriptElem.setAttribute("data-category", "Comments");
-    scriptElem.setAttribute("data-category-id", "DIC_kwDOObhCG84CpNvg");
-    scriptElem.setAttribute("data-mapping", "pathname");
-    scriptElem.setAttribute("data-strict", "0");
-    scriptElem.setAttribute("data-reactions-enabled", "1");
-    scriptElem.setAttribute("data-emit-metadata", "0");
-    scriptElem.setAttribute("data-input-position", "bottom");
-    scriptElem.setAttribute("data-theme", theme);
-    scriptElem.setAttribute("data-lang", "ko");
+    scriptElement.setAttribute("data-repo", "haramsong/my-blog-discussions");
+    scriptElement.setAttribute("data-repo-id", "R_kgDOObhCGw");
+    scriptElement.setAttribute("data-category", "Comments");
+    scriptElement.setAttribute("data-category-id", "DIC_kwDOObhCG84CpNvg");
+    scriptElement.setAttribute("data-mapping", "pathname");
+    scriptElement.setAttribute("data-strict", "0");
+    scriptElement.setAttribute("data-reactions-enabled", "1");
+    scriptElement.setAttribute("data-emit-metadata", "0");
+    scriptElement.setAttribute("data-input-position", "bottom");
+    scriptElement.setAttribute("data-theme", theme);
+    scriptElement.setAttribute("data-lang", "ko");
 
-    ref.current.appendChild(scriptElem);
+    ref.current.appendChild(scriptElement);
   }, [theme]);
 
   useEffect(() => {
     const iframe = document.querySelector<HTMLIFrameElement>(
       "iframe.giscus-frame"
     );
-    iframe?.contentWindow?.postMessage(
+    if (!iframe) return;
+
+    iframe.contentWindow?.postMessage(
       { giscus: { setConfig: { theme } } },
       "https://giscus.app"
     );

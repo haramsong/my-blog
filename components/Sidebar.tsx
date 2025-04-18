@@ -10,7 +10,7 @@ interface TagSidebarProps {
 
 export default function Sidebar({ tagCounts }: TagSidebarProps) {
   const pathname = usePathname();
-  const isPostPage = /^\/posts\/[^/]+\/[^/]+\/[^/]+$/.test(pathname);
+  const isPostPage = /^\/posts\/[^/]+\/[^/]+\/[^/]+\/?$/.test(pathname);
   if (isPostPage) return null;
 
   const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);

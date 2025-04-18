@@ -7,6 +7,7 @@ import { FolderIcon, FolderOpenIcon } from "@heroicons/react/24/outline";
 import { GoTriangleRight } from "react-icons/go";
 
 import { PostMeta } from "@/lib/posts";
+import { removeKebab } from "@/lib/stringUtils";
 
 interface GNBDirectoryTreeProps {
   tree: Record<string, Record<string, PostMeta[]>>;
@@ -65,9 +66,7 @@ export default function GNBDirectoryTree({ tree }: GNBDirectoryTreeProps) {
                   />
                 )}
               </span>
-              <span className="mr-1.5">
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </span>
+              <span className="mr-1.5">{removeKebab(section)}</span>
               <span className="text-xs text-gray-400">({sectionCount})</span>
             </button>
 
@@ -95,8 +94,7 @@ export default function GNBDirectoryTree({ tree }: GNBDirectoryTreeProps) {
                           }`}
                         >
                           {isLast ? "└── " : "├── "}
-                          {category.charAt(0).toUpperCase() +
-                            category.slice(1)}{" "}
+                          {removeKebab(category)}{" "}
                           <span className="text-xs text-gray-400">
                             ({posts.length})
                           </span>

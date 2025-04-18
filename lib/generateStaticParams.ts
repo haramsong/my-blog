@@ -6,8 +6,8 @@ export async function generateCategoryPageParams() {
   const seen = new Set<string>();
   const params = posts
     .map((post) => ({
-      section: encodeURIComponent(post.section),
-      category: encodeURIComponent(post.category),
+      section: post.section,
+      category: post.category,
     }))
     .filter((param) => {
       const key = `${param.section}/${param.category}`;

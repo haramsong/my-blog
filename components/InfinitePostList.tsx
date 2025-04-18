@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import PostListItem from "@/components/PostListItem";
 import { PostMeta } from "@/lib/posts";
+import { useScrollStore } from "@/store/scrollStore";
 
 const CHUNK_SIZE = 5;
 
@@ -12,7 +13,7 @@ export default function InfinitePostList({
 }: {
   allPosts: PostMeta[];
 }) {
-  const [visibleCount, setVisibleCount] = useState(CHUNK_SIZE);
+  const { visibleCount, setVisibleCount } = useScrollStore();
   const loaderRef = useRef<HTMLDivElement | null>(null);
 
   const visiblePosts = allPosts.slice(0, visibleCount);
@@ -22,7 +23,7 @@ export default function InfinitePostList({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && hasMore) {
-          setVisibleCount((prev) => prev + CHUNK_SIZE);
+          setVisibleCount(visibleCount + CHUNK_SIZE);
         }
       },
       { threshold: 1.0 }
@@ -34,7 +35,7 @@ export default function InfinitePostList({
     return () => {
       if (loader) observer.unobserve(loader);
     };
-  }, [hasMore]);
+  }, [hasMore, visibleCount, setVisibleCount]);
 
   return (
     <ul className="space-y-2">

@@ -1,0 +1,20 @@
+// utility
+@import "../utility/function";
+@import "../utility/variable";
+@import "../utility/mixin";
+
+/* =================== preview =================== */
+.title {
+  margin-top: 40px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.title2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.previewSection {
+  margin-top: 20px;
+}

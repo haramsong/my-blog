@@ -1,4 +1,5 @@
 import "./globals.css";
+// import "@/styles/scss/ui.scss";
 import GNB from "@/components/GNB";
 import Sidebar from "@/components/Sidebar";
 import { getPostMetaTree, getTagsWithCount } from "@/lib/posts";

@@ -1,0 +1,49 @@
+// utility
+@import "../utility/function";
+@import "../utility/variable";
+@import "../utility/mixin";
+
+/* =================== main =================== */
+.mainContainer {
+  height: 60vh;
+  padding: 0 45px;
+}
+
+.mainTitle {
+  position: relative;
+  text-align: center;
+
+  span {
+    position: relative;
+    z-index: z(two);
+    background-color: white;
+    display: inline-block;
+    padding: 6px;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  @include make-before {
+    opacity: 0.5;
+    z-index: z(one);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: color(gry-22);
+    transform: translateY(-50%);
+  }
+}
+
+.maindDesc {
+  margin-top: 34px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+.mainLink {
+  font-weight: 600;
+  text-decoration: underline;
+}

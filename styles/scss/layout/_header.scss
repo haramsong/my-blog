@@ -1,0 +1,53 @@
+/* =================== header =================== */
+.mcr-hd-wrap {
+  height: $hd-height;
+}
+
+.mcr-hd {
+  @include position-center(0, 50%, $p: fixed);
+
+  z-index: z(header);
+  width: 100%;
+  max-width: $container;
+  height: $hd-height;
+  padding: 0 $base-padding;
+  background-color: rgba(color(white), 1);
+  transform: translateX(-50%);
+  // backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(color(black), 0.07);
+
+  .mcr-hd-flex {
+    @include flex-btw;
+  }
+
+  .hd-left-cont {
+    flex-shrink: 0;
+    width: 110px;
+
+    .btn {
+      margin-right: 5px;
+    }
+  }
+
+  .hd-center-cont {
+    @include ellipse(1, $hd-height);
+
+    width: 100%;
+    text-align: center;
+  }
+
+  .mcr-hd-title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .hd-right-cont {
+    flex-shrink: 0;
+    width: 110px;
+    text-align: right;
+
+    .btn {
+      margin-left: 5px;
+    }
+  }
+}

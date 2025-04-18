@@ -1,0 +1,43 @@
+// utility
+@import "../utility/function";
+@import "../utility/variable";
+@import "../utility/mixin";
+
+/* =================== gnb =================== */
+.gnbContainer {
+  width: 100%;
+  // NOTE: 고은영 - gnb 높이와 동일하게 지정(하단 여백)
+  height:70px;
+}
+
+.mainGnb {
+  @include position(auto, 50%, 0, $p: fixed);
+
+  z-index: z(fixed);
+  width: 100%;
+  background-color: color(white);
+  transform: translateX(-50%);
+}
+
+.btnFlexWrap {
+  @include flex-btw;
+
+  padding: 10px 20px;
+  box-shadow: 0 2px 2px rgba(#222, 0.3);
+}
+
+.gnbLink {
+  @include square(50px);
+}
+
+.gnbText {
+  display: block;
+  font-size: 1.2rem;
+  color: color(brn-300);
+}
+
+.gnbActive {
+  .gnbText {
+    color: color(brn-600);
+  }
+}

@@ -1,0 +1,66 @@
+/* =================== layout =================== */
+.page {
+  min-height: 100%;
+}
+
+.l-center {
+  max-width: $container;
+  width: 100%;
+  margin: 0 auto;
+}
+
+// common
+.flex-btw-wrap {
+  @include flex-btw;
+}
+
+// empty content
+.empty-content {
+  width: 100%;
+  text-align: center;
+  padding: 50px 0;
+
+  .img-wrap {
+    width: 100px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .txt {
+    font-weight: 400;
+    color: color(text);
+    opacity: 0.8;
+  }
+}
+
+// splash
+.splash-wrap {
+  @include flex-center {
+    flex-direction: column;
+  }
+
+  height: 100vh;
+  transition: all 400ms;
+
+  .title {
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: color(text);
+  }
+
+  .desc {
+    margin-top: 4px;
+    font-weight: 300;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  &.main-active {
+    height: 40vh;
+  }
+}

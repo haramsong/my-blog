@@ -1,0 +1,176 @@
+// responsive Setting
+@mixin media($px, $range: max) {
+  @media all and (#{$range}-width: $px) {
+    @content;
+  }
+}
+
+// position
+@mixin position-center($t: null, $l: null, $p: absolute) {
+  position: $p;
+  top: $t;
+  left: $l;
+  transform: translateY(#{-$t}) translateX(#{-$l});
+}
+
+@mixin position($t: null, $l: null, $b: null, $r: null, $p: absolute) {
+  position: $p;
+  top: $t;
+  left: $l;
+  bottom: $b;
+  right: $r;
+}
+
+// size
+@mixin circle($s) {
+  width: $s;
+  height: $s;
+  border-radius: 50%;
+  @content;
+}
+
+@mixin square($s) {
+  width: $s;
+  height: $s;
+}
+
+@mixin full {
+  width: 100%;
+  height: 100%;
+}
+
+// flex items
+@mixin flex($d: flex) {
+  display: $d;
+  @content;
+}
+
+@mixin flex-col($d: flex) {
+  display: $d;
+  flex-direction: column;
+  @content;
+}
+
+@mixin flex-op($ai: null, $jc: null) {
+  align-items: $ai;
+  justify-content: $jc;
+  @content;
+}
+
+@mixin flex-center($d: flex) {
+  display: $d;
+  @include flex-op(center, center);
+
+  @content;
+}
+
+@mixin flex-btw($d: flex) {
+  display: $d;
+  @include flex-op(center, space-between);
+
+  @content;
+}
+
+// background image
+@mixin bg-url($path, $img) {
+  background-image: urlPath($path, $img);
+}
+
+@mixin bg-op($p: center, $s: auto, $r: no-repeat) {
+  background-repeat: $r;
+  background-position: $p;
+  background-size: $s;
+}
+
+// bafore, after
+@mixin make-before($c: "", $d: block) {
+  &:before {
+    content: $c;
+    display: $d;
+
+    @content;
+  }
+}
+
+@mixin make-after($c: "", $d: block) {
+  &:after {
+    content: $c;
+    display: $d;
+
+    @content;
+  }
+}
+
+@mixin make-virtual($c: "", $d: block) {
+  &:before {
+    content: $c;
+    display: $d;
+
+    @content;
+  }
+
+  &:after {
+    content: $c;
+    display: $d;
+
+    @content;
+  }
+}
+
+// input
+@mixin hover {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin disabled {
+  &:disabled,
+  &:hover:disabled,
+  &:focus:disabled {
+    @content;
+  }
+}
+
+//shortening word
+@mixin ellipse($line-cnt, $line-height) {
+  overflow: hidden;
+  display: block;
+  display: -webkit-box;
+  height: $line-height * $line-cnt;
+  line-height: $line-height; // $line-height : line-height값 (단위 필수)
+  -webkit-line-clamp: $line-cnt; // $line-cnt : 라인 수
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+@mixin remove-ellipse {
+  overflow: visible;
+  height: auto;
+  line-height: 1.4;
+  -webkit-line-clamp: unset; // $line-cnt : 라인 수
+  -webkit-box-orient: unset;
+  text-overflow: unset;
+}
+
+// scroll custom style
+@mixin custom-scroll($c: color(main), $sub-c: color(sub), $r: 0, $s: 4px) {
+  &::-webkit-scrollbar {
+    width: $s;
+    height: $s;
+    background-color: $sub-c;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $c;
+    border-radius: $r;
+  }
+}
+
+@mixin hide-scroll {
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
+}

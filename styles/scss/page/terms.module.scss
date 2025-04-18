@@ -1,0 +1,127 @@
+// utility
+@import "../utility/function";
+@import "../utility/variable";
+@import "../utility/mixin";
+
+$btnwrap-size: 120px;
+$btnwrap-single-btn-size: 80px;
+
+.termsWrap {
+  max-width: $container;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $base-padding;
+}
+
+.termsTxt {
+  [class^="tab_container"] {
+    @include position(0, 0, $p: sticky);
+
+    z-index: z(one);
+    margin-bottom: 0;
+    padding-top: 10px;
+    background-color: color(white);
+  }
+}
+.termsContents {
+  @include custom-scroll;
+
+  height: calc(100vh - $hd-height - $btnwrap-size - 46px);
+  overflow-y: auto;
+  & > h3 {
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: 700;
+  }
+  & > h4 {
+    font-size: 1.6rem;
+    margin-top: 20px;
+    font-weight: 700;
+  }
+  & > p {
+    font-size: 1.4rem;
+    margin-top: 10px;
+  }
+  & > ul {
+    margin-top: 10px;
+    & > li {
+      position: relative;
+      line-height: 1.4;
+      font-size: 1.4rem;
+      padding-left: 20px;
+      &:before {
+        position: absolute;
+        display: block;
+        left: 0;
+        top: 0;
+      }
+      @for $i from 1 through 10 {
+        &:nth-of-type(#{$i}) {
+          &:before {
+            content: "#{$i}";
+            font-size: 1.4rem;
+          }
+        }
+      }
+      & + li {
+        margin-top: 6px;
+      }
+      & > ul {
+        margin-top: 5px;
+        & > li {
+          position: relative;
+          line-height: 1.4;
+          font-size: 1.4rem;
+          padding-left: 22px;
+          $list_num_kr: ("가", "나", "다", "라", "마", "바", "사", "아", "자", "차", "카", "타", "파", "하");
+          @each $number in $list_num_kr {
+            $i: index($list_num_kr, $number);
+            &:nth-of-type(#{$i}) {
+              &:before {
+                content: "#{$number}) ";
+                position: absolute;
+                display: block;
+                left: 0;
+                top: 0;
+                font-size: 1.4rem;
+              }
+            }
+          }
+          & + li {
+            margin-top: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.btnMoreTerms {
+  @include position(auto, 50%, 0, $p: fixed);
+
+  z-index: z(fixed);
+  width: 100%;
+  height: $btnwrap-size;
+  max-width: $container;
+  padding: 10px $base-padding;
+  background-color: color(white);
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(color(black), 0.07);
+
+  button {
+    &:not(:first-of-type) {
+      margin-top: 6px;
+    }
+  }
+}
+
+// 변경 전 이용약관이 없는 경우
+.singleBtnWrap {
+  .termsContents {
+    height: calc(100vh - $hd-height - $btnwrap-single-btn-size - 46px);
+  }
+
+  .btnMoreTerms {
+    height: $btnwrap-single-btn-size;
+  }
+}

@@ -1,0 +1,59 @@
+/* =================== modal =================== */
+.mcr-modal {
+  z-index: z(modal);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+
+  &.active {
+    display: block;
+  }
+
+  .modal-bg {
+    @include full;
+
+    opacity: 0.3;
+    background-color: color(black);
+  }
+
+  .modal-container {
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 85%;
+    max-width: 500px;
+    padding: 24px 20px;
+    border-radius: 12px;
+    background-color: color(white);
+    text-align: center;
+    transform: translate(-50%, -50%);
+    box-shadow: $shadow1;
+  }
+
+  .modal-title {
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+
+  .modal-content {
+    @include custom-scroll;
+
+    max-height: 60vh;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    font-weight: 400;
+    font-size: 1.4rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 16px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+}

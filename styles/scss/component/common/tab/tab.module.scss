@@ -1,0 +1,49 @@
+@import "../../../utility/function";
+@import "../../../utility/variable";
+@import "../../../utility/mixin";
+
+.container {
+  @include flex-center;
+
+  position: relative;
+  margin-bottom: 10px;
+
+  .tabBtn {
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+    font-size: 14px;
+    color: color(brn-600);
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    transition: all 300ms;
+
+    @include hover {
+      border-color: color(sub);
+    }
+  }
+
+  .tabBtnOn {
+    font-weight: 700;
+  }
+
+  .tabOnBar {
+    @include position(null, 0, 0);
+
+    height: 3px;
+    background-color: color(brn-600);
+    transition: all 300ms;
+  }
+}
+
+// 두개짜리 탭
+.doubleTabContainer {
+  .tabOnBar {
+    width: 50%;
+  }
+
+  .secondOn {
+    left: 50%;
+  }
+}

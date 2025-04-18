@@ -1,0 +1,23 @@
+/* =================== helper =================== */
+// 노출되지 않을 영역
+.none {
+  display: none;
+}
+
+// 보이진 않지만 리딩되는 영역
+.voice-only {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  color: transparent;
+}
+
+// scroll custom element에 height 지정 필수
+.scroll-custom {
+  overflow-y: auto;
+
+  @include custom-scroll($c: color(main));
+}

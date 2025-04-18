@@ -1,0 +1,83 @@
+// color
+$brn-100: #fdfbfa;
+$brn-200: #eedbd6;
+$brn-300: #debbb3;
+$brn-400: #cf9c8f;
+$brn-500: #c07c6b;
+$brn-600: #ae5e4a;
+$brn-700: #8a4b3b;
+$brn-800: #66372c;
+$brn-900: #43241c;
+
+$gry-ff: #ffffff;
+$gry-dd: #dddddd;
+$gry-22: #222222;
+
+$color-set: (
+  main: $brn-500,
+  sub: $brn-200,
+  text: $gry-22,
+  black: $gry-22,
+  white: $gry-ff,
+  brn-100: $brn-100,
+  brn-200: $brn-200,
+  brn-300: $brn-300,
+  brn-400: $brn-400,
+  brn-500: $brn-500,
+  brn-600: $brn-600,
+  brn-700: $brn-700,
+  brn-800: $brn-800,
+  brn-900: $brn-900,
+  gry-ff: $gry-ff,
+  gry-dd: $gry-dd,
+  gry-22: $gry-22,
+);
+
+$zIndex-set: (
+  modal: 300,
+  fixed: 200,
+  header: 100,
+  two: 2,
+  one: 1,
+  zero: 0,
+  minus: -1,
+);
+
+$path-set: (
+  icon: "/image/icon/",
+  img: "/image/img/",
+  logo: "/image/logo/",
+);
+
+// size
+$container: 1024px;
+$hd-height: 50px;
+$base-padding: 16px;
+
+// button & badge
+// btn 높이 추가하면 .btn-ht-크기 가 추가된다.
+$btn-height: (
+  sm: 30,
+  md: 40,
+);
+
+// btn color 추가하면 .btn-색이름 .btn-bd-색이름 .btn-gst-색이름 이 추가된다.
+$btn-color: (
+  main: #{color(main)},
+  sub: color(sub),
+  gry: color(gry-dd),
+);
+
+// .btn-소셜이름 이 추가된다.
+$socail: (
+  kakao: #fae500,
+  facebook: #204889,
+  naver: #00bf19,
+  google: #fff,
+  apple: #000,
+  guest: #c07c6b
+);
+
+// 기타
+$shadow1: 0 4px 4px rgba(0, 0, 0, 0.25);
+$shadow2: 0 4px 2px rgba(0, 0, 0, 0.2);

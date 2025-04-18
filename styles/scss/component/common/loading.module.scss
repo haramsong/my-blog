@@ -1,0 +1,124 @@
+@import "../../utility/function";
+@import "../../utility/variable";
+@import "../../utility/mixin";
+
+$topPadding: 100px;
+
+.loadingArea {
+  @include position-center(0, 0, $p: fixed);
+
+  z-index: z(modal) + 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.loadingWrap {
+  @include position($topPadding, 50%);
+
+  width: 150px;
+  max-width: $container;
+  height: calc(50% - $topPadding);
+  transform: translateX(-50%);
+}
+
+.foodImgWrap {
+  position: relative;
+  z-index: z(one);
+  overflow: hidden;
+  width: 100%;
+  height: calc(100% - 10px);
+
+  img {
+    @include position(0, 0);
+
+    transform: translateY(-150px);
+    animation-name: foodDown;
+    animation-duration: 8000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    &:nth-of-type(2) {
+      animation-delay: 800ms;
+    }
+
+    &:nth-of-type(3) {
+      animation-delay: 1600ms;
+    }
+
+    &:nth-of-type(4) {
+      animation-delay: 2400ms;
+    }
+
+    &:nth-of-type(5) {
+      animation-delay: 3200ms;
+    }
+
+    &:nth-of-type(6) {
+      animation-delay: 4000ms;
+    }
+
+    &:nth-of-type(7) {
+      animation-delay: 4800ms;
+    }
+
+    &:nth-of-type(8) {
+      animation-delay: 5600ms;
+    }
+
+    &:nth-of-type(9) {
+      animation-delay: 6400ms;
+    }
+
+    &:nth-of-type(10) {
+      animation-delay: 7200ms;
+    }
+  }
+}
+
+.plateWrap {
+  @include position(auto, 0, 0);
+
+  z-index: z(one) + 2;
+  width: 100%;
+  height: 10px;
+}
+
+.plateLeft {
+  display: block;
+  width: 120px;
+  height: 10px;
+  background-color: #e4e4e4;
+  transform: skewX(40deg);
+}
+
+.plateRight {
+  @include position(0, auto, $r: 0);
+
+  width: 120px;
+  height: 10px;
+  background-color: #e4e4e4;
+  transform: skewX(-40deg);
+}
+
+@keyframes foodDown {
+  0% {
+    top: 0;
+  }
+
+  2% {
+    top: 100%;
+  }
+
+  8% {
+    top: 100%;
+  }
+
+  10% {
+    top: calc(100% + 150px);
+  }
+
+  100% {
+    top: calc(100% + 150px);
+  }
+}

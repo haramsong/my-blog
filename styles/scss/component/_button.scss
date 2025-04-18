@@ -1,0 +1,115 @@
+/* =================== button =================== */
+// .btn-wrap .btn-fixed-wrap btn-double-wrap ...
+.btns-wrap {
+  @include flex {
+    @include flex-op(center);
+
+    gap: 10px;
+  }
+
+  margin-top: 10px;
+}
+
+.btn {
+  display: block;
+  padding: 0 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: all 300ms;
+
+  @include hover {
+    box-shadow: none;
+  }
+
+  @include disabled {
+    border-color: color(gry-dd);
+    background-color: color(gry-dd);
+    color: color(white);
+    cursor: default;
+    box-shadow: none;
+  }
+}
+
+// button style
+// 버튼 높이
+@each $name, $height in $btn-height {
+  .btn-#{$name} {
+    height: $height + px;
+    line-height: $height + px;
+  }
+}
+
+.btn-normal {
+  border-radius: 0;
+  border: 1px solid #ccc;
+}
+
+.btn-100 {
+  width: 100%;
+}
+
+// 버튼 색
+@each $name, $color in $btn-color {
+  .fill-#{$name} {
+    background-color: $color;
+    border: 1px solid $color;
+    color: color(white);
+    box-shadow: $shadow2;
+  }
+}
+
+.fill-sub,
+.fill-gry {
+  color: color(black);
+}
+
+// 라인 버튼 색
+@each $name, $color in $btn-color {
+  .bd-#{$name} {
+    border: 1px solid $color;
+    background-color: white;
+    color: $color;
+    box-shadow: $shadow2;
+  }
+}
+
+.bd-sub,
+.bd-gry {
+  color: color(black);
+}
+
+// 소셜 버튼
+.socail-btn-wrap {
+  flex-wrap: wrap;
+  margin-top: 10px;
+  .btn {
+    width: 100%;
+    margin: 15px 0 0;
+    box-shadow: 1px 3px 2px rgba(0, 0, 0, 0.2);
+    &:first-of-type {
+      margin-top: 0px;
+    }
+  }
+}
+
+@each $name, $color in $socail {
+  .btn-#{$name} {
+    @if ($name == "naver" or $name == "apple" or $name == "main" or $name == "guest") {
+      color: color(white);
+    }
+    @include bg-url(icon, "icon_#{$name}.svg");
+    @include bg-op(3px center, 32px);
+
+    font-size: 14px;
+    font-weight: 400;
+    height: 40px;
+    background-color: $color;
+  }
+}
+
+// 아이콘 버튼
+.btn-icon {
+  width: 50px;
+  height: 50px;
+}

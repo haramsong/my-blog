@@ -1,0 +1,80 @@
+// utility
+@import "../utility/function";
+@import "../utility/variable";
+@import "../utility/mixin";
+
+/* =================== permission =================== */
+.perContainer {
+  height: 60vh;
+  padding: 0 45px;
+}
+
+.perTitle {
+  position: relative;
+  text-align: center;
+
+  span {
+    position: relative;
+    z-index: z(two);
+    background-color: white;
+    display: inline-block;
+    padding: 6px;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  @include make-before {
+    opacity: 0.5;
+    z-index: z(one);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: color(gry-22);
+    transform: translateY(-50%);
+  }
+}
+
+.perNotice {
+  padding: 10px 0;
+  height: 220px;
+  overflow-y: auto;
+  li {
+    @for $i from 1 through 2 {
+      &:nth-child(#{$i}) {
+        @if ($i == 1) {
+          @include bg-op(top left 3px);
+        }
+        @include bg-url(icon, "icon_perm0#{$i}.svg");
+      }
+    }
+    @include bg-op(top left);
+    padding-left: 35px;
+    & + li {
+      margin-top: 25px;
+    }
+    strong {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: color(gry-22);
+      margin-bottom: 5px;
+    }
+    p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: color(gry-22);
+    }
+  }
+}
+
+.perDesc {
+  margin-top: 34px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.4rem;
+  strong {
+    font-weight: 600;
+  }
+}

@@ -12,6 +12,7 @@ import GithubSlugger from "github-slugger";
 
 export interface PostMeta {
   title: string;
+  id: number;
   date: string;
   summary: string;
   thumbnail: string;
@@ -36,21 +37,23 @@ export function getPostSlugs(): string[] {
 }
 
 export function getPostMeta(): PostMeta[] {
-  return getAllMarkdownFiles(postsDir).map((filePath) => {
-    const content = fs.readFileSync(filePath, "utf8");
-    const { data } = matter(content);
+  return getAllMarkdownFiles(postsDir)
+    .map((filePath) => {
+      const content = fs.readFileSync(filePath, "utf8");
+      const { data } = matter(content);
 
-    const relativePath = path.relative(postsDir, filePath);
-    const slug = relativePath.replace(/\.md$/, "").split(path.sep);
-    const [section, category] = slug;
+      const relativePath = path.relative(postsDir, filePath);
+      const slug = relativePath.replace(/\.md$/, "").split(path.sep);
+      const [section, category] = slug;
 
-    return {
-      ...(data as Omit<PostMeta, "slug" | "section" | "category">),
-      slug,
-      section,
-      category,
-    };
-  });
+      return {
+        ...(data as Omit<PostMeta, "slug" | "section" | "category">),
+        slug,
+        section,
+        category,
+      };
+    })
+    .sort((a, b) => b.id - a.id);
 }
 
 export async function getPost(slug: string) {
@@ -185,6 +188,7 @@ export async function getPostBySlugArray(slugArr: string[]) {
 
   return {
     slug: decodedSlugArr.join("/"),
+    id: data.id ?? 0,
     title: data.title ?? slug,
     date: data.date ?? "",
     contentHtml,

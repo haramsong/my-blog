@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import PostListItem from "@/components/PostListItem";
 import { PostMeta } from "@/lib/posts";
 
-const CHUNK_SIZE = 10;
+const CHUNK_SIZE = 5;
 
 export default function InfinitePostList({
   allPosts,

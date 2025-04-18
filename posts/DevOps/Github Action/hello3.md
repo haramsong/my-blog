@@ -1,10 +1,10 @@
 ---
-id: 2
-title: "Hello World2"
+id: 7
+title: "Hello World7"
 date: "2025-04-10"
 summary: "이건 테스트 포스트야"
 thumbnail: "/images/file.svg"
-tags: ["Intro", "Test"]
+tags: ["Intro", "World"]
 ---
 
 # 안녕 세상아

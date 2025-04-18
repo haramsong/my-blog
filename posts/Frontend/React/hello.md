@@ -1,5 +1,6 @@
 ---
-title: "Hello World"
+id: 1
+title: "Hello World1"
 date: "2025-04-10"
 summary: "이건 테스트 포스트야"
 thumbnail: "/images/file.svg"

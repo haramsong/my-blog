@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import Gisqus from "@/components/Gisqus";
+import Giscus from "@/components/Giscus";
 import PostSidebar from "@/components/PostSidebar";
 import { getPostBySlugArray } from "@/lib/posts";
 import { generatePostPageParams } from "@/lib/generateStaticParams";
@@ -39,7 +39,7 @@ export default async function PostPage(props: { params: Params }) {
               typeof post.contentHtml === "string" ? post.contentHtml : "",
           }}
         />
-        <Gisqus />
+        <Giscus />
       </article>
       <PostSidebar toc={post.toc} />
     </div>

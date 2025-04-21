@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+import { removeKebab } from "@/lib/stringUtils";
+
 interface TagListProps {
   sortedTags: [string, number][];
 }
@@ -14,10 +16,10 @@ export default function TagList({ sortedTags }: TagListProps) {
         {sortedTags.map(([tag, count]) => (
           <Link
             key={tag}
-            href={`/tags/${encodeURIComponent(tag)}`}
+            href={`/tags/${tag}`}
             className="inline-flex items-center px-3 py-1 text-sm rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           >
-            #{tag}
+            #{removeKebab(tag)}
             <span className="ml-1 text-xs opacity-70">({count})</span>
           </Link>
         ))}

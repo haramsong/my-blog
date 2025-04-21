@@ -31,10 +31,19 @@ export default function Giscus() {
     scriptElement.async = true;
     scriptElement.crossOrigin = "anonymous";
 
-    scriptElement.setAttribute("data-repo", "haramsong/my-blog-discussions");
-    scriptElement.setAttribute("data-repo-id", "R_kgDOObhCGw");
+    scriptElement.setAttribute(
+      "data-repo",
+      process.env.NEXT_PUBLIC_GISCUS_REPO_NAME || ""
+    );
+    scriptElement.setAttribute(
+      "data-repo-id",
+      process.env.NEXT_PUBLIC_GISCUS_REPO_ID || ""
+    );
     scriptElement.setAttribute("data-category", "Comments");
-    scriptElement.setAttribute("data-category-id", "DIC_kwDOObhCG84CpNvg");
+    scriptElement.setAttribute(
+      "data-category-id",
+      process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID || ""
+    );
     scriptElement.setAttribute("data-mapping", "pathname");
     scriptElement.setAttribute("data-strict", "0");
     scriptElement.setAttribute("data-reactions-enabled", "1");

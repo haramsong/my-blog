@@ -18,7 +18,7 @@ export default function WritePageClient({ options }: Props) {
   const [content, setContent] = useState("");
 
   const handleSubmit = async () => {
-    const res = await fetch("/api/write-post", {
+    const res = await fetch("/api/dev/write-post", {
       method: "POST",
       body: JSON.stringify({
         section,

@@ -8,7 +8,7 @@ export default function CreateSectionCategoryPage() {
   const [message, setMessage] = useState("");
 
   async function handleCreate() {
-    const res = await fetch("/api/create-category", {
+    const res = await fetch("/api/dev/create-category", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ section, category }),

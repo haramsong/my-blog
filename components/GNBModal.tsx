@@ -3,16 +3,14 @@
 import { HiOutlineMenu } from "react-icons/hi";
 
 import ProfileSection from "@/components/ProfileSection";
-import { PostMeta } from "@/lib/posts";
 import GNBDirectoryTree from "@/components/GNBDirectoryTree";
 
 interface GNBModalProps {
   isOpen: boolean;
   onClose: () => void;
-  tree: Record<string, Record<string, PostMeta[]>>;
 }
 
-export default function GNBModal({ isOpen, onClose, tree }: GNBModalProps) {
+export default function GNBModal({ isOpen, onClose }: GNBModalProps) {
   return (
     <>
       {/* 오버레이 */}
@@ -43,7 +41,7 @@ export default function GNBModal({ isOpen, onClose, tree }: GNBModalProps) {
         <ProfileSection />
 
         <div className="p-4">
-          <GNBDirectoryTree tree={tree} />
+          <GNBDirectoryTree />
         </div>
       </aside>
     </>

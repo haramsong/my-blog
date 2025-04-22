@@ -2,14 +2,9 @@
 
 import ProfileSection from "@/components/ProfileSection";
 import GNBDirectoryTree from "@/components/GNBDirectoryTree";
-import { PostMeta } from "@/lib/posts";
 import { useGNBStore } from "@/store/gnbStore";
 
-interface GNBProps {
-  tree: Record<string, Record<string, PostMeta[]>>;
-}
-
-export default function GNB({ tree }: GNBProps) {
+export default function GNB() {
   const { collapsed } = useGNBStore();
 
   return (
@@ -36,7 +31,7 @@ export default function GNB({ tree }: GNBProps) {
           collapsed ? "opacity-0" : "opacity-100"
         }`}
       >
-        {!collapsed && <GNBDirectoryTree tree={tree} />}
+        {!collapsed && <GNBDirectoryTree />}
       </div>
     </aside>
   );

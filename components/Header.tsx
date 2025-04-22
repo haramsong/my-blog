@@ -7,13 +7,8 @@ import { HiOutlineMenu } from "react-icons/hi";
 
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import GNBModal from "@/components/GNBModal";
-import { PostMeta } from "@/lib/posts";
 
-interface HeaderProps {
-  modalTree: Record<string, Record<string, PostMeta[]>>;
-}
-
-export default function Header({ modalTree }: HeaderProps) {
+export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
   const isPostPage = /^\/posts\/[^/]+\/[^/]+\/[^/]+\/?$/.test(pathname);
@@ -90,7 +85,6 @@ export default function Header({ modalTree }: HeaderProps) {
             <GNBModal
               isOpen={isModalOpen}
               onClose={() => setIsModalOpen(false)}
-              tree={modalTree}
             />
           </div>
 

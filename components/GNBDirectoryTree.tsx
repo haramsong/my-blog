@@ -6,17 +6,14 @@ import { usePathname } from "next/navigation";
 import { FolderIcon, FolderOpenIcon } from "@heroicons/react/24/outline";
 import { GoTriangleRight } from "react-icons/go";
 
-import { PostMeta } from "@/lib/posts";
+import { usePostContext } from "@/context/PostContext";
 import { removeKebab } from "@/lib/stringUtils";
 
-interface GNBDirectoryTreeProps {
-  tree: Record<string, Record<string, PostMeta[]>>;
-}
-
-export default function GNBDirectoryTree({ tree }: GNBDirectoryTreeProps) {
+export default function GNBDirectoryTree() {
   const pathname = usePathname();
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const tree = usePostContext();
 
   const toggleSection = (section: string) => {
     setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));

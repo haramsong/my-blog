@@ -1,12 +1,11 @@
-// store.ts
 import { create } from "zustand";
 
-type Store = {
+type ScrollStore = {
   visibleCount: number;
   setVisibleCount: (count: number) => void;
 };
 
-export const useScrollStore = create<Store>((set) => ({
+export const useScrollStore = create<ScrollStore>((set) => ({
   visibleCount: 5,
   setVisibleCount: (count) => set({ visibleCount: count }),
 }));

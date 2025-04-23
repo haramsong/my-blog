@@ -10,23 +10,42 @@ import GNBModal from "@/components/GNBModal";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
   const pathname = usePathname();
   const isPostPage = /^\/posts\/[^/]+\/[^/]+\/[^/]+\/?$/.test(pathname);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = Math.min((scrollTop / docHeight) * 100, 100);
-      const bar = document.getElementById("scroll-progress-bar");
+    if (!isPostPage) return;
 
+    const handleScrollBar = () => {
+      const currentY = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = Math.min((currentY / docHeight) * 100, 100);
+      const bar = document.getElementById("scroll-progress-bar");
       if (bar) {
         bar.style.transform = `scaleX(${scrollPercent / 100})`;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScrollBar);
+    return () => window.removeEventListener("scroll", handleScrollBar);
+  }, [isPostPage]);
+
+  useEffect(() => {
+    const lastScrollY = { current: 0 };
+
+    const handleHeaderVisibility = () => {
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY.current && currentY > 50) {
+        setShowHeader(false);
+      } else {
+        setShowHeader(true);
+      }
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", handleHeaderVisibility);
+    return () => window.removeEventListener("scroll", handleHeaderVisibility);
   }, []);
 
   useEffect(() => {
@@ -46,7 +65,9 @@ export default function Header() {
       )}
 
       <header
-        className="p-2 text-xl font-bold sticky top-0 z-20"
+        className={`p-2 text-xl font-bold sticky top-0 z-20 transition-transform duration-300 ${
+          showHeader ? "translate-y-0" : "-translate-y-full"
+        }`}
         style={{
           backgroundColor: "var(--background)",
           color: "var(--foreground)",

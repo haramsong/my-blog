@@ -67,5 +67,5 @@ export default function Giscus() {
     );
   }, [theme]);
 
-  return <section ref={ref} />;
+  return <section className="min-h-[372px]" ref={ref} />;
 }

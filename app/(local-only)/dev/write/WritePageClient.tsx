@@ -197,7 +197,7 @@ export default function WritePageClient({ options }: Props) {
         <div className="flex flex-grow justify-between items-center">
           <button
             type="button"
-            className="bg-gray-200 p-2 rounded cursor-pointer hover:bg-gray-300 shadow-md active:shadow-inner transition-shadow"
+            className="bg-gray-200 dark:bg-gray-700 p-2 rounded cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-800 shadow-md active:shadow-inner transition-shadow"
             onClick={() => fileInputRef.current?.click()}
           >
             파일 선택

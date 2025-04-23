@@ -41,7 +41,7 @@ export default function GNBDirectoryTree() {
           <div key={section} className="mb-4">
             <button
               onClick={() => toggleSection(section)}
-              className="text-m font-bold w-full text-left cursor-pointer flex items-center group"
+              className="text-m font-bold w-full text-left cursor-pointer flex items-center group/folder"
             >
               <span
                 className={`transition-transform duration-300 ease-in-out mr-1 ${
@@ -53,12 +53,12 @@ export default function GNBDirectoryTree() {
               <span className="mr-1.5 flex items-center">
                 {isOpen ? (
                   <FolderOpenIcon
-                    className="w-5.5 h-5.5 text-yellow-700 dark:text-yellow-500 group-hover:scale-110 transition-transform duration-300"
+                    className="w-5.5 h-5.5 text-yellow-700 dark:text-yellow-500 group-hover/folder:scale-110 transition-transform duration-300"
                     strokeWidth={2}
                   />
                 ) : (
                   <FolderIcon
-                    className="w-5.5 h-5.5 text-yellow-700 dark:text-yellow-500 group-hover:scale-110 transition-transform duration-300"
+                    className="w-5.5 h-5.5 text-yellow-700 dark:text-yellow-500 group-hover/folder:scale-110 transition-transform duration-300"
                     strokeWidth={2}
                   />
                 )}

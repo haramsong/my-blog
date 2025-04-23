@@ -27,14 +27,16 @@ export default function ProfileSection() {
           target="_blank"
           rel="noopener noreferrer"
           className="hover:scale-110 duration-150 hover:text-black dark:hover:text-white transition"
+          aria-label="Visit my Github profile"
         >
           <FaGithub size={18} />
         </a>
         <a
-          href="https://facebook.com/yourfacebook"
+          href="https://www.facebook.com/profile.php?id=100003373457651"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:scale-110 duration-150 hover:text-blue-500 transition"
+          aria-label="Visit my Facebook profile"
         >
           <FaFacebook size={18} />
         </a>
@@ -43,6 +45,7 @@ export default function ProfileSection() {
           target="_blank"
           rel="noopener noreferrer"
           className="hover:scale-110 duration-150 hover:text-pink-500 transition"
+          aria-label="Visit my Instagram profile"
         >
           <FaInstagram size={18} />
         </a>
@@ -51,12 +54,14 @@ export default function ProfileSection() {
           target="_blank"
           rel="noopener noreferrer"
           className="hover:scale-110 duration-150 hover:text-blue-600 transition"
+          aria-label="Visit my LinkedIn profile"
         >
           <FaLinkedin size={18} />
         </a>
         <Link
           href="/profile"
           className="hover:scale-110 duration-150 hover:text-gray-500 dark:hover:text-gray-300 transition"
+          aria-label="Visit my profile page"
         >
           <FaUser size={18} />
         </Link>

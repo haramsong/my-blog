@@ -11,10 +11,10 @@ interface PostListItemProps {
 
 export default function PostListItem({ post }: PostListItemProps) {
   return (
-    <li>
+    <div>
       <Link
         href={`/posts/${post.slug.join("/")}`}
-        className="relative flex items-center h-80 overflow-hidden transition hover:opacity-80 hover:bg-gray-300 dark:hover:bg-gray-700"
+        className="relative flex items-center h-70 overflow-hidden transition hover:opacity-80 hover:bg-gray-300 dark:hover:bg-gray-700"
       >
         {/* 배경 이미지 */}
         <Image
@@ -29,7 +29,7 @@ export default function PostListItem({ post }: PostListItemProps) {
           <h1 className="text-5xl text-center font-semibold text-gray-900 dark:text-white">
             {post.title}
           </h1>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mt-1 line-clamp-2">
+          <p className="text-lg text-center text-gray-700 dark:text-gray-300 mt-1 line-clamp-2">
             {post.summary}
           </p>
           <div className="text-gray-500 mt-2 flex flex-wrap justify-between">
@@ -47,6 +47,6 @@ export default function PostListItem({ post }: PostListItemProps) {
           </div>
         </div>
       </Link>
-    </li>
+    </div>
   );
 }

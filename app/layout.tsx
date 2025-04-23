@@ -35,7 +35,7 @@ export default function RootLayout({
                   <GNB />
                 </div>
 
-                <div className="absolute group-hover:opacity-100 top-[calc(0.75rem)] left-[var(--gnb-width)] transition-all duration-300 z-30">
+                <div className="fixed top-20 left-[var(--gnb-width)] group-hover:opacity-100 transition-all duration-300 z-30">
                   <GNBToggleButton />
                 </div>
               </div>

@@ -1,9 +1,11 @@
 import "./globals.css";
+
 import GNB from "@/components/GNB";
 import GNBToggleButton from "@/components/GNBToggleButton";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
-import DevLinkFloatingButton from "@/components/DevLinkFloatingButton";
+import FloatingTopButton from "@/components/FloatingTopButton";
+import FloatingDevLinkButton from "@/components/FloatingDevLinkButton";
 import { PostProvider } from "@/context/PostContext";
 import { getPostMetaTree, getTagsWithCount } from "@/lib/posts";
 
@@ -51,7 +53,8 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-          <DevLinkFloatingButton />
+          <FloatingTopButton />
+          <FloatingDevLinkButton />
         </body>
       </html>
     </PostProvider>

@@ -11,6 +11,8 @@ import { toString } from "mdast-util-to-string";
 import GithubSlugger from "github-slugger";
 import type { Heading } from "mdast";
 
+import rehypeImgToFigure from "@/plugin/rehype-img-to-figure";
+
 export interface PostMeta {
   title: string;
   id: number;
@@ -183,6 +185,7 @@ export async function getPostBySlugArray(slugArr: string[]) {
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
     .use(rehypeStringify, { allowDangerousHtml: true })
+    .use(rehypeImgToFigure)
     .process(content);
 
   const contentHtml = processedContent.toString();

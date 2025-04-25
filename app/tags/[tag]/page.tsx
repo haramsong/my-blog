@@ -21,8 +21,10 @@ export default async function TagPage(props: { params: Params }) {
   const posts = getPostsByTag(tag);
 
   return (
-    <div className="space-y-2">
-      <h1 className="p-4 text-2xl font-bold">#{removeKebab(tag)}</h1>
+    <div className="max-w-2xl w-full space-y-4">
+      <h1 className="p-4 mt-3 mb-10 text-center text-4xl font-extrabold">
+        #{removeKebab(tag)}
+      </h1>
       <InfinitePostList allPosts={posts} />
     </div>
   );

@@ -44,7 +44,9 @@ export default function RootLayout({
               </div>
 
               {/* 본문 */}
-              <main className="max-w-full">{children}</main>
+              <main className="relative flex justify-center max-w-full">
+                {children}
+              </main>
 
               {/* 우측 TOC/Sidebar */}
               <div className="hidden lg:block">

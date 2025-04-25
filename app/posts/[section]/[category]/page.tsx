@@ -26,8 +26,8 @@ export default async function CategoryPage(props: { params: Params }) {
   if (!posts || posts.length === 0) return notFound();
 
   return (
-    <div className="space-y-2">
-      <h1 className="p-4 text-2xl font-bold">
+    <div className="max-w-2xl w-full space-y-4">
+      <h1 className="p-4 mt-3 mb-10 text-center text-4xl font-extrabold">
         {removeKebab(section)} / {removeKebab(category)}
       </h1>
       <InfinitePostList allPosts={posts} />

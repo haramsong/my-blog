@@ -6,6 +6,6 @@ type ScrollStore = {
 };
 
 export const useScrollStore = create<ScrollStore>((set) => ({
-  visibleCount: 5,
+  visibleCount: 10,
   setVisibleCount: (count) => set({ visibleCount: count }),
 }));

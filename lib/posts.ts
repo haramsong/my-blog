@@ -35,10 +35,6 @@ const slugger = new GithubSlugger();
 
 const postsDir = path.join(process.cwd(), "posts");
 
-export function getPostSlugs(): string[] {
-  return fs.readdirSync(postsDir).filter((file) => file.endsWith(".md"));
-}
-
 export function getPostMeta(): PostMeta[] {
   return getAllMarkdownFiles(postsDir)
     .map((filePath) => {
@@ -57,10 +53,6 @@ export function getPostMeta(): PostMeta[] {
       };
     })
     .sort((a, b) => b.id - a.id);
-}
-
-export async function getPost(slug: string) {
-  return getPostBySlugArray(slug.split("/"));
 }
 
 export async function getPostList(section: string, category: string) {
@@ -86,36 +78,6 @@ export function getGNBTree() {
   }
 
   return result;
-}
-
-export function getPostMetaTree() {
-  const files = getAllMarkdownFiles(postsDir);
-  const posts: PostMeta[] = files.map((filePath) => {
-    const content = fs.readFileSync(filePath, "utf8");
-    const { data } = matter(content);
-
-    const relativePath = path.relative(postsDir, filePath);
-    const slug = relativePath.replace(/\.md$/, "").split(path.sep);
-    const [section, category] = slug;
-
-    return {
-      ...(data as Omit<PostMeta, "slug" | "section" | "category">),
-      slug,
-      section,
-      category,
-    };
-  });
-
-  const tree = posts.reduce((acc, post) => {
-    if (!acc[post.section]) acc[post.section] = {};
-    if (!acc[post.section][post.category])
-      acc[post.section][post.category] = [];
-    acc[post.section][post.category].push(post);
-
-    return acc;
-  }, {} as Record<string, Record<string, PostMeta[]>>);
-
-  return tree;
 }
 
 function getAllMarkdownFiles(dir: string): string[] {
@@ -227,18 +189,24 @@ export function getPostsByTag(tag: string): PostMeta[] {
   return getPostMeta().filter((post) => post.tags.includes(tag));
 }
 
-export function getPrevNextPost(currentSlug: string[]) {
-  const tree = getPostMetaTree();
-  const [section, category] = currentSlug;
-  const posts = tree[section]?.[category] || [];
+export async function getPrevNextPost(
+  section: string,
+  category: string,
+  slug: string
+) {
+  const categoryPosts = await getPostList(section, category);
+  const sortedPosts = categoryPosts.sort((a, b) => a.id - b.id);
 
-  const index = posts.findIndex(
-    (post) => post.slug.join("/") === currentSlug.join("/")
+  const currentIndex = sortedPosts.findIndex(
+    (p) => p.slug[p.slug.length - 1] === slug
   );
-  if (index === -1) return { prev: null, next: null };
 
-  return {
-    prev: posts[index - 1] || null,
-    next: posts[index + 1] || null,
-  };
+  if (currentIndex === -1) return { prev: null, next: null };
+
+  const prev = sortedPosts[currentIndex - 1] || null;
+  const next = sortedPosts[currentIndex + 1] || null;
+
+  console.log(prev, next);
+
+  return { prev, next };
 }

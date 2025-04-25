@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import Giscus from "@/components/Giscus";
@@ -33,11 +34,19 @@ export default async function PostPage(props: { params: Params }) {
 
   return (
     <div className="relative flex justify-center">
-      <article className="p-4 max-w-3xl w-full">
-        <h1 className="text-4xl font-bold text-center">{post.title}</h1>
-        <p className="text-sm text-gray-400 text-right mt-2">{post.date}</p>
+      <article className="px-4 max-w-2xl w-full">
+        <div className="relative flex items-center h-60 overflow-hidden">
+          <Image
+            src={post.thumbnail}
+            alt={post.title}
+            fill
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-10"
+          />
+          <h1 className="text-4xl p-6 font-bold text-center">{post.title}</h1>
+        </div>
+        <p className="text-xs text-gray-400 text-right mt-5">{post.date}</p>
         <div
-          className="prose dark:prose-invert my-6 max-w-none"
+          className="prose dark:prose-invert my-10 max-w-none"
           dangerouslySetInnerHTML={{
             __html:
               typeof post.contentHtml === "string" ? post.contentHtml : "",

@@ -44,7 +44,6 @@ export default function WritePageClient({ options }: Props) {
     file: File,
     isThumbnail: boolean = false
   ): Promise<string> => {
-    console.log(slug);
     if (!slugRef.current) {
       alert("Slug를 먼저 입력해주세요.");
       throw new Error("No slug");

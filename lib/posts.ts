@@ -206,7 +206,5 @@ export async function getPrevNextPost(
   const prev = sortedPosts[currentIndex - 1] || null;
   const next = sortedPosts[currentIndex + 1] || null;
 
-  console.log(prev, next);
-
   return { prev, next };
 }

@@ -24,7 +24,7 @@ export default function FloatingTopButton() {
       onClick={handleClick}
       aria-label="Scroll to top"
       className={`
-        fixed bottom-8 right-6 z-50 p-3 rounded-full shadow-md transition-opacity duration-300
+        fixed bottom-8 right-6 z-50 p-3 rounded-full cursor-pointer shadow-md transition-opacity duration-300
         bg-orange-500 text-white hover:bg-orange-600
         ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}
       `}

@@ -48,7 +48,7 @@ export default function RootLayout({
 
               {/* 우측 TOC/Sidebar */}
               <div className="hidden lg:block">
-                <div className="fixed top-16 right-0 w-[250px] h-[calc(100vh-4rem)] overflow-y-auto">
+                <div className="fixed top-16 right-0 w-[250px] h-[calc(100vh-4rem)] overflow-y-auto scrollbar-hide">
                   <Sidebar tagCounts={tagCounts} />
                 </div>
               </div>

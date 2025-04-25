@@ -49,7 +49,7 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
   if (!toc || toc.length === 0) return null;
 
   return (
-    <aside className="fixed hidden lg:block top-16 right-0 w-[250px] max-h-[calc(100vh-4rem)] z-40 overflow-y-auto p-4">
+    <aside className="fixed hidden lg:block top-16 right-0 w-[250px] max-h-[calc(100vh-4rem)] z-40 overflow-y-auto p-4 scrollbar-hide">
       <h2 className="font-semibold mb-2 !text-black dark:!text-white">
         Table of Contents
       </h2>

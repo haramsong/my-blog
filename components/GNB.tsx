@@ -9,13 +9,14 @@ export default function GNB() {
 
   return (
     <aside
-      className="relative h-full pt-16 border-r transition-all duration-300 z-auto"
+      className="relative h-full pt-16 pb-[100px] border-r transition-all overflow-auto duration-300 z-auto"
       style={{
         backgroundColor: "var(--background)",
         color: "var(--foreground)",
         borderColor: "var(--border)",
         width: collapsed ? "20px" : "250px",
         transition: "width 0.3s",
+        height: "calc(100vh)",
       }}
     >
       <div

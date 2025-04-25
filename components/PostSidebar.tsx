@@ -49,11 +49,16 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
   if (!toc || toc.length === 0) return null;
 
   return (
-    <aside className="fixed hidden lg:block top-16 right-0 w-[250px] max-h-[calc(100vh-4rem)] z-40 overflow-y-auto p-4 scrollbar-hide">
+    <aside className="fixed hidden lg:block top-18 right-0 w-[250px] max-h-[calc(100vh-4rem)] z-40 overflow-y-auto p-4 scrollbar-hide">
       <h2 className="font-semibold mb-2 !text-black dark:!text-white">
         Table of Contents
       </h2>
-      <ul className="text-sm space-y-1 text-gray-700 dark:text-gray-300">
+      <ul
+        className="text-sm space-y-1 pl-3 border-l text-gray-700 dark:text-gray-300"
+        style={{
+          borderColor: "var(--border)",
+        }}
+      >
         {toc.map((item) => (
           <li
             key={item.id}

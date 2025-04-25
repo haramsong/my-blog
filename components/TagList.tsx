@@ -10,9 +10,14 @@ interface TagListProps {
 
 export default function TagList({ sortedTags }: TagListProps) {
   return (
-    <div className="mt-8">
+    <div className="mt-2">
       <h2 className="font-semibold mb-2">Tags</h2>
-      <div className="flex flex-wrap gap-2">
+      <div
+        className="flex flex-wrap gap-2 pl-3 border-l"
+        style={{
+          borderColor: "var(--border)",
+        }}
+      >
         {sortedTags.map(([tag, count]) => (
           <Link
             key={tag}

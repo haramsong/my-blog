@@ -1,9 +1,11 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 import Giscus from "@/components/Giscus";
 import PostSidebar from "@/components/PostSidebar";
 import { getPostBySlugArray } from "@/lib/posts";
 import { generatePostPageParams } from "@/lib/generateStaticParams";
+import { removeKebab } from "@/lib/stringUtils";
 
 interface PostPageProps {
   params: {
@@ -39,6 +41,19 @@ export default async function PostPage(props: { params: Params }) {
               typeof post.contentHtml === "string" ? post.contentHtml : "",
           }}
         />
+        {post.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 my-8">
+            {post.tags.map((tag: string) => (
+              <Link
+                key={tag}
+                href={`/tags/${tag}`}
+                className="inline-flex items-center px-3 py-1 text-sm rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+              >
+                #{removeKebab(tag)}
+              </Link>
+            ))}
+          </div>
+        )}
         <Giscus />
       </article>
       <PostSidebar toc={post.toc} />

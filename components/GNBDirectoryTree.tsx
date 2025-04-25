@@ -11,9 +11,10 @@ import { removeKebab } from "@/lib/stringUtils";
 
 export default function GNBDirectoryTree() {
   const pathname = usePathname();
+  const { tree } = usePostContext();
+
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const tree = usePostContext();
 
   const toggleSection = (section: string) => {
     setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
@@ -32,7 +33,7 @@ export default function GNBDirectoryTree() {
     <>
       {Object.entries(tree).map(([section, categories]) => {
         const sectionCount = Object.values(categories).reduce(
-          (sum, posts) => sum + posts.length,
+          (sum, count) => sum + count,
           0
         );
         const isOpen = openSections[section];
@@ -68,21 +69,21 @@ export default function GNBDirectoryTree() {
             </button>
 
             <div
-              className={`mt-1 pl-2 space-y-2 transition-all duration-300 ease-in-out overflow-hidden ${
+              className={`mt-1 pl-2 space-y-1 transition-all duration-300 ease-in-out overflow-hidden ${
                 openSections[section] ? "max-h-[500px]" : "max-h-0"
               }`}
             >
               {Object.entries(categories).map(
-                ([category, posts], index, arr) => {
+                ([category, count], index, arr) => {
                   const isLast = index === arr.length - 1;
                   return (
                     <div key={category}>
                       <div
-                        className={`font-semibold mb-1 pl-1 rounded cursor-pointer`}
+                        className={`font-semibold pl-1 rounded cursor-pointer`}
                       >
                         <Link
                           href={`/posts/${section}/${category}`}
-                          className={`block text-sm font-semibold mb-1 pl-3 rounded transition-colors duration-300 cursor-pointer
+                          className={`flex text-sm items-center font-semibold mb-1 pl-3 rounded transition-colors duration-300 cursor-pointer
                           ${
                             selectedCategory?.toLowerCase() ===
                             category.toLowerCase()
@@ -92,8 +93,8 @@ export default function GNBDirectoryTree() {
                         >
                           {isLast ? "└── " : "├── "}
                           {removeKebab(category)}{" "}
-                          <span className="text-xs text-gray-400">
-                            ({posts.length})
+                          <span className="text-xs ml-1.5 text-gray-400">
+                            ({count})
                           </span>
                         </Link>
                       </div>

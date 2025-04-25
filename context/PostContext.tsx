@@ -2,17 +2,18 @@
 
 import React, { createContext, useContext, ReactNode } from "react";
 
-import { PostMeta } from "@/lib/posts";
+type PostContext = {
+  tree: Record<string, Record<string, number>>;
+  tags: Record<string, number>;
+};
 
-type PostMetaTree = Record<string, Record<string, PostMeta[]>>;
-
-const PostContext = createContext<PostMetaTree | undefined>(undefined);
+const PostContext = createContext<PostContext | undefined>(undefined);
 
 export const PostProvider = ({
   value,
   children,
 }: {
-  value: PostMetaTree;
+  value: PostContext;
   children: ReactNode;
 }) => {
   return <PostContext.Provider value={value}>{children}</PostContext.Provider>;

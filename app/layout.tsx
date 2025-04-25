@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import FloatingTopButton from "@/components/FloatingTopButton";
 import FloatingDevLinkButton from "@/components/FloatingDevLinkButton";
 import { PostProvider } from "@/context/PostContext";
-import { getPostMetaTree, getTagsWithCount } from "@/lib/posts";
+import { getGNBTree, getTagsWithCount } from "@/lib/posts";
 
 export const metadata = {
   title: "Haram's 개발 Blog",
@@ -20,11 +20,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const tree = getPostMetaTree();
-  const tagCounts = getTagsWithCount();
+  const tree = getGNBTree();
+  const tags = getTagsWithCount();
 
   return (
-    <PostProvider value={tree}>
+    <PostProvider value={{ tree, tags }}>
       <html lang="en" className="">
         <body
           className={`bg-white text-black dark:bg-gray-900 dark:text-white`}
@@ -49,7 +49,7 @@ export default function RootLayout({
               {/* 우측 TOC/Sidebar */}
               <div className="hidden lg:block">
                 <div className="fixed top-16 right-0 w-[250px] h-[calc(100vh-4rem)] overflow-y-auto scrollbar-hide">
-                  <Sidebar tagCounts={tagCounts} />
+                  <Sidebar />
                 </div>
               </div>
             </div>

@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 
+import { usePostContext } from "@/context/PostContext";
 import { removeKebab } from "@/lib/stringUtils";
 
-interface TagListProps {
-  sortedTags: [string, number][];
-}
+export default function TagList() {
+  const { tags } = usePostContext();
+  const sortedTags = Object.entries(tags).sort((a, b) => b[1] - a[1]);
 
-export default function TagList({ sortedTags }: TagListProps) {
   return (
     <div className="mt-2">
       <h2 className="font-semibold mb-2">Tags</h2>

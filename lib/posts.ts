@@ -71,6 +71,23 @@ export async function getPostList(section: string, category: string) {
   );
 }
 
+export function getGNBTree() {
+  const files = getAllMarkdownFiles(postsDir);
+  const result: Record<string, Record<string, number>> = {};
+
+  for (const filePath of files) {
+    const relativePath = path.relative(postsDir, filePath);
+    const slug = relativePath.replace(/\.md$/, "").split(path.sep);
+    const [section, category] = slug;
+
+    if (!result[section]) result[section] = {};
+    if (!result[section][category]) result[section][category] = 0;
+    result[section][category]++;
+  }
+
+  return result;
+}
+
 export function getPostMetaTree() {
   const files = getAllMarkdownFiles(postsDir);
   const posts: PostMeta[] = files.map((filePath) => {
@@ -208,4 +225,20 @@ export async function getPostBySlugArray(slugArr: string[]) {
 
 export function getPostsByTag(tag: string): PostMeta[] {
   return getPostMeta().filter((post) => post.tags.includes(tag));
+}
+
+export function getPrevNextPost(currentSlug: string[]) {
+  const tree = getPostMetaTree();
+  const [section, category] = currentSlug;
+  const posts = tree[section]?.[category] || [];
+
+  const index = posts.findIndex(
+    (post) => post.slug.join("/") === currentSlug.join("/")
+  );
+  if (index === -1) return { prev: null, next: null };
+
+  return {
+    prev: posts[index - 1] || null,
+    next: posts[index + 1] || null,
+  };
 }

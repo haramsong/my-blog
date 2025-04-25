@@ -9,7 +9,7 @@ export default function GNB() {
 
   return (
     <aside
-      className="relative h-[100vh] pt-16 pb-25 border-r transition-all overflow-auto duration-300 z-auto"
+      className="relative h-full pt-16 pb-25 border-r transition-all overflow-auto duration-300 z-auto"
       style={{
         backgroundColor: "var(--background)",
         color: "var(--foreground)",

@@ -34,7 +34,7 @@ export default function RootLayout({
             <div className="flex-1 grid grid-cols-1 md:grid-cols-[var(--gnb-width)_1fr] lg:grid-cols-[var(--gnb-width)_1fr_250px] transition-all duration-300">
               {/* 좌측 GNB */}
               <div className="hidden md:relative group md:block">
-                <div className="fixed top-0 left-0 w-[var(--gnb-width)] h-[100vh] overflow-hidden transition-all duration-300">
+                <div className="fixed top-0 left-0 w-[var(--gnb-width)] h-full overflow-hidden transition-all duration-300">
                   <GNB />
                 </div>
 

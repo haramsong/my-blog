@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { TagIcon, CalendarIcon } from "@heroicons/react/24/outline";
 
 import Giscus from "@/components/Giscus";
 import PostSidebar from "@/components/PostSidebar";
@@ -35,7 +36,7 @@ export default async function PostPage(props: { params: Params }) {
   return (
     <div className="relative flex justify-center">
       <article className="px-4 max-w-2xl w-full">
-        <div className="relative flex items-center h-60 overflow-hidden">
+        <div className="relative flex items-center h-50 overflow-hidden">
           <Image
             src={post.thumbnail}
             alt={post.title}
@@ -44,27 +45,34 @@ export default async function PostPage(props: { params: Params }) {
           />
           <h1 className="text-4xl p-6 font-bold text-center">{post.title}</h1>
         </div>
-        <p className="text-xs text-gray-400 text-right mt-5">{post.date}</p>
+        <div className="flex items-center mt-5 text-xs text-gray-500 dark:text-gray-400">
+          <CalendarIcon className="w-4 h-4 mr-1" />
+          <p>{post.date}</p>
+        </div>
         <div
-          className="prose dark:prose-invert my-10 max-w-none"
+          className="prose dark:prose-invert mt-8 max-w-none"
           dangerouslySetInnerHTML={{
             __html:
               typeof post.contentHtml === "string" ? post.contentHtml : "",
           }}
         />
-        {post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 my-8">
-            {post.tags.map((tag: string) => (
-              <Link
-                key={tag}
-                href={`/tags/${tag}`}
-                className="inline-flex items-center px-3 py-1 text-sm rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-              >
-                #{removeKebab(tag)}
-              </Link>
-            ))}
-          </div>
-        )}
+        <div className="flex items-center my-8 mt-10 text-xs text-gray-500 dark:text-gray-400">
+          <TagIcon className="w-6 h-6 mr-1" />
+          {post.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1">
+              {post.tags.map((tag: string) => (
+                <Link
+                  key={tag}
+                  href={`/tags/${tag}`}
+                  className="inline-flex items-center px-3 py-1 text-sm rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                >
+                  #{removeKebab(tag)}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+
         {(prev || next) && (
           <div className="flex justify-between my-10 gap-4">
             {prev ? (

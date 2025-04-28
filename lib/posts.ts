@@ -166,6 +166,7 @@ export async function getPostBySlugArray(slugArr: string[]) {
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
     .use(rehypePrettyCode, {
+      bypassInlineCode: false,
       transformers: [
         transformerCopyButton({
           visibility: "always",

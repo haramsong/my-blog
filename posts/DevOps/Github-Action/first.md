@@ -32,7 +32,47 @@ tags: ["World", "Test"]
 
 테스트가 성공적일까
 
-```javascript
+```javascript {1-3,4} title="hi"
+const hello = "Hello";
+
+console.log(hello);
+
+if (hello) {
+  return "hello";
+}
+
+const hello = "Hello";
+
+console.log(hello);
+
+if (hello) {
+  return "hello";
+}
+
+const hello = "Hello";
+
+console.log(hello);
+
+if (hello) {
+  return "hello";
+}
+
+const hello = "Hello";
+
+console.log(hello);
+
+if (hello) {
+  return "hello";
+}
+
+const hello = "Hello";
+
+console.log(hello);
+
+if (hello) {
+  return "hello";
+}
+
 const hello = "Hello";
 
 console.log(hello);

@@ -103,6 +103,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "FiraCode";
+  src: url("/fonts/FiraCode-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 html,
 body {
   height: auto;
@@ -154,6 +162,8 @@ aside::-webkit-scrollbar-thumb {
 pre {
   counter-reset: line;
   padding-left: 2em;
+  font-family: "FiraCode", system-ui, sans-serif;
+  font-weight: 500;
 }
 
 pre code span[data-line] {
@@ -177,5 +187,25 @@ pre code span[data-line]::before {
   line-height: 1.5em;
   background-color: transparent;
   margin-left: -2em;
-  padding-top: 0.1em;
+  padding-top: 0.2em;
+}
+
+pre code span[data-highlighted-line] {
+  @apply border-l-2 border-y-0
+  border-blue-500 bg-slate-700
+         pl-[calc(1rem-2px)];
+}
+
+pre code[data-line-numbers-max-digits="2"] > span[data-line]::before {
+  width: 1.25rem;
+}
+pre code[data-line-numbers-max-digits="3"] > span[data-line]::before {
+  width: 1.75rem;
+}
+
+figcaption[data-rehype-pretty-code-title] {
+  @apply px-5 py-3 font-mono text-sm font-bold bg-[#22272e] border-b-1 border-gray-600 rounded-t-lg text-gray-300;
+}
+figcaption[data-rehype-pretty-code-title] + pre {
+  @apply mt-0 rounded-t-none;
 }

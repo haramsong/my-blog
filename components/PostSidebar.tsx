@@ -63,12 +63,15 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
           <li
             key={item.id}
             style={{ marginLeft: `${(item.level - 1) * 8}px` }}
-            className={`hover:underline cursor-pointer ${
+            className={`group cursor-pointer transition duration-300 ${
               activeId === item.id ? "text-orange-500 font-semibold" : ""
             }`}
             onClick={() => handleScrollTo(item.id)}
           >
-            {item.text}
+            <span className="inline-block">
+              {item.text}
+              <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-[0.05rem] bg-orange-500" />
+            </span>
           </li>
         ))}
       </ul>

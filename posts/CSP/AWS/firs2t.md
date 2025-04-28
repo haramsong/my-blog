@@ -7,7 +7,7 @@ thumbnail: "/images/DevOps/Github-Action/first/thumbnail-t3a.xlarge.png"
 tags: ["World", "Test"]
 ---
 
-# 처음입니다
+# 🎨 처음입니다
 
 안녕하세요. 처음 글을 씁니다.
 
@@ -15,7 +15,7 @@ tags: ["World", "Test"]
 
 ![c7i.xlarge_ri.png](/images/DevOps/Github-Action/first/c5ec0597-1b88-49b3-a443-2e58c95b7e3d-c7i.xlarge_ri.png)
 
-## 부제
+## 🎨 부제
 
 부제목입니다.
 

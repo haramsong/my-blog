@@ -11,6 +11,7 @@ import { transformerCopyButton } from "@rehype-pretty/transformers";
 import { visit } from "unist-util-visit";
 import { toString } from "mdast-util-to-string";
 import GithubSlugger from "github-slugger";
+import readingTime from "reading-time";
 import type { Heading } from "mdast";
 
 import rehypeImgToFigure from "@/plugin/rehype-img-to-figure";
@@ -23,6 +24,7 @@ export interface PostMeta {
   thumbnail: string;
   tags: string[];
   slug: string[];
+  readingTime?: number;
   category: string;
   section: string;
 }
@@ -190,6 +192,7 @@ export async function getPostBySlugArray(slugArr: string[]) {
     summary: data.summary ?? "",
     thumbnail: data.thumbnail ?? "",
     tags: data.tags ?? [],
+    readingTime: Math.ceil(readingTime(content).minutes),
     section,
     category,
     toc,

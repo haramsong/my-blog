@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { TagIcon, CalendarIcon } from "@heroicons/react/24/outline";
+import { TagIcon, CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
 
 import Giscus from "@/components/Giscus";
 import PostSidebar from "@/components/PostSidebar";
@@ -34,8 +34,8 @@ export default async function PostPage(props: { params: Params }) {
   if (!post) return notFound();
 
   return (
-    <div className="relative flex justify-center">
-      <article className="px-5 max-w-3xl w-full">
+    <div className="relative flex">
+      <article className="px-5 max-w-3xl min-w-lg w-full">
         <div className="relative flex items-center h-55 overflow-hidden">
           <Image
             src={post.thumbnail}
@@ -43,11 +43,17 @@ export default async function PostPage(props: { params: Params }) {
             fill
             className="absolute inset-0 w-full h-full object-cover object-center opacity-10"
           />
-          <h1 className="text-4xl p-6 font-bold text-center">{post.title}</h1>
+          <h1 className="text-4xl p-6 font-bold">{post.title}</h1>
         </div>
-        <div className="flex items-center mt-5 text-xs text-gray-500 dark:text-gray-400">
-          <CalendarIcon className="w-4 h-4 mr-1" />
-          <p>{post.date}</p>
+        <div className="flex flex-row-reverse items-center mt-5 text-xs text-gray-500 dark:text-gray-400">
+          <span className="flex items-center">
+            <ClockIcon className="w-4 h-4 mr-1" />
+            <p>{post.readingTime} 분</p>
+          </span>
+          <span className="flex items-center mr-3">
+            <CalendarIcon className="w-4 h-4 mr-1" />
+            <p>{post.date}</p>
+          </span>
         </div>
         <div
           className="prose dark:prose-invert mt-8 max-w-none"

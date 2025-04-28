@@ -6,7 +6,7 @@ export default function HomePage() {
   const posts = getPostMeta();
 
   return (
-    <div className="max-w-2xl w-full space-y-4">
+    <div className="max-w-3xl w-full space-y-4">
       <h1 className="p-4 mt-3 mb-10 text-center text-4xl font-extrabold">
         My Posts
       </h1>

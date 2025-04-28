@@ -35,8 +35,8 @@ export default async function PostPage(props: { params: Params }) {
 
   return (
     <div className="relative flex justify-center">
-      <article className="px-4 max-w-2xl w-full">
-        <div className="relative flex items-center h-50 overflow-hidden">
+      <article className="px-5 max-w-3xl w-full">
+        <div className="relative flex items-center h-55 overflow-hidden">
           <Image
             src={post.thumbnail}
             alt={post.title}

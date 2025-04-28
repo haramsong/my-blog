@@ -26,7 +26,7 @@ export default async function CategoryPage(props: { params: Params }) {
   if (!posts || posts.length === 0) return notFound();
 
   return (
-    <div className="max-w-2xl w-full space-y-4">
+    <div className="max-w-3xl w-full space-y-4">
       <h1 className="p-4 mt-3 mb-10 text-center text-4xl font-extrabold">
         {removeKebab(section)} / {removeKebab(category)}
       </h1>

@@ -41,7 +41,7 @@ export default function ProfileSection() {
           <FaFacebook size={18} />
         </a>
         <a
-          href="https://instagram.com/s0ngh0tr4m"
+          href="https://www.instagram.com/s0ngh0tr4m?igsh=M2oxdjlqNm54dmx4&utm_source=qr"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:scale-110 duration-150 hover:text-pink-500 transition"
@@ -50,7 +50,7 @@ export default function ProfileSection() {
           <FaInstagram size={18} />
         </a>
         <a
-          href="https://linkedin.com/in/yourlinkedin"
+          href="https://linkedin.com/in/haramsong"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:scale-110 duration-150 hover:text-blue-600 transition"

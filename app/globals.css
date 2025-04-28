@@ -155,11 +155,20 @@ aside::-webkit-scrollbar-thumb {
 .prose h2,
 .prose h3 {
   font-size: 1.5rem;
+  font-weight: 700;
   scroll-margin-top: 4rem;
   padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
-pre {
+.prose p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+pre code {
   counter-reset: line;
   padding-left: 2em;
   font-family: "FiraCode", system-ui, sans-serif;
@@ -183,17 +192,16 @@ pre code span[data-line]::before {
   padding-right: 1em;
   font-size: 0.9em;
   text-align: right;
-  width: 2em;
+  width: 2.5em;
   line-height: 1.5em;
   background-color: transparent;
-  margin-left: -2em;
+  margin-left: -3em;
   padding-top: 0.2em;
 }
 
 pre code span[data-highlighted-line] {
   @apply border-l-2 border-y-0
-  border-blue-500 bg-slate-700
-         pl-[calc(1rem-2px)];
+  border-blue-500 bg-slate-700 pl-[calc(1rem-2px)];
 }
 
 pre code[data-line-numbers-max-digits="2"] > span[data-line]::before {

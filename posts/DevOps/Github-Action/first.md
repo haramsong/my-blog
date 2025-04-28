@@ -32,6 +32,16 @@ tags: ["World", "Test"]
 
 테스트가 성공적일까
 
+```javascript
+const hello = "Hello";
+
+console.log(hello);
+
+if (hello) {
+  return "hello";
+}
+```
+
 ## 결론
 
 테스트 성공적.

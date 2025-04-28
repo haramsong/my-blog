@@ -147,6 +147,35 @@ aside::-webkit-scrollbar-thumb {
 .prose h2,
 .prose h3 {
   font-size: 1.5rem;
-  scroll-margin-top: 4rem; /* 헤더 높이 만큼 */
-  padding-top: 0.5rem; /* 선택적, 시각적 여유 */
+  scroll-margin-top: 4rem;
+  padding-top: 0.5rem;
+}
+
+pre {
+  counter-reset: line;
+  padding-left: 2em;
+}
+
+pre code span[data-line] {
+  display: block;
+  padding-left: 1em;
+  position: relative;
+}
+
+/* 라인 번호 스타일 */
+pre code span[data-line]::before {
+  content: counter(line);
+  counter-increment: line;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #888;
+  padding-right: 1em;
+  font-size: 0.9em;
+  text-align: right;
+  width: 2em;
+  line-height: 1.5em;
+  background-color: transparent;
+  margin-left: -2em;
+  padding-top: 0.1em;
 }

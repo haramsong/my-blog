@@ -4,8 +4,10 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
+import rehypePrettyCode from "rehype-pretty-code";
 import rehypeStringify from "rehype-stringify";
 import rehypeSlug from "rehype-slug";
+import { transformerCopyButton } from "@rehype-pretty/transformers";
 import { visit } from "unist-util-visit";
 import { toString } from "mdast-util-to-string";
 import GithubSlugger from "github-slugger";
@@ -163,6 +165,14 @@ export async function getPostBySlugArray(slugArr: string[]) {
     })
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
+    .use(rehypePrettyCode, {
+      transformers: [
+        transformerCopyButton({
+          visibility: "always",
+          feedbackDuration: 3_000,
+        }),
+      ],
+    })
     .use(rehypeStringify, { allowDangerousHtml: true })
     .use(rehypeImgToFigure)
     .process(content);

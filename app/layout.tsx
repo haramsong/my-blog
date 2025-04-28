@@ -32,7 +32,6 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen">
             <Header />
             <div className="flex-1 grid grid-cols-1 md:grid-cols-[var(--gnb-width)_1fr] lg:grid-cols-[var(--gnb-width)_1fr_250px] transition-all duration-300">
-              {/* 좌측 GNB */}
               <div className="hidden md:relative group md:block">
                 <div className="fixed top-0 left-0 w-[var(--gnb-width)] h-full overflow-hidden transition-all duration-300">
                   <GNB />
@@ -43,12 +42,10 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* 본문 */}
               <main className="relative flex justify-center max-w-full">
                 {children}
               </main>
 
-              {/* 우측 TOC/Sidebar */}
               <div className="hidden lg:block">
                 <div className="fixed top-16 right-0 w-[250px] h-[calc(100vh-4rem)] overflow-y-auto scrollbar-hide">
                   <Sidebar />

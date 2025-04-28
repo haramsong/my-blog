@@ -1,6 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="relative w-full h-[100px] border-t mt-10 py-6 text-center text-sm text-gray-500 z-40"
+    <footer
+      className="relative w-full h-[100px] border-t mt-10 py-6 text-center text-sm text-gray-500 z-40"
       style={{
         backgroundColor: "var(--background)",
         color: "var(--foreground)",
@@ -14,7 +15,7 @@ export default function Footer() {
         </a>
       </div>
       <div>
-        Copyright © {new Date().getFullYear()} hrsong. All rights reserved.
+        Copyright © {new Date().getFullYear()} haramsong. All rights reserved.
       </div>
     </footer>
   );

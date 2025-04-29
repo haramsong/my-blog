@@ -4,6 +4,8 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
+import remarkDirective from "remark-directive";
+import remarkDirectiveRehype from "remark-directive-rehype";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeStringify from "rehype-stringify";
 import rehypeSlug from "rehype-slug";
@@ -165,6 +167,8 @@ export async function getPostBySlugArray(slugArr: string[]) {
         });
       });
     })
+    .use(remarkDirective)
+    .use(remarkDirectiveRehype)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
     .use(rehypePrettyCode, {

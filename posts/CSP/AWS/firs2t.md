@@ -21,6 +21,10 @@ tags: ["World", "Test"]
 
 부제목에도 이미지 넣습니다.
 
+:::info
+이 글은 처음 썼습니다.
+:::
+
 ![t3a.xlarge.png](/images/DevOps/Github-Action/first/80b8d77f-5d3f-4ba4-b268-e84f152e8bf9-t3a.xlarge.png)
 
 안녕

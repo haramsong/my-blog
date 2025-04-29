@@ -25,6 +25,22 @@ tags: ["World", "Test"]
 이 글은 처음 썼습니다.
 :::
 
+:::warn
+이 글은 처음 썼습니다.
+:::
+
+:::note
+이 글은 처음 썼습니다.
+:::
+
+:::danger
+이 글은 처음 썼습니다.
+:::
+
+:::tip
+이 글은 처음 썼습니다.
+:::
+
 ![t3a.xlarge.png](/images/DevOps/Github-Action/first/80b8d77f-5d3f-4ba4-b268-e84f152e8bf9-t3a.xlarge.png)
 
 안녕

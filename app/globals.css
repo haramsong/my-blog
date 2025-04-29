@@ -231,7 +231,7 @@ figcaption[data-rehype-pretty-code-title] + pre {
 
 .prose warn {
   background-color: #fff3e0;
-  border-left: 6x solid #ff9800;
+  border-left: 6px solid #ff9800;
 }
 
 .prose note {

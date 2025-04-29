@@ -195,6 +195,15 @@ pre code[data-line-numbers-max-digits="3"] > span[data-line]::before {
   width: 1.75rem;
 }
 
+pre code button.rehype-pretty-copy {
+  @apply w-7 h-7;
+}
+
+pre code button.rehype-pretty-copy .ready {
+  @apply cursor-pointer;
+  background: url("/icons/copy.svg") no-repeat center;
+}
+
 figcaption[data-rehype-pretty-code-title] {
   @apply px-5 py-3 font-mono text-sm font-bold bg-[#22272e] border-b-1 border-gray-600 rounded-t-lg text-gray-300;
 }

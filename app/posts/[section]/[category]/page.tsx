@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import InfinitePostList from "@/components/InfinitePostList";
 import { getPostList } from "@/lib/posts";
 import { generateCategoryPageParams } from "@/lib/generateStaticParams";
+import { getMetadata } from "@/lib/getMetaData";
 import { removeKebab } from "@/lib/stringUtils";
 
 interface CategoryPageProps {
@@ -12,12 +14,28 @@ interface CategoryPageProps {
   };
 }
 
+export type Params = Promise<CategoryPageProps["params"]>;
+
 export const dynamic = "force-static";
 export async function generateStaticParams() {
   return await generateCategoryPageParams();
 }
 
-export type Params = Promise<CategoryPageProps["params"]>;
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const { section, category } = await params;
+
+  return getMetadata({
+    title: `${removeKebab(section)} > ${removeKebab(category)}`,
+    description: `${removeKebab(section)} > ${removeKebab(
+      category
+    )} 카테고리에 관한 포스트 목록입니다.`,
+    asPath: `/posts/${section}/${category}`,
+  });
+}
 
 export default async function CategoryPage(props: { params: Params }) {
   const { section, category } = await props.params;

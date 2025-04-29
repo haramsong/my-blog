@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +10,7 @@ import PostSidebar from "@/components/PostSidebar";
 import { getPostBySlugArray, getPrevNextPost } from "@/lib/posts";
 import { generatePostPageParams } from "@/lib/generateStaticParams";
 import { removeKebab } from "@/lib/stringUtils";
+import { getMetadata } from "@/lib/getMetaData";
 
 interface PostPageProps {
   params: {
@@ -18,12 +20,30 @@ interface PostPageProps {
   };
 }
 
+export type Params = Promise<PostPageProps["params"]>;
+
 export const dynamic = "force-static";
 export async function generateStaticParams() {
   return await generatePostPageParams();
 }
 
-export type Params = Promise<PostPageProps["params"]>;
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const { section, category, slug } = await params;
+  const post = await getPostBySlugArray([section, category, slug]);
+
+  if (!post) return notFound();
+
+  return getMetadata({
+    title: post.title,
+    asPath: `/posts/${section}/${category}/${slug}`,
+    description: post.summary,
+    ogImage: post.thumbnail,
+  });
+}
 
 export default async function PostPage(props: { params: Params }) {
   const { section, category, slug } = await props.params;

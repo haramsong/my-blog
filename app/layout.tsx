@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Metadata } from "next";
 
 import Header from "@/components/Header";
 import GNB from "@/components/GNB";
@@ -8,12 +9,12 @@ import Footer from "@/components/Footer";
 import FloatingTopButton from "@/components/FloatingTopButton";
 import FloatingDevLinkButton from "@/components/FloatingDevLinkButton";
 import { PostProvider } from "@/context/PostContext";
+import { getMetadata } from "@/lib/getMetaData";
 import { getGNBTree, getTagsWithCount } from "@/lib/posts";
 
-export const metadata = {
-  title: "Haram's 개발 Blog",
-  description: "Haram's 개발 Blog 입니다.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return getMetadata();
+}
 
 export default function RootLayout({
   children,

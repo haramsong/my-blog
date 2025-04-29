@@ -1,0 +1,24 @@
+export const META = {
+  title: "Frontend 개발자 Haram의 개발 블로그",
+  siteName: "Haram's 개발 블로그",
+  description:
+    "Frontend 개발자 하람의 블로그입니다. Frontend 뿐만 아니라, Backend, DevOps, Infra 관련 포스팅을 주로 합니다.",
+  keyword: [
+    "Frontend",
+    "Backend",
+    "DevOps",
+    "Infra",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "Python",
+    "AWS",
+    "Terraform",
+    "Jenkins",
+    "Github",
+    "Developer",
+  ],
+  url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+  ogImage: "/opengraph-image.png",
+} as const;

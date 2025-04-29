@@ -1,4 +1,16 @@
+import { Metadata } from "next";
+
+import { getMetadata } from "@/lib/getMetaData";
+
 export const dynamic = "force-static";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return getMetadata({
+    title: "소개",
+    description: "안녕하세요! 개발자 송하람입니다.",
+    asPath: "/posts/profile",
+  });
+}
 
 export default function ProfilePage() {
   return (

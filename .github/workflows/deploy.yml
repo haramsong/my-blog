@@ -37,8 +37,7 @@ jobs:
         run: |
           aws ssm get-parameter \
             --name $PARAMETER_STORE_NAME \
-            --with-decryption \
-            --query "Parameter.Value" \
+            --query Parameter.Value \
             --output text > .env.production
 
       - name: Build Next.js

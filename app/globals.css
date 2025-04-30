@@ -218,7 +218,7 @@ figcaption[data-rehype-pretty-code-title] + pre {
 
 .prose info,
 .prose warn,
-.prose note,
+.prose check,
 .prose tip,
 .prose danger {
   margin: 1rem 0;
@@ -230,28 +230,54 @@ figcaption[data-rehype-pretty-code-title] + pre {
 }
 
 .prose info {
-  background-color: #e3f2fd;
+  background-color: #bbdefb;
   border-left: 6px solid #2196f3;
 }
 
 .prose warn {
-  background-color: #fff3e0;
+  background-color: #ffe0b2;
   border-left: 6px solid #ff9800;
 }
 
-.prose note {
-  background-color: #f1f8e9;
+.prose check {
+  background-color: #dcedc8;
   border-left: 6px solid #4caf50;
 }
 
 .prose tip {
-  background-color: #e8f5e9;
+  background-color: #c8e6c9;
   border-left: 6px solid #8bc34a;
 }
 
 .prose danger {
-  background-color: #ffebee;
+  background-color: #ffcdd2;
   border-left: 6px solid #f44336;
+}
+
+/* Dark mode (Tailwind 기준: .dark 부모 클래스 있을 때) */
+.dark .prose info {
+  background-color: #1c2b42;
+  border-left: 6px solid #1976d2;
+}
+
+.dark .prose warn {
+  background-color: #4a3725;
+  border-left: 6px solid #fb8c00;
+}
+
+.dark .prose check {
+  background-color: #2e3c29;
+  border-left: 6px solid #388e3c;
+}
+
+.dark .prose tip {
+  background-color: #2d3a2d;
+  border-left: 6px solid #689f38;
+}
+
+.dark .prose danger {
+  background-color: #442626;
+  border-left: 6px solid #d32f2f;
 }
 
 .prose info::before {
@@ -264,8 +290,8 @@ figcaption[data-rehype-pretty-code-title] + pre {
   margin-right: 10px;
 }
 
-.prose note::before {
-  content: "📝";
+.prose check::before {
+  content: "✅";
   margin-right: 10px;
 }
 
@@ -281,10 +307,8 @@ figcaption[data-rehype-pretty-code-title] + pre {
 
 .prose info p,
 .prose warn p,
-.prose note p,
+.prose check p,
 .prose tip p,
 .prose danger p {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #333;
+  @apply text-[0.875rem] font-medium text-gray-700 dark:text-gray-300;
 }

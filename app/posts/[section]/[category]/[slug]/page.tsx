@@ -3,7 +3,12 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { TagIcon, CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
+import {
+  FolderIcon,
+  TagIcon,
+  CalendarIcon,
+  ClockIcon,
+} from "@heroicons/react/24/outline";
 
 import Giscus from "@/components/Giscus";
 import PostSidebar from "@/components/PostSidebar";
@@ -65,15 +70,23 @@ export default async function PostPage(props: { params: Params }) {
           />
           <h1 className="text-4xl p-6 font-bold">{post.title}</h1>
         </div>
-        <div className="flex flex-row-reverse items-center mt-5 text-xs text-gray-500 dark:text-gray-400">
-          <span className="flex items-center">
-            <ClockIcon className="w-4 h-4 mr-1" />
-            <p>{post.readingTime} 분</p>
+        <div className="justify-between flex">
+          <span className="flex items-center mt-5 text-xs text-gray-500 dark:text-gray-400">
+            <FolderIcon className="w-4 h-4 mr-1" />
+            <p>
+              {post.section} {" > "} {post.category}
+            </p>
           </span>
-          <span className="flex items-center mr-3">
-            <CalendarIcon className="w-4 h-4 mr-1" />
-            <p>{post.date}</p>
-          </span>
+          <div className="flex flex-row-reverse items-center mt-5 text-xs text-gray-500 dark:text-gray-400">
+            <span className="flex items-center">
+              <ClockIcon className="w-4 h-4 mr-1" />
+              <p>{post.readingTime} 분</p>
+            </span>
+            <span className="flex items-center mr-3">
+              <CalendarIcon className="w-4 h-4 mr-1" />
+              <p>{post.date}</p>
+            </span>
+          </div>
         </div>
         <div
           className="prose dark:prose-invert mt-8 max-w-none"

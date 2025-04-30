@@ -9,6 +9,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    env:
+      PARAMETER_STORE_NAME: ${{ secrets.PARAMETER_STORE_NAME }}
+      AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+      CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3

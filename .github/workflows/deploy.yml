@@ -36,7 +36,7 @@ jobs:
       - name: Get .env.production from SSM
         run: |
           aws ssm get-parameter \
-            --name "$PARAMETER_STORE_NAME" \
+            --name $PARAMETER_STORE_NAME \
             --with-decryption \
             --query "Parameter.Value" \
             --output text > .env.production
@@ -46,8 +46,8 @@ jobs:
 
       - name: Upload to S3
         run: |
-          aws s3 sync ./out s3://"$AWS_S3_BUCKET" --delete
+          aws s3 sync ./out s3://$AWS_S3_BUCKET --delete
 
       - name: Invalidate CloudFront Cache
         run: |
-          aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths '/*'
+          aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*'

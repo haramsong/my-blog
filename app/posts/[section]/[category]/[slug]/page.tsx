@@ -60,7 +60,7 @@ export default async function PostPage(props: { params: Params }) {
 
   return (
     <div className="relative flex">
-      <article className="px-5 max-w-3xl min-w-lg w-full">
+      <article className="px-5 max-w-3xl min-w-[400px] w-full">
         <div className="relative flex items-center h-55 overflow-hidden">
           <Image
             src={post.thumbnail}
@@ -88,13 +88,16 @@ export default async function PostPage(props: { params: Params }) {
             </span>
           </div>
         </div>
-        <div
-          className="prose dark:prose-invert mt-8 max-w-none"
-          dangerouslySetInnerHTML={{
-            __html:
-              typeof post.contentHtml === "string" ? post.contentHtml : "",
-          }}
-        />
+        {typeof post.contentHtml === "string" ? (
+          <div
+            className="prose dark:prose-invert mt-8 max-w-none"
+            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+          />
+        ) : (
+          <div className="prose dark:prose-invert mt-8 max-w-none text-red-500">
+            포스트 내용을 불러올 수 없습니다.
+          </div>
+        )}
         <div className="flex items-center my-8 mt-10 text-xs text-gray-500 dark:text-gray-400">
           <TagIcon className="w-6 h-6 mr-1" />
           {post.tags.length > 0 && (

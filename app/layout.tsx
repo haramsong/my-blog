@@ -8,6 +8,7 @@ import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
 import FloatingTopButton from "@/components/FloatingTopButton";
 import FloatingDevLinkButton from "@/components/FloatingDevLinkButton";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { PostProvider } from "@/context/PostContext";
 import { getMetadata } from "@/lib/getMetaData";
 import { getGNBTree, getTagsWithCount } from "@/lib/posts";
@@ -57,6 +58,9 @@ export default function RootLayout({
           </div>
           <FloatingTopButton />
           <FloatingDevLinkButton />
+          {process.env.NEXT_PUBLIC_GA_ID ? (
+            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+          ) : null}
         </body>
       </html>
     </PostProvider>

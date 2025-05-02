@@ -214,8 +214,16 @@ pre code button.rehype-pretty-copy .ready {
   background: url("/icons/copy.svg") no-repeat center;
 }
 
+.prose figure img {
+  @apply mx-auto block;
+}
+
+.prose figure figcaption {
+  @apply text-center text-xs text-gray-600 dark:text-gray-400;
+}
+
 figcaption[data-rehype-pretty-code-title] {
-  @apply px-5 py-3 font-mono text-sm font-bold bg-[#22272e] border-b-1 border-gray-600 rounded-t-lg text-gray-300;
+  @apply px-5 py-3 font-mono text-sm font-bold bg-[#22272e] border-b-1 border-gray-600 rounded-t-lg text-gray-200;
 }
 figcaption[data-rehype-pretty-code-title] + pre {
   @apply mt-0 rounded-t-none;

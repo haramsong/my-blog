@@ -71,13 +71,13 @@ export default async function PostPage(props: { params: Params }) {
           <h1 className="text-4xl p-6 font-bold">{post.title}</h1>
         </div>
         <div className="justify-between flex">
-          <span className="flex items-center mt-5 text-xs text-gray-500 dark:text-gray-400">
+          <span className="flex items-center mt-5 text-xs text-gray-600 dark:text-gray-400">
             <FolderIcon className="w-4 h-4 mr-1" />
             <p>
               {post.section} {" > "} {post.category}
             </p>
           </span>
-          <div className="flex flex-row-reverse items-center mt-5 text-xs text-gray-500 dark:text-gray-400">
+          <div className="flex flex-row-reverse items-center mt-5 text-xs text-gray-600 dark:text-gray-400">
             <span className="flex items-center">
               <ClockIcon className="w-4 h-4 mr-1" />
               <p>{post.readingTime} 분</p>

@@ -65,7 +65,9 @@ export default function GNBDirectoryTree() {
                 )}
               </span>
               <span className="mr-1.5">{removeKebab(section)}</span>
-              <span className="text-xs text-gray-400">({sectionCount})</span>
+              <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                ({sectionCount})
+              </span>
             </button>
 
             <div
@@ -93,7 +95,7 @@ export default function GNBDirectoryTree() {
                         >
                           {isLast ? "└── " : "├── "}
                           {removeKebab(category)}{" "}
-                          <span className="text-xs ml-1.5 text-gray-400">
+                          <span className="text-xs ml-1.5 font-medium text-gray-600 dark:text-gray-400">
                             ({count})
                           </span>
                         </Link>

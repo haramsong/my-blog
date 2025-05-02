@@ -193,6 +193,10 @@ pre code span[data-line]::before {
   padding-top: 0.2em;
 }
 
+pre code {
+  @apply w-[400px];
+}
+
 pre code span[data-highlighted-line] {
   @apply border-l-2 border-y-0
   border-blue-500 bg-slate-700 pl-[calc(1rem-2px)];

@@ -9,7 +9,6 @@ tags: ["Terraform", "AWS", "Blog"]
 
 # Terraform으로 개인 블로그 인프라 구축하기
 
-
 안녕하세요! 이 글은 개인 블로그를 운영하면서 필요한 AWS 인프라를 Terraform으로 구성한 과정을 정리한 포스트입니다. 코드로 인프라를 관리하는 방식(IaC: Infrastructure as Code)에 관심 있으신 분들이 참고하기 좋은 실전 예시입니다.
 
 # 인프라 구성 배경
@@ -20,9 +19,9 @@ tags: ["Terraform", "AWS", "Blog"]
 
 ![제 블로그의 AWS 인프라 아키텍처](/images/CSP/AWS/my-blog-infrastructure-with-terraform/0368f2aa-e185-4a86-898b-68fc557a653e-my-architecture.png)
 
-* **S3**: 정적 리소스 저장
-* **Cloudfront**: 전 세계 빠른 배포와 캐싱
-* **Route 53**: 도메인 연결 및 DNS 관리
+- **S3**: 정적 리소스 저장
+- **Cloudfront**: 전 세계 빠른 배포와 캐싱
+- **Route 53**: 도메인 연결 및 DNS 관리
 
 # Terraform 작성
 
@@ -177,7 +176,7 @@ resource "aws_cloudfront_distribution" "cdn" {
     cache_policy_id = aws_cloudfront_cache_policy.my_custom_cache_policy.id
     origin_request_policy_id   = "88a5eaf4-2fd4-4709-b370-b4c650ea3fcf" # managed cors_s3_id
     response_headers_policy_id = "5cc3b908-e619-4b99-88e5-2cf7f45965bd" # managed cors_with_preflight_id
-  
+
     function_association {
       event_type   = "viewer-request"
       function_arn = aws_cloudfront_function.my_cloudfront_function.arn
@@ -225,7 +224,7 @@ function handler(event) {
 위 함수는 /blog, /about 같은 경로 요청을 /blog/index.html, /about/index.html로 rewrite 해줍니다. 이는 정적 사이트 호스팅을 위해 필요한 설정으로, Cloudfront function에 사용될 함수입니다.
 :::
 
-## Route 53
+## Route 53 구성
 
 ```title="route53.tf"
 data "aws_route53_zone" "my_route53_zone" {
@@ -237,7 +236,7 @@ resource "aws_route53_record" "my_record" {
   zone_id = data.aws_route53_zone.my_route53_zone.zone_id
   name    = "blog.${data.aws_route53_zone.my_route53_zone.name}"
   type    = "A"
-  
+
   alias {
     name                   = aws_cloudfront_distribution.cdn.domain_name
     zone_id                 = aws_cloudfront_distribution.cdn.hosted_zone_id
@@ -256,9 +255,9 @@ terraform plan
 terraform apply
 ```
 
-* **init**: 필요한 provider 설치
-* **plan**: 생성/변경/삭제될 리소스 사전 확인
-* **apply**: 실제 인프라 적용
+- **init**: 필요한 provider 설치
+- **plan**: 생성/변경/삭제될 리소스 사전 확인
+- **apply**: 실제 인프라 적용
 
 ## 결과 확인
 
@@ -284,12 +283,12 @@ S3, CloudFront, Route 53 모두 정상적으로 설정된 것을 콘솔에서 �
 
 # 마무리
 
-Terraform을 이용하니 클릭 몇 번 없이도 필요한 리소스를 한번에 관리하고, 코드 기반으로 추적/관리할 수 있어 편리했습니다. 특히 이후 블로그를 마이그레이션하거나 다른 환경에 재구성할 때도 손쉽게 인프라를 재사용할 수 있는 큰 장점이 있습니다. 
+Terraform을 이용하니 클릭 몇 번 없이도 필요한 리소스를 한번에 관리하고, 코드 기반으로 추적/관리할 수 있어 편리했습니다. 특히 이후 블로그를 마이그레이션하거나 다른 환경에 재구성할 때도 손쉽게 인프라를 재사용할 수 있는 큰 장점이 있습니다.
 
 다음에 기회가 된다면, Terraform 관련 포스트를 더 작성해보도록 하겠습니다.
 
 # 참고 자료
 
-* 📝 [Terraform 공식 문서](https://developer.hashicorp.com/terraform/intro) 
-* 📘 [AWS OAC(Origin Access Control) 소개 문서](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
-* 🧠 [CloudFront Functions 공식 가이드](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html)
+- 📝 [Terraform 공식 문서](https://developer.hashicorp.com/terraform/intro)
+- 📘 [AWS OAC(Origin Access Control) 소개 문서](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+- 🧠 [CloudFront Functions 공식 가이드](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html)

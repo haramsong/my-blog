@@ -12,7 +12,7 @@ export default function ThemeToggleButton() {
       id="theme-toggle-button"
       aria-label="Toggle Theme"
       onClick={toggleTheme}
-      className="ml-4 cursor-pointer p-2 rounded"
+      className="cursor-pointer rounded"
     >
       {isDark ? (
         <SunIcon className="w-6 h-6 text-yellow-500 hover:scale-110 hover:fill-yellow-500 hover:animate-spin transition-all duration-300 hover:[animation-duration:3s]" />

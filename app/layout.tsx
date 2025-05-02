@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Metadata } from "next";
+import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import Header from "@/components/Header";
@@ -27,7 +28,32 @@ export default function RootLayout({
 
   return (
     <PostProvider value={{ tree, tags }}>
-      <html lang="en" className="">
+      <html lang="en" suppressHydrationWarning>
+        <head>
+          <Script
+            id="theme-change"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  try {
+                    var stored = localStorage.getItem("theme");
+                    var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                    var isDark = stored === "dark" || (!stored && prefersDark);
+                    var html = document.documentElement;
+                    html.setAttribute("data-theme", isDark ? "dark" : "light");
+                    html.style.colorScheme = isDark ? "dark" : "light";
+                    if (isDark) {
+                      html.classList.add("dark");
+                    } else {
+                      html.classList.remove("dark");
+                    }
+                  } catch(e) {}
+                })();
+              `,
+            }}
+          />
+        </head>
         <body
           className={`bg-white text-black dark:bg-gray-900 dark:text-white`}
         >

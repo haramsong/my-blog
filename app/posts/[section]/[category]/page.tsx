@@ -46,7 +46,7 @@ export default async function CategoryPage(props: { params: Params }) {
   return (
     <div className="max-w-3xl w-full space-y-4">
       <h1 className="p-4 mt-3 mb-10 text-center text-4xl font-extrabold">
-        {removeKebab(section)} / {removeKebab(category)}
+        {removeKebab(section)} {" > "} {removeKebab(category)}
       </h1>
       <InfinitePostList allPosts={posts} />
     </div>

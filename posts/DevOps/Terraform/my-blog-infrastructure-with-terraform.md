@@ -226,7 +226,7 @@ function handler(event) {
 
 ## Route 53 구성
 
-```json title="route53.tf"
+```json title="/route53.tf"
 data "aws_route53_zone" "my_route53_zone" {
   name         = var.domain_name
   private_zone = false

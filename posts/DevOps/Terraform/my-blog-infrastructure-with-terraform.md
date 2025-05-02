@@ -29,7 +29,7 @@ tags: ["Terraform", "AWS", "Blog"]
 
 ## Provider 구성
 
-```title="/provider.tf"
+```json title="/provider.tf"
 terraform {
   required_providers {
     aws = {
@@ -53,7 +53,7 @@ AWS 리전은 서울(ap-northeast-2)로 설정했고, 로컬의 AWS CLI 인증 �
 
 ## S3 구성
 
-```title="/s3.tf"
+```json title="/s3.tf"
 resource "aws_s3_bucket" "my_website" {
   bucket = var.bucket_name
 
@@ -102,7 +102,7 @@ S3 버킷을 생성하여, 퍼블릭 접근을 차단하고 CloudFront에서만 
 
 ## Cloudfront 구성
 
-```title="/cloudfront.tf"
+```json title="/cloudfront.tf"
 resource "aws_cloudfront_origin_access_control" "oac" {
   name                              = "oac-for-${var.bucket_name}"
   origin_access_control_origin_type = "s3"
@@ -204,7 +204,7 @@ Cloudfront 배포를 생성하고, Cloudfront function, OAC 설정을 했습니�
 CloudFront와 S3를 안전하게 연결하려면 OAC 설정이 필요합니다. OAI는 구버전이므로 가급적 OAC를 사용하는 게 최신 가이드에 부합합니다.
 :::
 
-```title="/function.js"
+```json title="/function.js"
 var regexExpr = /^\/.+(\.\w+$)/;
 
 function handler(event) {
@@ -226,7 +226,7 @@ function handler(event) {
 
 ## Route 53 구성
 
-```title="route53.tf"
+```json title="route53.tf"
 data "aws_route53_zone" "my_route53_zone" {
   name         = var.domain_name
   private_zone = false
@@ -249,7 +249,7 @@ Route 53에 CloudFront를 연결해 커스텀 도메인(예: blog.example.com)�
 
 ## 배포 과정
 
-```
+```bash
 terraform init
 terraform plan
 terraform apply

@@ -21,4 +21,5 @@ export const META = {
   ],
   url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
   ogImage: "/opengraph-image.png",
+  naverVerification: process.env.NEXT_PUBLIC_NAVER_VERIFICATION,
 } as const;

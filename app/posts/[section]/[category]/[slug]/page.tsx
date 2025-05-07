@@ -60,7 +60,7 @@ export default async function PostPage(props: { params: Params }) {
 
   return (
     <div className="relative flex">
-      <article className="px-5 max-w-3xl min-w-[400px] w-full">
+      <article className="px-5 max-w-3xl">
         <div className="relative flex items-center h-55 overflow-hidden">
           <Image
             src={post.thumbnail}
@@ -90,7 +90,7 @@ export default async function PostPage(props: { params: Params }) {
         </div>
         {typeof post.contentHtml === "string" ? (
           <div
-            className="prose dark:prose-invert mt-8 max-w-none"
+            className="prose dark:prose-invert mt-8 max-w-[calc(100vw-2rem)]"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
         ) : (

@@ -90,7 +90,7 @@ export default async function PostPage(props: { params: Params }) {
         </div>
         {typeof post.contentHtml === "string" ? (
           <div
-            className="prose dark:prose-invert mt-8 max-w-[calc(100vw-2rem)]"
+            className="prose dark:prose-invert mt-8 max-w-[calc(100vw-2.5rem)]"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
         ) : (

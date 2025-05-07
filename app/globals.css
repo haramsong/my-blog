@@ -167,6 +167,7 @@ pre code {
   padding-left: 2em;
   font-family: "FiraCode", system-ui, sans-serif;
   font-weight: 500;
+  overflow-x: auto;
 }
 
 pre code span[data-line] {
@@ -183,7 +184,7 @@ pre code span[data-line]::before {
   left: 0;
   top: 0;
   color: #888;
-  padding-right: 1em;
+  padding-right: 0.5em;
   font-size: 0.9em;
   text-align: right;
   width: 2.5em;
@@ -207,6 +208,13 @@ pre code[data-line-numbers-max-digits="3"] > span[data-line]::before {
 
 pre code button.rehype-pretty-copy {
   @apply w-7 h-7;
+  right: 1px;
+  padding: 0;
+  display: flex;
+  margin-top: 2px;
+  margin-right: 8px;
+  position: absolute;
+  border-radius: 25%;
 }
 
 pre code button.rehype-pretty-copy .ready {

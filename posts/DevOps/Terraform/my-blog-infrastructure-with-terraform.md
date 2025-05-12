@@ -17,7 +17,7 @@ tags: ["Terraform", "AWS", "Blog"]
 
 그래서 저는 다음과 같은 AWS 인프라를 구성하기로 했습니다:
 
-![제 블로그의 AWS 인프라 아키텍처](/images/CSP/AWS/my-blog-infrastructure-with-terraform/0368f2aa-e185-4a86-898b-68fc557a653e-my-architecture.png)
+![제 블로그의 AWS 인프라 아키텍처](/images/DevOps/Terraform/my-blog-infrastructure-with-terraform/0368f2aa-e185-4a86-898b-68fc557a653e-my-architecture.png)
 
 - **S3**: 정적 리소스 저장
 - **Cloudfront**: 전 세계 빠른 배포와 캐싱
@@ -265,21 +265,21 @@ S3, CloudFront, Route 53 모두 정상적으로 설정된 것을 콘솔에서 �
 
 ### S3 확인
 
-![S3 버킷 생성 확인](/images/CSP/AWS/my-blog-infrastructure-with-terraform/07b1b354-af6a-43e7-8b22-089301703ce4-SCR-20250502-oers.png)
+![S3 버킷 생성 확인](/images/DevOps/Terraform/my-blog-infrastructure-with-terraform/07b1b354-af6a-43e7-8b22-089301703ce4-SCR-20250502-oers.png)
 
-![OAC 정책 확인](/images/CSP/AWS/my-blog-infrastructure-with-terraform/f7080732-0640-446a-bc57-ea0f9251cbad-SCR-20250502-ofsj.png)
+![OAC 정책 확인](/images/DevOps/Terraform/my-blog-infrastructure-with-terraform/f7080732-0640-446a-bc57-ea0f9251cbad-SCR-20250502-ofsj.png)
 
 ### Cloudfront 확인
 
-![Cloudfront 배포 생성 확인](/images/CSP/AWS/my-blog-infrastructure-with-terraform/90954d59-8a5d-459c-bb4a-9d996ab79bfb-SCR-20250502-oeys.png)
+![Cloudfront 배포 생성 확인](/images/DevOps/Terraform/my-blog-infrastructure-with-terraform/90954d59-8a5d-459c-bb4a-9d996ab79bfb-SCR-20250502-oeys.png)
 
-![Cloudfront 원본 확인](/images/CSP/AWS/my-blog-infrastructure-with-terraform/039129a9-0b07-4c65-b1e9-13010f112aec-SCR-20250502-oghm.png)
+![Cloudfront 원본 확인](/images/DevOps/Terraform/my-blog-infrastructure-with-terraform/039129a9-0b07-4c65-b1e9-13010f112aec-SCR-20250502-oghm.png)
 
-![Cloudfront 캐시 동작 확인](/images/CSP/AWS/my-blog-infrastructure-with-terraform/f630006e-8123-4a75-80c9-0548dce46628-SCR-20250502-ogqx.png)
+![Cloudfront 캐시 동작 확인](/images/DevOps/Terraform/my-blog-infrastructure-with-terraform/f630006e-8123-4a75-80c9-0548dce46628-SCR-20250502-ogqx.png)
 
 ### Route 53 확인
 
-![Route 53 설정 확인](/images/CSP/AWS/my-blog-infrastructure-with-terraform/7555b0c2-c2cf-4f1d-8fba-499f17adbbbe-SCR-20250502-ofmk.png)
+![Route 53 설정 확인](/images/DevOps/Terraform/my-blog-infrastructure-with-terraform/7555b0c2-c2cf-4f1d-8fba-499f17adbbbe-SCR-20250502-ofmk.png)
 
 # 마무리
 

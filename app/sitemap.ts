@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const sitemapFromPosts: MetadataRoute.Sitemap = postMeta.map((post) => {
     return {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${post.slug.join("/")}`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/posts/${post.slug.join("/")}`,
       lastModified: new Date(post.date),
       changeFrequency: "daily",
       priority: 0.8,
@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ).flatMap((section) => {
     return Object.keys(categoryMeta[section]).map((category) => {
       return {
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/${section}/${category}`,
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/posts/${section}/${category}`,
         lastModified: new Date(),
         changeFrequency: "weekly",
         priority: 0.5,

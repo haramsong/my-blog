@@ -6,6 +6,8 @@ import MdEditor from "react-markdown-editor-lite";
 import MarkdownIt from "markdown-it";
 import "react-markdown-editor-lite/lib/index.css";
 
+import NotFound from "@/app/not-found";
+
 interface Props {
   options: Record<string, string[]>;
 }
@@ -24,6 +26,8 @@ export default function WritePageClient({ options }: Props) {
   const [content, setContent] = useState("");
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const sectionRef = useRef(section);
+  const categoryRef = useRef(category);
   const slugRef = useRef(slug);
 
   const handleEditorImageUpload = async (file: File) => {
@@ -52,9 +56,9 @@ export default function WritePageClient({ options }: Props) {
     const formData = new FormData();
     formData.append("file", file);
 
-    const uploadPath = `/images/${section}/${category}/${slugRef.current}/${
-      isThumbnail ? "thumbnail" : uuidv4()
-    }-${file.name}`;
+    const uploadPath = `/images/${sectionRef.current}/${categoryRef.current}/${
+      slugRef.current
+    }/${isThumbnail ? "thumbnail" : uuidv4()}-${file.name}`;
     formData.append("path", uploadPath);
 
     const res = await fetch("/api/dev/upload-image", {
@@ -90,10 +94,18 @@ export default function WritePageClient({ options }: Props) {
   };
 
   useEffect(() => {
+    sectionRef.current = section;
+  }, [section]);
+
+  useEffect(() => {
+    categoryRef.current = category;
+  }, [category]);
+
+  useEffect(() => {
     slugRef.current = slug;
   }, [slug]);
 
-  if (process.env.NODE_ENV !== "development") return null;
+  if (process.env.NODE_ENV !== "development") return NotFound();
 
   const labelClass = "inline-block w-24 font-bold";
   const inputClass = "border p-2 flex-1";

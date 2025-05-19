@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 
+import NotFound from "@/app/not-found";
+
 export default function DevPage() {
-  if (process.env.NODE_ENV !== "development") return null;
+  if (process.env.NODE_ENV !== "development") return NotFound();
 
   return (
     <div className="p-4 mx-auto">

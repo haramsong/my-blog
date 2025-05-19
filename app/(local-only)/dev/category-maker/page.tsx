@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import NotFound from "@/app/not-found";
+
 export default function CreateSectionCategoryPage() {
   const [section, setSection] = useState("");
   const [category, setCategory] = useState("");
@@ -18,7 +20,7 @@ export default function CreateSectionCategoryPage() {
     setMessage(data.message);
   }
 
-  if (process.env.NODE_ENV !== "development") return null;
+  if (process.env.NODE_ENV !== "development") return NotFound();
 
   return (
     <div className="p-4 max-w-md mx-auto">

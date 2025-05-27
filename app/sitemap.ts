@@ -9,13 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const sitemapDefault: MetadataRoute.Sitemap = [
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/profile`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/profile/`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.4,
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const sitemapFromPosts: MetadataRoute.Sitemap = postMeta.map((post) => {
     return {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/posts/${post.slug.join("/")}`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/posts/${post.slug.join("/")}/`,
       lastModified: new Date(post.date),
       changeFrequency: "daily",
       priority: 0.8,
@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ).flatMap((section) => {
     return Object.keys(categoryMeta[section]).map((category) => {
       return {
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/posts/${section}/${category}`,
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/posts/${section}/${category}/`,
         lastModified: new Date(),
         changeFrequency: "weekly",
         priority: 0.5,
@@ -47,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapFromTags: MetadataRoute.Sitemap = Object.keys(tags).map(
     (tag) => {
       return {
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/tags/${tag}`,
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/tags/${tag}/`,
         lastModified: new Date(),
         changeFrequency: "weekly",
         priority: 0.5,

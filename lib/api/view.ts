@@ -1,35 +1,19 @@
-const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT || "";
+import { api } from "./";
+
+interface ViewResponse {
+  views: number;
+}
 
 export async function getViewCount(slug: string): Promise<number> {
-  const res = await fetch(
-    `${API_ENDPOINT}/view-count?slug=${encodeURIComponent(slug)}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-token": process.env.NEXT_PUBLIC_API_SECRET ?? "",
-      },
-    }
+  const data = await api.get<ViewResponse>(
+    `/view-count?slug=${encodeURIComponent(slug)}`
   );
 
-  if (!res.ok) throw new Error(`Error fetching views: ${res.statusText}`);
-
-  const data = await res.json();
   return data.views ?? 0;
 }
 
 export async function increaseViewCount(slug: string): Promise<number> {
-  const res = await fetch(`${API_ENDPOINT}/view-count`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-token": process.env.NEXT_PUBLIC_API_SECRET ?? "",
-    },
-    body: JSON.stringify({ slug }),
-  });
+  const data = await api.post<ViewResponse>("/view-count", { slug });
 
-  if (!res.ok) throw new Error(`Error increasing views: ${res.statusText}`);
-
-  const data = await res.json();
   return data.views ?? 0;
 }

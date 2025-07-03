@@ -6,12 +6,14 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import {
   FolderIcon,
   TagIcon,
+  EyeIcon,
   CalendarIcon,
   ClockIcon,
 } from "@heroicons/react/24/outline";
 
 import Giscus from "@/components/Giscus";
 import PostSidebar from "@/components/PostSidebar";
+import ViewCounter from "@/components/ViewCounter";
 import { getPostBySlugArray, getPrevNextPost } from "@/lib/posts";
 import { generatePostPageParams } from "@/lib/generateStaticParams";
 import { removeKebab } from "@/lib/stringUtils";
@@ -79,6 +81,10 @@ export default async function PostPage(props: { params: Params }) {
           </span>
           <div className="flex flex-row-reverse items-center mt-5 text-xs text-gray-600 dark:text-gray-400">
             <span className="flex items-center">
+              <EyeIcon className="w-4 h-4 mr-1" />
+              <ViewCounter slug={post.slug} />
+            </span>
+            <span className="flex items-center mr-3">
               <ClockIcon className="w-4 h-4 mr-1" />
               <p>{post.readingTime} 분</p>
             </span>

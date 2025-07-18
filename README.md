@@ -188,6 +188,53 @@ aws cloudfront create-invalidation \
       S3 (정적 호스팅)
 ```
 
+## 📊 조회수 추적 API 계층
+
+조회수 기능을 위해 다음과 같은 AWS 인프라로 구성되어 있습니다.
+
+### 1. Amazon API Gateway v2 (HTTP API)
+
+- **역할**: RESTful API 엔드포인트 제공
+- **구성**:
+  - CORS 설정으로 `blog.hrsong.com` 및 로컬 개발 환경 지원
+  - GET, POST, OPTIONS 메서드 지원
+  - Lambda 프록시 통합으로 요청 전달
+- **보안**: API 토큰 기반 인증으로 무단 접근 방지
+
+### 2. AWS Lambda
+
+- **역할**: 서버리스 조회수 처리 로직
+- **런타임**: Node.js 18.x
+- **기능**:
+  - GET 요청: 특정 페이지의 조회수 조회
+  - POST 요청: 조회수 증가 및 업데이트
+  - OPTIONS 요청: CORS 프리플라이트 처리
+- **보안**: 환경 변수를 통한 API 시크릿 관리
+- **성능**: 3초 타임아웃으로 빠른 응답 보장
+
+### 3. Amazon DynamoDB
+
+- **역할**: 조회수 데이터 저장소
+- **구성**:
+  - Pay-per-request 빌링 모드로 비용 최적화
+  - `slug` 필드를 파티션 키로 사용
+  - 원자적 증가 연산으로 동시성 처리
+- **확장성**: 서버리스 NoSQL로 자동 확장
+
+### ✅ 전체 흐름
+
+```
+사용자 브라우저 API 호출
+        ↓
+    Route 53
+        ↓
+   API Gateway
+        ↓
+    AWS Lambda
+        ↓
+    DynamoDB
+```
+
 ## 💡 참고 자료
 
 - [remark 공식 문서](https://remark.js.org/)

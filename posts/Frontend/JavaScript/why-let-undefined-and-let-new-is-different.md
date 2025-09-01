@@ -7,7 +7,7 @@ thumbnail: "/images/Frontend/JavaScript/why-let-undefined-and-let-new-is-differe
 tags: ["JavaScript"]
 ---
 
-# 개요
+## 개요
 
 JavaScript 강의를 듣다가, 변수에 대해 알아보던 중에 한가지 의문점이 생겼습니다.
 
@@ -18,7 +18,7 @@ let null;
 
 둘 다 변수 이름으로 적절하지 않다는 것은 알고 있었지만, console.log 의 오류의 내용은 달랐습니다.
 
-# 어떻게 다를까?
+## 어떻게 다를까?
 
 ![let null, let new의 오류는 동일했다](/images/Frontend/JavaScript/why-let-undefined-and-let-new-is-different/c71b0161-95e6-48f8-92c9-71a934c6f5dc-SCR-20250519-lwwq.png)
 
@@ -28,7 +28,7 @@ null, new로 변수를 선언했을 때는 _Uncaught SyntaxError: Unexpected tok
 
 undefined는 _Uncaught SyntaxError: Identifier 'undefined' has already been declared_ 라는 에러가 노출됩니다! 무슨 이유 때문에 그런걸까요?
 
-# 예약어 vs 전역 스코프
+## 예약어 vs 전역 스코프
 
 new 나 null은 예약어 입니다.
 new는 객체를 생성할 때 사용하는 키워드 입니다.
@@ -68,14 +68,14 @@ undefined는 브라우저에서 전역 스코프에 정의되어 있습니다. w
 
 ![undefined는 브라우저 window 객체의 전역 스코프여서 에러가 났던 반면, Node.js 환경에서는 에러로 표시하진 않는다.](/images/Frontend/JavaScript/why-let-undefined-and-let-new-is-different/e8844b45-fa0a-49db-bc69-c33e1f063305-image.png)
 
-# 마무리
+## 마무리
 
 :::check
 왜 undefined와 null을 변수로 선언했을 때 에러가 다른지 이번 글로 이해가 되셨다면 좋겠습니다. 단순 호기심으로 부터 시작하여, 예약어와 전역 스코프의 차이에 대해 알아 볼 수 있어서 재밌었습니다.
 :::
 
-# 참고 자료
+## 참고 자료
 
-- [MDN - 예약어](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_keywords)
+- [MDN - 예약어](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar## reserved_keywords)
 - [MDN - 전역 객체](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
 - [MDN - undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)

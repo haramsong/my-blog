@@ -54,7 +54,7 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
         Table of Contents
       </h2>
       <ul
-        className="text-sm space-y-1 pl-3 border-l text-gray-700 dark:text-gray-300"
+        className="text-sm space-y-1 pl-1.5 border-l text-gray-700 dark:text-gray-300"
         style={{
           borderColor: "var(--border)",
         }}

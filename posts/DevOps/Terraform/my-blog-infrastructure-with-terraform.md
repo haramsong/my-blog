@@ -7,11 +7,11 @@ thumbnail: "/images/DevOps/Terraform/my-blog-infrastructure-with-terraform/thumb
 tags: ["Terraform", "AWS", "Blog"]
 ---
 
-# Terraform으로 개인 블로그 인프라 구축하기
+## Terraform으로 개인 블로그 인프라 구축하기
 
 안녕하세요! 이 글은 개인 블로그를 운영하면서 필요한 AWS 인프라를 Terraform으로 구성한 과정을 정리한 포스트입니다. 코드로 인프라를 관리하는 방식(IaC: Infrastructure as Code)에 관심 있으신 분들이 참고하기 좋은 실전 예시입니다.
 
-# 인프라 구성 배경
+## 인프라 구성 배경
 
 제 개인 블로그는 Next.js 기반이며, output: "export" 모드를 사용해 정적 사이트로 빌드됩니다. 즉, 웹 서버 없이도 정적 리소스만으로 서비스를 운영할 수 있는 구조입니다.
 
@@ -23,11 +23,11 @@ tags: ["Terraform", "AWS", "Blog"]
 - **Cloudfront**: 전 세계 빠른 배포와 캐싱
 - **Route 53**: 도메인 연결 및 DNS 관리
 
-# Terraform 작성
+## Terraform 작성
 
 > [Terraform은](https://developer.hashicorp.com/terraform/intro) 인프라를 코드로 선언하고 관리할 수 있게 도와주는 도구입니다. 코드로 선언된 리소스는 재현성과 버전 관리가 쉬워집니다.
 
-## Provider 구성
+### Provider 구성
 
 ```json title="/provider.tf"
 terraform {
@@ -51,7 +51,7 @@ provider "aws" {
 AWS 리전은 서울(ap-northeast-2)로 설정했고, 로컬의 AWS CLI 인증 프로파일을 사용합니다.
 :::
 
-## S3 구성
+### S3 구성
 
 ```json title="/s3.tf"
 resource "aws_s3_bucket" "my_website" {
@@ -100,7 +100,7 @@ resource "aws_s3_bucket_policy" "my_website_policy" {
 
 S3 버킷을 생성하여, 퍼블릭 접근을 차단하고 CloudFront에서만 접근할 수 있도록 OAC(Origin Access Control) 정책을 적용합니다.
 
-## Cloudfront 구성
+### Cloudfront 구성
 
 ```json title="/cloudfront.tf"
 resource "aws_cloudfront_origin_access_control" "oac" {
@@ -224,7 +224,7 @@ function handler(event) {
 위 함수는 /blog, /about 같은 경로 요청을 /blog/index.html, /about/index.html로 rewrite 해줍니다. 이는 정적 사이트 호스팅을 위해 필요한 설정으로, Cloudfront function에 사용될 함수입니다.
 :::
 
-## Route 53 구성
+### Route 53 구성
 
 ```json title="/route53.tf"
 data "aws_route53_zone" "my_route53_zone" {
@@ -281,13 +281,13 @@ S3, CloudFront, Route 53 모두 정상적으로 설정된 것을 콘솔에서 �
 
 ![Route 53 설정 확인](/images/DevOps/Terraform/my-blog-infrastructure-with-terraform/7555b0c2-c2cf-4f1d-8fba-499f17adbbbe-SCR-20250502-ofmk.png)
 
-# 마무리
+## 마무리
 
 Terraform을 이용하니 클릭 몇 번 없이도 필요한 리소스를 한번에 관리하고, 코드 기반으로 추적/관리할 수 있어 편리했습니다. 특히 이후 블로그를 마이그레이션하거나 다른 환경에 재구성할 때도 손쉽게 인프라를 재사용할 수 있는 큰 장점이 있습니다.
 
 다음에 기회가 된다면, Terraform 관련 포스트를 더 작성해보도록 하겠습니다.
 
-# 참고 자료
+## 참고 자료
 
 - 📝 [Terraform 공식 문서](https://developer.hashicorp.com/terraform/intro)
 - 📘 [AWS OAC(Origin Access Control) 소개 문서](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)

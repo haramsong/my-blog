@@ -18,7 +18,7 @@ export const META = {
     "Jenkins",
     "Github",
     "Developer",
-  ],
+  ] as string[],
   url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
   ogImage: "/opengraph-image.png",
   naverVerification: process.env.NEXT_PUBLIC_NAVER_VERIFICATION,

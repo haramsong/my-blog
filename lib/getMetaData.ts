@@ -7,15 +7,20 @@ interface MetadataProps {
   description?: string;
   asPath?: string;
   ogImage?: string;
+  keywords?: string[];
 }
 
 export const getMetadata = (metadataProps?: MetadataProps) => {
-  const { title, description, asPath, ogImage } = metadataProps || {};
+  const { title, description, asPath, ogImage, keywords } = metadataProps || {};
+
+  const normalizePath = (path?: string) =>
+    path ? (path.startsWith("/") ? path : `/${path}`) : "";
 
   const TITLE = title ? `${title} | Haram's Blog` : META.title;
   const DESCRIPTION = description || META.description;
-  const PAGE_URL = asPath ? asPath : "";
-  const OG_IMAGE = ogImage || META.ogImage;
+  const PAGE_URL = asPath ? `${META.url}${normalizePath(asPath)}` : META.url;
+  const OG_IMAGE = `${META.url}${ogImage || META.ogImage}`;
+  const KEYWORDS = Array.from(new Set([...(keywords || []), ...META.keyword]));
 
   const metadata: Metadata = {
     metadataBase: new URL(META.url),
@@ -24,7 +29,7 @@ export const getMetadata = (metadataProps?: MetadataProps) => {
     },
     title: TITLE,
     description: DESCRIPTION,
-    keywords: [...META.keyword],
+    keywords: KEYWORDS,
     openGraph: {
       title: TITLE,
       description: DESCRIPTION,
@@ -44,6 +49,7 @@ export const getMetadata = (metadataProps?: MetadataProps) => {
       },
     },
     twitter: {
+      card: "summary_large_image",
       title: TITLE,
       description: DESCRIPTION,
       images: {

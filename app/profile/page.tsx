@@ -17,14 +17,25 @@ export default function ProfilePage() {
   return (
     <div className="p-6 max-w-3xl w-full mx-auto space-y-10">
       <section>
-        <h1 className="text-3xl font-bold mb-4">Introduction</h1>
+        <h1 className="text-3xl font-bold mb-4">소개</h1>
+        <p className="text-md mb-1">
+          안녕하세요! Frontend 개발자 송하람입니다.
+        </p>
+        <p className="text-md mb-1">
+          웹, 모바일 페이지 제작 및 DevOps, 클라우드에 관심이 많고 계속해서
+          배워가는 중입니다.
+        </p>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">🛠️ Skill</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          <span aria-hidden="true">🛠️</span> 개발 스킬
+        </h2>
         <ul className="list-disc text-md pl-6 mt-3 space-y-3">
           <li>
-            <strong>🌏 Frontend</strong>
+            <strong>
+              <span aria-hidden="true">🌏</span> Frontend
+            </strong>
             <ul className="list-disc text-sm pt-2 pl-6 space-y-1">
               <li>React, Nuxt.js 기반 SPA 개발 및 유지보수</li>
               <li>TypeScript 기반 컴포넌트 아키텍처 설계 및 리팩토링</li>
@@ -33,14 +44,18 @@ export default function ProfilePage() {
             </ul>
           </li>
           <li>
-            <strong>🖥 Backend</strong>
+            <strong>
+              <span aria-hidden="true">🖥</span> Backend
+            </strong>
             <ul className="list-disc text-sm pt-2 pl-6 space-y-1">
               <li>Spring Boot 기반 API 서버 개발 및 유지보수</li>
               <li>RESTful API 설계 및 DB 연동 구현</li>
             </ul>
           </li>
           <li>
-            <strong>🧰 DevOps & Infra</strong>
+            <strong>
+              <span aria-hidden="true">🧰</span> DevOps & Infra
+            </strong>
             <ul className="list-disc text-sm pt-2 pl-6 space-y-1">
               <li>Jenkins 및 GitHub Actions를 활용한 CI/CD 파이프라인 구축</li>
               <li>Terraform으로 AWS 인프라 코드 관리 (IaC)</li>
@@ -48,7 +63,9 @@ export default function ProfilePage() {
             </ul>
           </li>
           <li>
-            <strong>☁️ Cloud 및 기타</strong>
+            <strong>
+              <span aria-hidden="true">☁️</span> Cloud 및 기타
+            </strong>
             <ul className="list-disc text-sm pt-2 pl-6 space-y-1">
               <li>
                 AWS EC2, S3, Cloudfront, Lambda, CloudWatch 등 서비스 운영 경험
@@ -61,10 +78,12 @@ export default function ProfilePage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-2">🏢 Career</h2>
+        <h2 className="text-2xl font-semibold mb-2">
+          <span aria-hidden="true">🏢</span> 경력 및 경험
+        </h2>
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold mb-2">
+            <h3 className="text-xl font-semibold mb-2">
               이지스엔터프라이즈㈜ (2023.07 ~ 재직중)
             </h3>
             <p className="font-semibold">프론트엔드 · 대리/팀원 4년차</p>
@@ -76,7 +95,7 @@ export default function ProfilePage() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-2">
+            <h3 className="text-xl font-semibold mb-2">
               비케이위너㈜ (2021.12 ~ 2023.07)
             </h3>
             <p className="font-semibold">풀스택 · R&D/연구원 2년차</p>
@@ -93,12 +112,13 @@ export default function ProfilePage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">🎓 Education</h2>
+        <h2 className="text-2xl font-semibold mb-4">🎓 학력</h2>
+        <p className="text-sm mb-1">안양고등학교 (2012.03 ~ 2015.02 졸업)</p>
         <p className="text-sm">부산대학교 수학과 (2015.03 ~ 2022.02 졸업)</p>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">📚 Project</h2>
+        <h2 className="text-2xl font-semibold mb-4">📚 프로젝트</h2>
         <ul className="list-disc text-sm pl-6 mt-3 space-y-1">
           <li>
             교수용 수업 할당 프로그램 개발 (Python) -{" "}
@@ -106,8 +126,9 @@ export default function ProfilePage() {
               className="text-blue-500 underline"
               href="https://github.com/haramsong/classschedule"
               target="_blank"
+              rel="noopener noreferrer"
             >
-              GitHub
+              GitHub 저장소
             </a>
           </li>
           <li>
@@ -116,8 +137,9 @@ export default function ProfilePage() {
               className="text-blue-500 underline"
               href="https://github.com/haramsong/danviproject"
               target="_blank"
+              rel="noopener noreferrer"
             >
-              GitHub
+              GitHub 저장소
             </a>
           </li>
           <li>
@@ -126,8 +148,9 @@ export default function ProfilePage() {
               className="text-blue-500 underline"
               href="https://github.com/haramsong/hakwonmgmt"
               target="_blank"
+              rel="noopener noreferrer"
             >
-              GitHub
+              GitHub 저장소
             </a>
           </li>
           <li>
@@ -136,8 +159,9 @@ export default function ProfilePage() {
               className="text-blue-500 underline"
               href="https://github.com/haramsong/membermgmt"
               target="_blank"
+              rel="noopener noreferrer"
             >
-              GitHub
+              GitHub 저장소
             </a>
           </li>
           <li>
@@ -146,78 +170,141 @@ export default function ProfilePage() {
               className="text-blue-500 underline"
               href="https://github.com/haramsong/apartment"
               target="_blank"
+              rel="noopener noreferrer"
             >
-              GitHub
+              GitHub 저장소
             </a>
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">🏆 Certificates</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          <span aria-hidden="true">🏆</span> 자격증
+        </h2>
         <ul className="list-disc text-sm pl-6 mt-3 space-y-1">
           <li>SQL개발자(SQLD) (2023.04)</li>
           <li>AWS Cloud Practitioner (2023.12)</li>
           <li>AWS Solutions Architect - Associate (2024.08)</li>
           <li>Terraform Associate (2025.01)</li>
           <li>AWS Solutions Architect - Professional (2025.07)</li>
+          <li>AWS Certified Security - Specialty (2025.07)</li>
         </ul>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-4">🏅 My badges</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          <span aria-hidden="true">🏅</span> 내 뱃지
+        </h2>
         <div className="flex space-x-1">
           <a
-            href="https://www.credly.com/badges/f1a3d9b6-e5d8-46da-ad05-85711fc94d30"
-            title="AWS Certified Solutions Architect – Professional"
+            href="https://www.credly.com/badges/0019121e-58ed-44a0-b0f4-0a7d9ef7ddbc/public_url"
+            aria-label="AWS Certified Security - Specialty"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/53acdae5-d69f-4dda-b650-d02ed7a50dd7/image.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/f1a3d9b6-e5d8-46da-ad05-85711fc94d30/public_url"
+            aria-label="AWS Certified Solutions Architect - Professional"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Image
               src="https://images.credly.com/size/80x80/images/2d84e428-9078-49b6-a804-13c15383d0de/image.png"
-              alt="AWS Certified Solutions Architect – Professional"
+              alt=""
+              aria-hidden="true"
               width="80"
               height="80"
             />
           </a>
           <a
-            href="https://www.credly.com/badges/5f432589-4435-436d-8436-d3e3b83984ef"
-            title="AWS Certified Solutions Architect – Associate"
+            href="https://www.credly.com/badges/5f432589-4435-436d-8436-d3e3b83984ef/public_url"
+            aria-label="AWS Certified Solutions Architect - Associate"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Image
               src="https://images.credly.com/size/80x80/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png"
-              alt="AWS Certified Solutions Architect – Associate"
+              alt=""
+              aria-hidden="true"
               width="80"
               height="80"
             />
           </a>
           <a
-            href="https://www.credly.com/badges/1fa00a4e-e067-40a7-a0ae-400ff37cbc26"
-            title="AWS Certified Cloud Practitioner"
+            href="https://www.credly.com/badges/1fa00a4e-e067-40a7-a0ae-400ff37cbc26/public_url"
+            aria-label="AWS Certified Cloud Practitioner"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Image
               src="https://images.credly.com/size/80x80/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
-              alt="AWS Certified Cloud Practitioner"
+              alt=""
+              aria-hidden="true"
               width="80"
               height="80"
             />
           </a>
           <a
-            href="https://www.credly.com/badges/41367965-e2ed-4166-bfb2-b413bcc8dcc8"
-            title="AWS Knowledge: Architecting (Retired)"
+            href="https://www.credly.com/badges/e2705e8b-1657-40bc-9e7d-d7d5c175eb5b/public_url"
+            aria-label="HashiCorp Certified: Terraform Associate (003)"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/0dc62494-dc94-469a-83af-e35309f27356/blob"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/41367965-e2ed-4166-bfb2-b413bcc8dcc8/public_url"
+            aria-label="AWS Knowledge: Architecting (Retired)"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Image
               src="https://images.credly.com/size/80x80/images/519a6dba-f145-4c1a-85a2-1d173d6898d9/image.png"
-              alt="AWS Knowledge: Architecting (Retired)"
+              alt=""
+              aria-hidden="true"
               width="80"
               height="80"
             />
           </a>
           <a
-            href="https://www.credly.com/badges/e2705e8b-1657-40bc-9e7d-d7d5c175eb5b"
-            title="HashiCorp Certified: Terraform Associate (003)"
+            href="https://www.credly.com/badges/148ea57c-c461-4f76-bf25-a9422c92184e/public_url"
+            aria-label="AWS Knowledge: Networking Core"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Image
-              src="https://images.credly.com/size/80x80/images/ed4be915-68f8-428a-b332-40ded9084ee5/blob"
-              alt="HashiCorp Certified: Terraform Associate (003)"
+              src="https://images.credly.com/size/80x80/images/e75f222b-7f75-4d7b-8a6a-67d68aa59d62/image.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/c354d673-2932-4f1f-a0c7-2d5eb68cde70/public_url"
+            aria-label="AWS Knowledge: Cloud Essentials"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/ec621e2a-c8f0-4459-806c-ae11829d372a/image.png"
+              alt=""
+              aria-hidden="true"
               width="80"
               height="80"
             />

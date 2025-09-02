@@ -74,23 +74,26 @@ export default async function PostPage(props: { params: Params }) {
         </div>
         <div className="justify-between flex">
           <span className="flex items-center mt-5 text-xs text-gray-600 dark:text-gray-400">
-            <FolderIcon className="w-4 h-4 mr-1" />
-            <p>
+            <FolderIcon aria-hidden="true" className="w-4 h-4 mr-1" />
+            <Link
+              href={`/posts/${post.section}/${post.category}`}
+              className="hover:underline"
+            >
               {post.section} {" > "} {post.category}
-            </p>
+            </Link>
           </span>
           <div className="flex flex-row-reverse items-center mt-5 text-xs text-gray-600 dark:text-gray-400">
             <span className="flex items-center">
-              <EyeIcon className="w-4 h-4 mr-1" />
+              <EyeIcon aria-hidden="true" className="w-4 h-4 mr-1" />
               <ViewCounter slug={post.slug} />
             </span>
             <span className="flex items-center mr-3">
-              <ClockIcon className="w-4 h-4 mr-1" />
+              <ClockIcon aria-hidden="true" className="w-4 h-4 mr-1" />
               <p>{post.readingTime} 분</p>
             </span>
             <span className="flex items-center mr-3">
-              <CalendarIcon className="w-4 h-4 mr-1" />
-              <time>{post.date}</time>
+              <CalendarIcon aria-hidden="true" className="w-4 h-4 mr-1" />
+              <time dateTime={post.date}>{post.date}</time>
             </span>
           </div>
         </div>
@@ -105,7 +108,7 @@ export default async function PostPage(props: { params: Params }) {
           </div>
         )}
         <div className="flex items-center my-8 mt-10 text-xs text-gray-500 dark:text-gray-400">
-          <TagIcon className="w-6 h-6 mr-1" />
+          <TagIcon aria-hidden="true" className="w-6 h-6 mr-1" />
           {post.tags.length > 0 && (
             <div className="flex flex-wrap gap-1">
               {post.tags.map((tag: string) => (
@@ -130,7 +133,10 @@ export default async function PostPage(props: { params: Params }) {
                   className="w-60 h-20 border rounded-lg group-hover:border-orange-500 transition-colors
                    flex flex-col justify-center items-center text-center p-2"
                 >
-                  <FaArrowLeft className="w-8 h-8 group-hover:text-orange-500 mb-2" />
+                  <FaArrowLeft
+                    aria-hidden="true"
+                    className="w-8 h-8 group-hover:text-orange-500 mb-2"
+                  />
                   <span className="w-full overflow-hidden whitespace-nowrap group-hover:text-orange-500 truncate text-sm font-medium">
                     {prev.title}
                   </span>
@@ -147,7 +153,10 @@ export default async function PostPage(props: { params: Params }) {
                   className="w-60 h-20 border rounded-lg group-hover:border-orange-500 transition-colors
                    flex flex-col justify-center items-center text-center p-2"
                 >
-                  <FaArrowRight className="w-8 h-8 group-hover:text-orange-500 mb-2" />
+                  <FaArrowRight
+                    aria-hidden="true"
+                    className="w-8 h-8 group-hover:text-orange-500 mb-2"
+                  />
                   <span className="w-full overflow-hidden whitespace-nowrap group-hover:text-orange-500 truncate text-sm font-medium">
                     {next.title}
                   </span>

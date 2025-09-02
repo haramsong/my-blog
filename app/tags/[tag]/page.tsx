@@ -39,7 +39,10 @@ export default async function TagPage(props: { params: Params }) {
 
   return (
     <div className="max-w-3xl w-full space-y-4">
-      <h1 className="p-4 mt-3 mb-10 text-center text-4xl font-extrabold">
+      <h1
+        aria-label={`${removeKebab(tag)} 태그 글 모음`}
+        className="p-4 mt-3 mb-10 text-center text-4xl font-extrabold"
+      >
         #{removeKebab(tag)}
       </h1>
       <InfinitePostList allPosts={posts} />

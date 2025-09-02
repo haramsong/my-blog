@@ -90,7 +90,7 @@ export default async function PostPage(props: { params: Params }) {
             </span>
             <span className="flex items-center mr-3">
               <CalendarIcon className="w-4 h-4 mr-1" />
-              <p>{post.date}</p>
+              <time>{post.date}</time>
             </span>
           </div>
         </div>

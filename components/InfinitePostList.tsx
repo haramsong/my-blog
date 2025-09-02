@@ -38,7 +38,7 @@ export default function InfinitePostList({
   }, [hasMore, visibleCount, setVisibleCount]);
 
   return (
-    <div className="space-y-2">
+    <section className="space-y-2">
       {visiblePosts.map((post) => (
         <PostListItem key={post.slug.join("/")} post={post} />
       ))}
@@ -47,6 +47,6 @@ export default function InfinitePostList({
           불러오는 중...
         </div>
       )}
-    </div>
+    </section>
   );
 }

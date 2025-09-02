@@ -32,12 +32,14 @@ export default function GNBToggleButton() {
             alignItems: "center",
             justifyContent: "center",
           }}
-          aria-label="Toggle GNB"
+          aria-label={collapsed ? "GNB 펼치기" : "GNB 접기"}
+          aria-expanded={!collapsed}
+          aria-controls="gnb-sidebar"
         >
           {collapsed ? (
-            <ChevronRightIcon className="w-4 h-4" />
+            <ChevronRightIcon className="w-4 h-4" aria-hidden="true" />
           ) : (
-            <ChevronLeftIcon className="w-4 h-4" />
+            <ChevronLeftIcon className="w-4 h-4" aria-hidden="true" />
           )}
         </button>
       </div>

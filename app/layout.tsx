@@ -28,7 +28,7 @@ export default function RootLayout({
 
   return (
     <PostProvider value={{ tree, tags }}>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="ko" suppressHydrationWarning>
         <head>
           <Script
             id="theme-change"
@@ -65,12 +65,16 @@ export default function RootLayout({
                   <GNB />
                 </div>
 
-                <div className="fixed top-20 left-[var(--gnb-width)] group-hover:opacity-100 transition-all duration-300 z-30">
+                <div className="fixed top-20 left-[var(--gnb-width)] group-hover:opacity-100 focus-within:opacity-100 transition-all duration-300 z-30">
                   <GNBToggleButton />
                 </div>
               </div>
 
-              <main className="relative flex justify-center max-w-full">
+              <main
+                id="main-content"
+                role="main"
+                className="relative flex justify-center max-w-full"
+              >
                 {children}
               </main>
 

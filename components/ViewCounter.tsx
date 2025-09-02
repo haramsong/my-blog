@@ -28,5 +28,5 @@ export default function ViewCounter({ slug }: { slug: string }) {
     fetchViews();
   }, [slug]);
 
-  return <p>{`${formatViews(views)}`}</p>;
+  return <p aria-label={`조회수 ${views}회`}>{`${formatViews(views)} 회`}</p>;
 }

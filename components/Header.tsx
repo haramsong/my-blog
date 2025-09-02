@@ -78,9 +78,11 @@ export default function Header() {
           <button
             className="hover:scale-110 duration-150 cursor-pointer block md:hidden"
             onClick={() => setIsModalOpen(true)}
-            aria-label="Open GNB Modal"
+            aria-label="GNB 메뉴 열기"
+            aria-haspopup="dialog"
+            aria-controls="gnb-modal"
           >
-            <HiOutlineMenu size={24} />
+            <HiOutlineMenu size={24} aria-hidden="true" />
           </button>
 
           <Link

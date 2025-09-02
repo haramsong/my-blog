@@ -1,6 +1,7 @@
 export default function Footer() {
   return (
     <footer
+      aria-label="블로그 푸터"
       className="relative w-full h-[100px] border-t mt-10 py-6 text-center text-sm text-gray-500 z-40"
       style={{
         backgroundColor: "var(--background)",

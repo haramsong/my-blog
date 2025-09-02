@@ -10,25 +10,29 @@ export default function TagList() {
   const sortedTags = Object.entries(tags).sort((a, b) => b[1] - a[1]);
 
   return (
-    <div className="mt-2">
-      <h2 className="font-semibold mb-2">Tags</h2>
-      <div
+    <section className="mt-2">
+      <h2 className="font-semibold mb-2">태그</h2>
+      <ul
         className="flex flex-wrap gap-2 pl-3 border-l"
         style={{
           borderColor: "var(--border)",
         }}
       >
         {sortedTags.map(([tag, count]) => (
-          <Link
+          <li
             key={tag}
-            href={`/tags/${tag}`}
-            className="inline-flex items-center px-3 py-1 text-sm rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="inline-flex items-center px-3 py-1 text-sm rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
           >
-            #{removeKebab(tag)}
-            <span className="ml-1 text-xs opacity-70">({count})</span>
-          </Link>
+            <Link
+              href={`/tags/${tag}`}
+              aria-label={`${removeKebab(tag)} 태그 보기`}
+            >
+              #{removeKebab(tag)}
+              <span className="ml-1 text-xs opacity-70">({count})</span>
+            </Link>
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 }

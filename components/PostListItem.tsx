@@ -11,7 +11,7 @@ interface PostListItemProps {
 
 export default function PostListItem({ post }: PostListItemProps) {
   return (
-    <div>
+    <article>
       <Link
         href={`/posts/${post.slug.join("/")}`}
         className="relative p-1.5 inset-shadow-sm dark:inset-shadow-gray-200/10 shadow-lg dark:shadow-gray-200/10 flex items-center h-50 overflow-hidden transition hover:opacity-80 hover:bg-gray-300 dark:hover:bg-gray-700"
@@ -36,10 +36,10 @@ export default function PostListItem({ post }: PostListItemProps) {
               ))}
             </span>
             <CalendarIcon className="w-4 h-4 ml-3 mr-1" />
-            <span className="text-xs">{post.date}</span>
+            <time className="text-xs">{post.date}</time>
           </div>
         </div>
       </Link>
-    </div>
+    </article>
   );
 }

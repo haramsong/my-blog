@@ -50,9 +50,7 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
 
   return (
     <aside className="fixed hidden lg:block top-18 right-0 w-[250px] max-h-[calc(100vh-4rem)] z-40 overflow-y-auto p-4 scrollbar-hide">
-      <h2 className="font-semibold mb-2 !text-black dark:!text-white">
-        Table of Contents
-      </h2>
+      <h2 className="font-semibold mb-2 !text-black dark:!text-white">목차</h2>
       <ul
         className="text-sm space-y-1 pl-1.5 border-l text-gray-700 dark:text-gray-300"
         style={{
@@ -60,18 +58,17 @@ export default function PostSidebar({ toc }: { toc: TocItem[] }) {
         }}
       >
         {toc.map((item) => (
-          <li
-            key={item.id}
-            style={{ marginLeft: `${(item.level - 1) * 8}px` }}
-            className={`group cursor-pointer transition duration-300 ${
-              activeId === item.id ? "text-orange-500 font-semibold" : ""
-            }`}
-            onClick={() => handleScrollTo(item.id)}
-          >
-            <span className="inline-block">
+          <li key={item.id} style={{ marginLeft: `${(item.level - 1) * 8}px` }}>
+            <button
+              onClick={() => handleScrollTo(item.id)}
+              aria-current={activeId === item.id ? "true" : undefined}
+              className={`group cursor-pointer transition duration-300 text-left ${
+                activeId === item.id ? "text-orange-500 font-semibold" : ""
+              }`}
+            >
               {item.text}
               <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-[0.05rem] bg-orange-500" />
-            </span>
+            </button>
           </li>
         ))}
       </ul>

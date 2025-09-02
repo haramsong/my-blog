@@ -37,24 +37,34 @@ export default function GNBDirectoryTree() {
           0
         );
         const isOpen = openSections[section];
+        const sectionId = `${section}-section-heading`;
+        const listId = `${section}-section-list`;
 
         return (
-          <div key={section} className="mb-4">
+          <li key={section} className="mb-4">
+            <h3 id={sectionId} className="sr-only">
+              {`${removeKebab(section)} Section`}
+            </h3>
             <button
               onClick={() => toggleSection(section)}
+              aria-expanded={isOpen}
+              aria-controls={listId}
               className="text-m font-bold w-full text-left cursor-pointer flex items-center group/folder"
             >
-              <span
-                className={`transition-transform duration-300 ease-in-out mr-1 ${
+              <span className="sr-only">
+                {isOpen
+                  ? `Collapse ${removeKebab(section)} Section`
+                  : `Expand ${removeKebab(section)} Section`}
+              </span>
+              <GoTriangleRight
+                className={`w-5 h-5 transition-transform duration-300 ${
                   isOpen ? "rotate-90" : ""
                 }`}
-              >
-                <GoTriangleRight className="w-5 h-5" />
-              </span>
+              />
               <span className="mr-1.5 flex items-center">
                 {isOpen ? (
                   <FolderOpenIcon
-                    className="w-5.5 h-5.5 text-yellow-700 dark:text-yellow-500 group-hover/folder:scale-110 transition-transform duration-300"
+                    className="w-5.5 h-5.5 text-orange-700 dark:text-orange-500 group-hover/folder:scale-110 transition-transform duration-300"
                     strokeWidth={2}
                   />
                 ) : (
@@ -70,7 +80,9 @@ export default function GNBDirectoryTree() {
               </span>
             </button>
 
-            <div
+            <ul
+              id={listId}
+              aria-labelledby={sectionId}
               className={`mt-1 pl-2 space-y-1 transition-all duration-300 ease-in-out overflow-hidden ${
                 openSections[section] ? "max-h-[500px]" : "max-h-0"
               }`}
@@ -79,33 +91,32 @@ export default function GNBDirectoryTree() {
                 ([category, count], index, arr) => {
                   const isLast = index === arr.length - 1;
                   return (
-                    <div key={category}>
-                      <div
-                        className={`font-semibold pl-1 rounded cursor-pointer`}
-                      >
-                        <Link
-                          href={`/posts/${section}/${category}`}
-                          className={`flex text-sm items-center font-semibold mb-1 pl-3 rounded transition-colors duration-300 cursor-pointer
+                    <li
+                      key={category}
+                      className={`font-semibold pl-1 rounded cursor-pointer`}
+                    >
+                      <Link
+                        href={`/posts/${section}/${category}`}
+                        className={`flex text-sm items-center font-semibold mb-1 pl-3 rounded transition-colors duration-300 cursor-pointer
                           ${
                             selectedCategory?.toLowerCase() ===
                             category.toLowerCase()
                               ? "bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
                               : "text-gray-700 dark:text-gray-200 hover:dark:bg-gray-700 hover:bg-gray-200"
                           }`}
-                        >
-                          {isLast ? "└── " : "├── "}
-                          {removeKebab(category)}{" "}
-                          <span className="text-xs ml-1.5 font-medium text-gray-600 dark:text-gray-400">
-                            ({count})
-                          </span>
-                        </Link>
-                      </div>
-                    </div>
+                      >
+                        {isLast ? "└── " : "├── "}
+                        {removeKebab(category)}{" "}
+                        <span className="text-xs ml-1.5 font-medium text-gray-600 dark:text-gray-400">
+                          ({count})
+                        </span>
+                      </Link>
+                    </li>
                   );
                 }
               )}
-            </div>
-          </div>
+            </ul>
+          </li>
         );
       })}
     </>

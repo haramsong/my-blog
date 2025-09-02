@@ -65,6 +65,7 @@ export default function Header() {
       )}
 
       <header
+        aria-label="블로그 헤더"
         className={`p-2 text-xl font-bold sticky top-0 z-20 transition-transform duration-300 ${
           showHeader ? "translate-y-0" : "-translate-y-full"
         }`}
@@ -87,6 +88,7 @@ export default function Header() {
 
           <Link
             href="/"
+            aria-label="홈으로 이동"
             className="group text-xl font-bold text-center md:text-left md:flex-none transition duration-300"
           >
             {"Haram's Blog"}

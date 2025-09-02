@@ -29,7 +29,7 @@ export async function generateMetadata({
   return getMetadata({
     title: `#${removeKebab(tag)}`,
     description: `${removeKebab(tag)} 태그에 관한 포스트 목록입니다.`,
-    asPath: `/posts/tags/${tag}`,
+    asPath: `/tags/${tag}`,
   });
 }
 

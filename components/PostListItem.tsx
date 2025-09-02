@@ -14,6 +14,7 @@ export default function PostListItem({ post }: PostListItemProps) {
     <article>
       <Link
         href={`/posts/${post.slug.join("/")}`}
+        aria-label={`${post.title} 게시글 이동`}
         className="relative p-1.5 inset-shadow-sm dark:inset-shadow-gray-200/10 shadow-lg dark:shadow-gray-200/10 flex items-center h-50 overflow-hidden transition hover:opacity-80 hover:bg-gray-300 dark:hover:bg-gray-700"
       >
         <div className="relative z-10 w-full h-full flex flex-col justify-between p-4">
@@ -36,7 +37,9 @@ export default function PostListItem({ post }: PostListItemProps) {
               ))}
             </span>
             <CalendarIcon className="w-4 h-4 ml-3 mr-1" />
-            <time className="text-xs">{post.date}</time>
+            <time dateTime={post.date} className="text-xs">
+              {post.date}
+            </time>
           </div>
         </div>
       </Link>

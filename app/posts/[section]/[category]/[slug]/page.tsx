@@ -77,9 +77,12 @@ export default async function PostPage(props: { params: Params }) {
             <FolderIcon aria-hidden="true" className="w-4 h-4 mr-1" />
             <Link
               href={`/posts/${post.section}/${post.category}`}
+              aria-label={`${removeKebab(post.section)} 섹션의 ${removeKebab(
+                post.category
+              )} 카테고리 보기`}
               className="hover:underline"
             >
-              {post.section} {" > "} {post.category}
+              {`${removeKebab(post.section)} > ${removeKebab(post.category)}`}
             </Link>
           </span>
           <div className="flex flex-row-reverse items-center mt-5 text-xs text-gray-600 dark:text-gray-400">
@@ -89,7 +92,7 @@ export default async function PostPage(props: { params: Params }) {
             </span>
             <span className="flex items-center mr-3">
               <ClockIcon aria-hidden="true" className="w-4 h-4 mr-1" />
-              <p>{post.readingTime} 분</p>
+              <p>{`${post.readingTime} 분`}</p>
             </span>
             <span className="flex items-center mr-3">
               <CalendarIcon aria-hidden="true" className="w-4 h-4 mr-1" />
@@ -115,6 +118,7 @@ export default async function PostPage(props: { params: Params }) {
                 <Link
                   key={tag}
                   href={`/tags/${tag}`}
+                  aria-label={`${tag} 태그 보기`}
                   className="inline-flex items-center px-3 py-1 text-sm rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
                 >
                   #{removeKebab(tag)}
@@ -130,6 +134,7 @@ export default async function PostPage(props: { params: Params }) {
               <div className="group">
                 <Link
                   href={`/posts/${prev.slug.join("/")}`}
+                  aria-label="이전 글 보기"
                   className="w-60 h-20 border rounded-lg group-hover:border-orange-500 transition-colors
                    flex flex-col justify-center items-center text-center p-2"
                 >
@@ -150,6 +155,7 @@ export default async function PostPage(props: { params: Params }) {
               <div className="group">
                 <Link
                   href={`/posts/${next.slug.join("/")}`}
+                  aria-label="다음 글 보기"
                   className="w-60 h-20 border rounded-lg group-hover:border-orange-500 transition-colors
                    flex flex-col justify-center items-center text-center p-2"
                 >

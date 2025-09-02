@@ -43,7 +43,7 @@ export default function GNBDirectoryTree() {
         return (
           <li key={section} className="mb-4">
             <h3 id={sectionId} className="sr-only">
-              {`${removeKebab(section)} Section`}
+              {`${removeKebab(section)} 섹션`}
             </h3>
             <button
               onClick={() => toggleSection(section)}
@@ -53,8 +53,8 @@ export default function GNBDirectoryTree() {
             >
               <span className="sr-only">
                 {isOpen
-                  ? `Collapse ${removeKebab(section)} Section`
-                  : `Expand ${removeKebab(section)} Section`}
+                  ? `${removeKebab(section)} 섹션 접기`
+                  : `${removeKebab(section)} 섹션 펼치기`}
               </span>
               <GoTriangleRight
                 className={`w-5 h-5 transition-transform duration-300 ${
@@ -97,6 +97,9 @@ export default function GNBDirectoryTree() {
                     >
                       <Link
                         href={`/posts/${section}/${category}`}
+                        aria-label={`${removeKebab(
+                          section
+                        )} 섹션의 ${removeKebab(category)} 카테고리 보기`}
                         className={`flex text-sm items-center font-semibold mb-1 pl-3 rounded transition-colors duration-300 cursor-pointer
                           ${
                             selectedCategory?.toLowerCase() ===
@@ -105,10 +108,11 @@ export default function GNBDirectoryTree() {
                               : "text-gray-700 dark:text-gray-200 hover:dark:bg-gray-700 hover:bg-gray-200"
                           }`}
                       >
-                        {isLast ? "└── " : "├── "}
-                        {removeKebab(category)}{" "}
+                        {`${isLast ? "└── " : "├── "} ${removeKebab(
+                          category
+                        )} `}
                         <span className="text-xs ml-1.5 font-medium text-gray-600 dark:text-gray-400">
-                          ({count})
+                          {`(${count})`}
                         </span>
                       </Link>
                     </li>

@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
+import ArrowLeftIcon from "@/public/icons/arrow-left.svg";
+import ArrowRightIcon from "@/public/icons/arrow-right.svg";
+
 import {
   FolderIcon,
   TagIcon,
@@ -138,11 +141,11 @@ export default async function PostPage(props: { params: Params }) {
                   className="w-60 h-20 border rounded-lg group-hover:border-orange-500 transition-colors
                    flex flex-col justify-center items-center text-center p-2"
                 >
-                  <FaArrowLeft
+                  <ArrowLeftIcon
                     aria-hidden="true"
                     className="w-8 h-8 group-hover:text-orange-500 mb-2"
                   />
-                  <span className="w-full overflow-hidden whitespace-nowrap group-hover:text-orange-500 truncate text-sm font-medium">
+                  <span className="w-full overflow-hidden whitespace-nowrap group-hover:text-orange-500 truncate text-sm font-normal">
                     {prev.title}
                   </span>
                 </Link>
@@ -159,11 +162,11 @@ export default async function PostPage(props: { params: Params }) {
                   className="w-60 h-20 border rounded-lg group-hover:border-orange-500 transition-colors
                    flex flex-col justify-center items-center text-center p-2"
                 >
-                  <FaArrowRight
+                  <ArrowRightIcon
                     aria-hidden="true"
                     className="w-8 h-8 group-hover:text-orange-500 mb-2"
                   />
-                  <span className="w-full overflow-hidden whitespace-nowrap group-hover:text-orange-500 truncate text-sm font-medium">
+                  <span className="w-full overflow-hidden whitespace-nowrap group-hover:text-orange-500 truncate text-sm font-normal">
                     {next.title}
                   </span>
                 </Link>

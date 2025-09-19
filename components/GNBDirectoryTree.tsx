@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FolderIcon, FolderOpenIcon } from "@heroicons/react/24/outline";
-import { GoTriangleRight } from "react-icons/go";
 
 import { usePostContext } from "@/context/PostContext";
 import { removeKebab } from "@/lib/stringUtils";
+import TriangleRightIcon from "@/public/icons/triangle-right.svg";
 
 export default function GNBDirectoryTree() {
   const pathname = usePathname();
@@ -56,7 +56,7 @@ export default function GNBDirectoryTree() {
                   ? `${removeKebab(section)} 섹션 접기`
                   : `${removeKebab(section)} 섹션 펼치기`}
               </span>
-              <GoTriangleRight
+              <TriangleRightIcon
                 className={`w-5 h-5 transition-transform duration-300 ${
                   isOpen ? "rotate-90" : ""
                 }`}
@@ -75,7 +75,7 @@ export default function GNBDirectoryTree() {
                 )}
               </span>
               <span className="mr-1.5">{removeKebab(section)}</span>
-              <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
+              <span className="text-xs font-normal text-gray-600 dark:text-gray-400">
                 ({sectionCount})
               </span>
             </button>
@@ -111,7 +111,7 @@ export default function GNBDirectoryTree() {
                         {`${isLast ? "└── " : "├── "} ${removeKebab(
                           category
                         )} `}
-                        <span className="text-xs ml-1.5 font-medium text-gray-600 dark:text-gray-400">
+                        <span className="text-xs ml-1.5 font-normal text-gray-600 dark:text-gray-400">
                           {`(${count})`}
                         </span>
                       </Link>

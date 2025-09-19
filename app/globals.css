@@ -48,13 +48,13 @@
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Pretendard";
   src: url("/fonts/Pretendard-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 @font-face {
   font-family: "Pretendard";
@@ -72,13 +72,13 @@
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Pretendard";
   src: url("/fonts/Pretendard-ExtraBold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 @font-face {
   font-family: "Champignon";
@@ -332,5 +332,5 @@ figcaption[data-rehype-pretty-code-title] + pre {
 .prose check p,
 .prose tip p,
 .prose danger p {
-  @apply text-[0.875rem] font-medium text-gray-700 dark:text-gray-300;
+  @apply text-[0.875rem] font-normal text-gray-700 dark:text-gray-300;
 }

@@ -88,10 +88,10 @@ export default function RootLayout({
           </div>
           <FloatingTopButton />
           <FloatingDevLinkButton />
-          {process.env.NEXT_PUBLIC_GA_ID ? (
-            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-          ) : null}
         </body>
+        {process.env.NEXT_PUBLIC_GA_ID ? (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        ) : null}
       </html>
     </PostProvider>
   );

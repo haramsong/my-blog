@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaGithub,
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaUser,
-} from "react-icons/fa6";
+
+import GithubIcon from "@/public/icons/github.svg";
+import FacebookIcon from "@/public/icons/facebook.svg";
+import InstagramIcon from "@/public/icons/instagram.svg";
+import LinkedinIcon from "@/public/icons/linkedin.svg";
+import UserIcon from "@/public/icons/user.svg";
 
 export default function ProfileSection() {
   return (
@@ -35,7 +34,7 @@ export default function ProfileSection() {
           className="hover:scale-110 duration-150 hover:text-black dark:hover:text-white transition"
           aria-label="내 Github 프로필 방문"
         >
-          <FaGithub size={18} aria-hidden="true" />
+          <GithubIcon className="w-4.5 h-4.5" aria-hidden="true" />
         </a>
         <a
           href="https://www.facebook.com/profile.php?id=100003373457651"
@@ -44,7 +43,7 @@ export default function ProfileSection() {
           className="hover:scale-110 duration-150 hover:text-blue-500 transition"
           aria-label="내 Facebook 프로필 방문"
         >
-          <FaFacebook size={18} aria-hidden="true" />
+          <FacebookIcon className="w-4.5 h-4.5" aria-hidden="true" />
         </a>
         <a
           href="https://www.instagram.com/s0ngh0tr4m?igsh=M2oxdjlqNm54dmx4&utm_source=qr"
@@ -53,7 +52,7 @@ export default function ProfileSection() {
           className="hover:scale-110 duration-150 hover:text-pink-500 transition"
           aria-label="내 Instagram 프로필 방문"
         >
-          <FaInstagram size={18} aria-hidden="true" />
+          <InstagramIcon className="w-4.5 h-4.5" aria-hidden="true" />
         </a>
         <a
           href="https://linkedin.com/in/haramsong"
@@ -62,14 +61,14 @@ export default function ProfileSection() {
           className="hover:scale-110 duration-150 hover:text-blue-600 transition"
           aria-label="내 LinkedIn 프로필 방문"
         >
-          <FaLinkedin size={18} aria-hidden="true" />
+          <LinkedinIcon className="w-4.5 h-4.5" aria-hidden="true" />
         </a>
         <Link
           href="/profile"
           className="hover:scale-110 duration-150 hover:text-gray-500 dark:hover:text-gray-300 transition"
           aria-label="내 프로필 페이지로 이동"
         >
-          <FaUser size={18} aria-hidden="true" />
+          <UserIcon className="w-4.5 h-4.5" aria-hidden="true" />
         </Link>
       </div>
     </section>

@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { HiOutlineMenu } from "react-icons/hi";
 
 import ProfileSection from "@/components/ProfileSection";
 import GNBDirectoryTree from "@/components/GNBDirectoryTree";
+import OutlineMenuIcon from "@/public/icons/outline-menu.svg";
 
 interface GNBModalProps {
   onClose: () => void;
@@ -52,7 +52,7 @@ export default function GNBModal({ onClose }: GNBModalProps) {
             }}
             aria-label="GNB 메뉴 닫기"
           >
-            <HiOutlineMenu size={24} aria-hidden="true" />
+            <OutlineMenuIcon className="w-6 h-6" aria-hidden="true" />
           </button>
         </div>
 

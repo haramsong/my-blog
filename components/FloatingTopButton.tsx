@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FaArrowUp } from "react-icons/fa";
+
+import ArrowUpIcon from "@/public/icons/arrow-up.svg";
 
 export default function FloatingTopButton() {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +22,6 @@ export default function FloatingTopButton() {
 
   return (
     <button
-      role="navigation"
       onClick={handleClick}
       aria-label="맨 위로 이동"
       className={`
@@ -30,7 +30,7 @@ export default function FloatingTopButton() {
         ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}
       `}
     >
-      <FaArrowUp size={20} aria-hidden="true" />
+      <ArrowUpIcon className="w-5 h-5" aria-hidden="true" />
     </button>
   );
 }

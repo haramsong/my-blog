@@ -12,7 +12,7 @@ export default function HomePage() {
     >
       <h1
         id="post-list-heading"
-        className="p-4 mt-3 mb-10 text-center text-4xl font-extrabold"
+        className="p-4 mt-3 mb-10 text-center text-4xl font-bold"
       >
         전체 글
       </h1>

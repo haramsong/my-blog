@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HiOutlineMenu } from "react-icons/hi";
 
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import GNBModal from "@/components/GNBModal";
+import OutlineMenuIcon from "@/public/icons/outline-menu.svg";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -83,7 +83,7 @@ export default function Header() {
             aria-haspopup="dialog"
             aria-controls="gnb-modal"
           >
-            <HiOutlineMenu size={24} aria-hidden="true" />
+            <OutlineMenuIcon className="w-6 h-6" aria-hidden="true" />
           </button>
 
           <Link

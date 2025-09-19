@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Metadata } from "next";
 import Script from "next/script";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 import Header from "@/components/Header";
 import GNB from "@/components/GNB";
@@ -30,7 +29,24 @@ export default function RootLayout({
     <PostProvider value={{ tree, tags }}>
       <html lang="ko" suppressHydrationWarning>
         <head>
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
+          <Script
+            async
+            strategy="beforeInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+          />
+          <Script
+            id="google-analytics"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+                `,
+            }}
+          />
           <Script
             id="theme-change"
             strategy="beforeInteractive"

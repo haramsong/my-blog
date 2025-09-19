@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Metadata } from "next";
 import Script from "next/script";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 import Header from "@/components/Header";
 import GNB from "@/components/GNB";
@@ -30,6 +30,7 @@ export default function RootLayout({
     <PostProvider value={{ tree, tags }}>
       <html lang="ko" suppressHydrationWarning>
         <head>
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
           <Script
             id="theme-change"
             strategy="beforeInteractive"
@@ -89,9 +90,6 @@ export default function RootLayout({
           <FloatingTopButton />
           <FloatingDevLinkButton />
         </body>
-        {process.env.NEXT_PUBLIC_GA_ID ? (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-        ) : null}
       </html>
     </PostProvider>
   );

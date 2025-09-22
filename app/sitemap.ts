@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapFromPosts: MetadataRoute.Sitemap = postMeta.map((post) => {
     return {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/posts/${post.slug.join("/")}`,
-      lastModified: new Date(post.date),
+      lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.8,
     };

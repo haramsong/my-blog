@@ -76,6 +76,6 @@ undefined는 브라우저에서 전역 스코프에 정의되어 있습니다. w
 
 ## 참고 자료
 
-- [MDN - 예약어](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar## reserved_keywords)
+- [MDN - 예약어](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar##reserved_keywords)
 - [MDN - 전역 객체](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
 - [MDN - undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)

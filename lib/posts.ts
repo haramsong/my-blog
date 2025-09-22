@@ -7,6 +7,7 @@ import remarkRehype from "remark-rehype";
 import remarkDirective from "remark-directive";
 import remarkDirectiveRehype from "remark-directive-rehype";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeExternalLinks from "rehype-external-links";
 import rehypeStringify from "rehype-stringify";
 import rehypeSlug from "rehype-slug";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
@@ -170,6 +171,10 @@ export async function getPostBySlugArray(slugArr: string[]) {
     .use(remarkDirective)
     .use(remarkDirectiveRehype)
     .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeExternalLinks, {
+      target: "_blank",
+      rel: ["noopener", "noreferrer"],
+    })
     .use(rehypeSlug)
     .use(rehypePrettyCode, {
       bypassInlineCode: false,
@@ -225,4 +230,22 @@ export async function getPrevNextPost(
   const next = sortedPosts[currentIndex + 1] || null;
 
   return { prev, next };
+}
+
+export function getCurrentPost(slugArr: string[]) {
+  const fullPath = path.join(postsDir, ...slugArr) + ".md";
+
+  if (!fs.existsSync(fullPath)) return null;
+
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const { data } = matter(fileContents);
+
+  const [section = "", category = "", slug = ""] = slugArr;
+
+  return {
+    slug: slugArr.join("/"),
+    title: data.title ?? slug,
+    section,
+    category,
+  };
 }

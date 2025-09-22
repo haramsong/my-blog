@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import HydrateHeader from "@/components/HydrateHeader";
 import InfinitePostList from "@/components/InfinitePostList";
 import { getPostList } from "@/lib/posts";
 import { generateCategoryPageParams } from "@/lib/generateStaticParams";
@@ -45,6 +46,10 @@ export default async function CategoryPage(props: { params: Params }) {
 
   return (
     <div className="max-w-3xl w-full space-y-4">
+      <HydrateHeader
+        title={`${removeKebab(section)} > ${removeKebab(category)}`}
+        type="category"
+      />
       <h1 className="p-4 mt-3 mb-10 text-center text-4xl font-bold">
         {`${removeKebab(section)} > ${removeKebab(category)}`}
       </h1>

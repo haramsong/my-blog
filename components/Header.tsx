@@ -7,12 +7,18 @@ import { usePathname } from "next/navigation";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import GNBModal from "@/components/GNBModal";
 import OutlineMenuIcon from "@/public/icons/outline-menu.svg";
+import { removeKebab } from "@/lib/stringUtils";
+import { useHeaderStore } from "@/store/headerStore";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
+  const [showTitle, setShowTitle] = useState(false);
+
   const pathname = usePathname();
   const isPostPage = /^\/posts\/[^/]+\/[^/]+\/[^/]+\/?$/.test(pathname);
+
+  const { title, section, category, type } = useHeaderStore();
 
   useEffect(() => {
     if (!isPostPage) return;
@@ -46,6 +52,19 @@ export default function Header() {
 
     window.addEventListener("scroll", handleHeaderVisibility);
     return () => window.removeEventListener("scroll", handleHeaderVisibility);
+  }, []);
+
+  useEffect(() => {
+    const handleTitleVisibility = () => {
+      const currentY = window.scrollY;
+      setShowTitle(currentY > 200);
+    };
+
+    window.addEventListener("scroll", handleTitleVisibility);
+    return () => {
+      setShowTitle(false);
+      window.removeEventListener("scroll", handleTitleVisibility);
+    };
   }, []);
 
   useEffect(() => {
@@ -95,8 +114,31 @@ export default function Header() {
             <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-orange-500" />
           </Link>
 
-          {/* <div></div> */}
-
+          <div
+            className={`hidden md:block transition-opacity duration-300 ${
+              showTitle ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <h2 className="px-6 max-w-[60vw] truncate whitespace-nowrap text-ellipsis text-base font-semibold">
+              {type === "detail" && (
+                <>
+                  <Link
+                    href={`/posts/${section ? `${section}` : ""}/${
+                      category ? `${category}` : ""
+                    }`}
+                    className="hover:underline hover:text-orange-500 transition"
+                    aria-label={`${category} 카테고리로 이동`}
+                  >
+                    [{removeKebab(category ? `${category}` : "")}]
+                  </Link>{" "}
+                  {title}
+                </>
+              )}
+              {type === "category" && <>{title}</>}
+              {type === "tag" && <>#{title}</>}
+              {type === "default" && <>{title}</>}
+            </h2>
+          </div>
           <ThemeToggleButton />
         </div>
       </header>

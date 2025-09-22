@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 
+import HydrateHeader from "@/components/HydrateHeader";
 import InfinitePostList from "@/components/InfinitePostList";
 import { getPostsByTag } from "@/lib/posts";
 import { getMetadata } from "@/lib/getMetaData";
@@ -39,6 +40,7 @@ export default async function TagPage(props: { params: Params }) {
 
   return (
     <div className="max-w-3xl w-full space-y-4">
+      <HydrateHeader title={`${removeKebab(tag)}`} type="tag" />
       <h1
         aria-label={`${removeKebab(tag)} 태그 글 모음`}
         className="p-4 mt-3 mb-10 text-center text-4xl font-bold"

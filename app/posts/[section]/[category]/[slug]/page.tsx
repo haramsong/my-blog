@@ -14,6 +14,7 @@ import {
   ClockIcon,
 } from "@heroicons/react/24/outline";
 
+import HydrateHeader from "@/components/HydrateHeader";
 import Giscus from "@/components/Giscus";
 import PostSidebar from "@/components/PostSidebar";
 import ViewCounter from "@/components/ViewCounter";
@@ -65,6 +66,12 @@ export default async function PostPage(props: { params: Params }) {
 
   return (
     <div className="relative flex">
+      <HydrateHeader
+        title={post?.title ?? ""}
+        section={post.section}
+        category={post.category}
+        type="detail"
+      />
       <article className="px-5 max-w-3xl">
         <div className="relative flex items-center h-55 overflow-hidden">
           <Image

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 
+import HydrateHeader from "@/components/HydrateHeader";
 import { getMetadata } from "@/lib/getMetaData";
 
 export const dynamic = "force-static";
@@ -16,6 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function ProfilePage() {
   return (
     <div className="p-6 max-w-3xl w-full mx-auto space-y-10">
+      <HydrateHeader title="소개" />
       <section>
         <h1 className="text-3xl font-bold mb-4">소개</h1>
         <p className="text-md mb-1">

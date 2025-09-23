@@ -110,7 +110,7 @@ export default function Header() {
             aria-label="홈으로 이동"
             className="group text-xl font-bold text-center md:text-left md:flex-none transition duration-300"
           >
-            {"Haram's Blog"}
+            {"Haram's TECH BLOG"}
             <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-orange-500" />
           </Link>
 

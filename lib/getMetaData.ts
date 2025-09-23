@@ -16,7 +16,7 @@ export const getMetadata = (metadataProps?: MetadataProps) => {
   const normalizePath = (path?: string) =>
     path ? (path.startsWith("/") ? path : `/${path}`) : "";
 
-  const TITLE = title ? `${title} | Haram's Blog` : META.title;
+  const TITLE = title ? `${title} | Haram's TECH BLOG` : META.title;
   const DESCRIPTION = description || META.description;
   const PAGE_URL = asPath ? `${META.url}${normalizePath(asPath)}` : META.url;
   const OG_IMAGE = `${META.url}${ogImage || META.ogImage}`;

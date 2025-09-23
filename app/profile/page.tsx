@@ -198,7 +198,7 @@ export default function ProfilePage() {
         <h2 className="text-2xl font-semibold mb-4">
           <span aria-hidden="true">🏅</span> 내 뱃지
         </h2>
-        <div className="flex space-x-1">
+        <div className="flex flex-wrap gap-2">
           <a
             href="https://www.credly.com/badges/0019121e-58ed-44a0-b0f4-0a7d9ef7ddbc/public_url"
             aria-label="AWS Certified Security - Specialty"
@@ -290,7 +290,7 @@ export default function ProfilePage() {
             rel="noopener noreferrer"
           >
             <Image
-              src="https://images.credly.com/size/80x80/images/e75f222b-7f75-4d7b-8a6a-67d68aa59d62/image.png"
+              src="https://images.credly.com/size/80x80/images/e1c202b1-bca1-469a-9149-127b4fe891d7/blob"
               alt=""
               aria-hidden="true"
               width="80"
@@ -304,7 +304,63 @@ export default function ProfilePage() {
             rel="noopener noreferrer"
           >
             <Image
-              src="https://images.credly.com/size/80x80/images/ec621e2a-c8f0-4459-806c-ae11829d372a/image.png"
+              src="https://images.credly.com/size/80x80/images/7cf036b0-c609-4378-a7be-9969e1dea7ab/blob"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/60020a0d-558b-4b5b-9913-588b42bb0774/public_url"
+            aria-label="AWS Knowledge: Compute - Training Badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/c2d44375-6567-495a-b868-d17828c62872/blob"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/35d1eaf5-f419-4420-a99e-9fe7e9fc3082/public_url"
+            aria-label="AWS Knowledge: Security Champion - Training Badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/478cdcb9-9b92-4893-9c95-617ad0f28257/blob"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/8eec8f3c-0699-4bbe-ac21-ffccbb08236d/public_url"
+            aria-label="AWS Knowledge: Serverless - Training Badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/0c20a5b7-b4e9-4c2f-8b68-342e00a85e05/blob"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/73e98ef2-51f6-4a8c-a9fa-d6d8d01a7683/public_url"
+            aria-label="AWS Knowledge: Amazon Q Developer Fundamentals - Training Badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/7c51f63c-14ef-4df9-a340-14938d05963a/blob"
               alt=""
               aria-hidden="true"
               width="80"

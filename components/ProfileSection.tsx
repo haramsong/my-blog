@@ -6,6 +6,7 @@ import FacebookIcon from "@/public/icons/facebook.svg";
 import InstagramIcon from "@/public/icons/instagram.svg";
 import LinkedinIcon from "@/public/icons/linkedin.svg";
 import UserIcon from "@/public/icons/user.svg";
+import { getWebpSrc } from "@/lib/getWebpSrc";
 
 export default function ProfileSection() {
   return (
@@ -18,7 +19,7 @@ export default function ProfileSection() {
       </h2>
       <div className="w-25 h-25 relative">
         <Image
-          src="/images/profile.jpg"
+          src={getWebpSrc("/images/profile.jpg")}
           alt="Frontend 개발자 송하람 프로필 사진"
           width={100}
           height={100}

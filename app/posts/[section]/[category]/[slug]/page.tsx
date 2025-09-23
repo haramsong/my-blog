@@ -20,8 +20,9 @@ import PostSidebar from "@/components/PostSidebar";
 import ViewCounter from "@/components/ViewCounter";
 import { getPostBySlugArray, getPrevNextPost } from "@/lib/posts";
 import { generatePostPageParams } from "@/lib/generateStaticParams";
-import { removeKebab } from "@/lib/stringUtils";
 import { getMetadata } from "@/lib/getMetaData";
+import { getWebpSrc } from "@/lib/getWebpSrc";
+import { removeKebab } from "@/lib/stringUtils";
 
 interface PostPageProps {
   params: {
@@ -75,9 +76,10 @@ export default async function PostPage(props: { params: Params }) {
       <article className="px-5 max-w-3xl">
         <div className="relative flex items-center h-55 overflow-hidden">
           <Image
-            src={post.thumbnail}
+            src={getWebpSrc(post.thumbnail)}
             alt={post.title}
             fill
+            priority
             className="absolute inset-0 w-full h-full object-cover object-center opacity-10"
           />
           <h1 className="text-4xl p-6 font-bold">{post.title}</h1>

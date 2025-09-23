@@ -18,6 +18,8 @@ import readingTime from "reading-time";
 import type { Heading } from "mdast";
 
 import rehypeImgToFigure from "@/plugin/rehype-img-to-figure";
+import rehypeLazyLoad from "@/plugin/rehype-img-lazy-load";
+import rehypeWebp from "@/plugin/rehype-img-to-webp";
 
 export interface PostMeta {
   title: string;
@@ -187,6 +189,8 @@ export async function getPostBySlugArray(slugArr: string[]) {
     })
     .use(rehypeStringify, { allowDangerousHtml: true })
     .use(rehypeImgToFigure)
+    .use(rehypeLazyLoad)
+    .use(rehypeWebp)
     .process(content);
 
   const contentHtml = processedContent.toString();

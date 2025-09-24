@@ -28,8 +28,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-pretendard), system-ui, sans-serif;
+  --font-mono: var(--font-firacode), monospace;
 }
 
 @layer utilities {
@@ -39,75 +39,218 @@
     }
     scrollbar-width: none;
   }
-}
+  .prose {
+    padding-bottom: 5rem;
+    border-bottom: 1px solid var(--border);
+  }
 
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+  .prose h1 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
 
-/* @font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-} */
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    scroll-margin-top: 4rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
 
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
+  .prose p {
+    margin: 1px 0;
+    font-size: 1rem;
+    font-weight: 400;
+  }
 
-@font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+  pre code {
+    counter-reset: line;
+    padding-left: 2em;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    overflow-x: auto;
+  }
 
-/* @font-face {
-  font-family: "Pretendard";
-  src: url("/fonts/Pretendard-ExtraBold.woff2") format("woff2");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-} */
+  pre code span[data-line] {
+    display: block;
+    padding-left: 1em;
+    position: relative;
+  }
 
-@font-face {
-  font-family: "Champignon";
-  src: url("/fonts/Champignon.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
+  /* 라인 번호 스타일 */
+  pre code span[data-line]::before {
+    content: counter(line);
+    counter-increment: line;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #888;
+    padding-right: 0.5em;
+    font-size: 0.9em;
+    text-align: right;
+    width: 2.5em;
+    line-height: 1.5em;
+    background-color: transparent;
+    margin-left: -3em;
+    padding-top: 0.2em;
+  }
 
-@font-face {
-  font-family: "FiraCode";
-  src: url("/fonts/FiraCode-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+  pre code span[data-highlighted-line] {
+    @apply border-l-2 border-y-0
+  border-blue-500 bg-slate-700 pl-[calc(1rem-2px)];
+  }
+
+  pre code[data-line-numbers-max-digits="2"] > span[data-line]::before {
+    width: 1.25rem;
+  }
+  pre code[data-line-numbers-max-digits="3"] > span[data-line]::before {
+    width: 1.75rem;
+  }
+
+  pre code button.rehype-pretty-copy {
+    @apply w-7 h-7;
+    right: 1px;
+    padding: 0;
+    display: flex;
+    margin-top: 2px;
+    margin-right: 8px;
+    position: absolute;
+    border-radius: 25%;
+  }
+
+  pre code button.rehype-pretty-copy .ready {
+    @apply cursor-pointer;
+    background: url("/icons/copy.svg") no-repeat center;
+  }
+
+  .prose figure img {
+    @apply mx-auto block;
+  }
+
+  .prose figure figcaption {
+    @apply text-center text-sm text-gray-700 dark:text-gray-300;
+  }
+
+  figcaption[data-rehype-pretty-code-title] {
+    @apply px-5 py-3 font-mono text-sm font-bold bg-[#22272e] border-b-1 border-gray-600 rounded-t-lg text-gray-200;
+  }
+  figcaption[data-rehype-pretty-code-title] + pre {
+    @apply mt-0 rounded-t-none;
+  }
+
+  .prose info,
+  .prose warn,
+  .prose check,
+  .prose tip,
+  .prose danger {
+    margin: 1rem 0;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .prose info {
+    background-color: #bbdefb;
+    border-left: 6px solid #2196f3;
+  }
+
+  .prose warn {
+    background-color: #ffe0b2;
+    border-left: 6px solid #ff9800;
+  }
+
+  .prose check {
+    background-color: #dcedc8;
+    border-left: 6px solid #4caf50;
+  }
+
+  .prose tip {
+    background-color: #c8e6c9;
+    border-left: 6px solid #8bc34a;
+  }
+
+  .prose danger {
+    background-color: #ffcdd2;
+    border-left: 6px solid #f44336;
+  }
+
+  /* Dark mode (Tailwind 기준: .dark 부모 클래스 있을 때) */
+  .dark .prose info {
+    background-color: #1c2b42;
+    border-left: 6px solid #1976d2;
+  }
+
+  .dark .prose warn {
+    background-color: #4a3725;
+    border-left: 6px solid #fb8c00;
+  }
+
+  .dark .prose check {
+    background-color: #2e3c29;
+    border-left: 6px solid #388e3c;
+  }
+
+  .dark .prose tip {
+    background-color: #2d3a2d;
+    border-left: 6px solid #689f38;
+  }
+
+  .dark .prose danger {
+    background-color: #442626;
+    border-left: 6px solid #d32f2f;
+  }
+
+  .prose info::before {
+    content: "ℹ️";
+    margin-right: 10px;
+  }
+
+  .prose warn::before {
+    content: "⚠️";
+    margin-right: 10px;
+  }
+
+  .prose check::before {
+    content: "✅";
+    margin-right: 10px;
+  }
+
+  .prose tip::before {
+    content: "💡";
+    margin-right: 10px;
+  }
+
+  .prose danger::before {
+    content: "❌";
+    margin-right: 10px;
+  }
+
+  .prose info p,
+  .prose warn p,
+  .prose check p,
+  .prose tip p,
+  .prose danger p {
+    @apply text-[0.875rem] font-normal text-gray-700 dark:text-gray-300;
+  }
 }
 
 html,
 body {
   height: auto;
-  /* overflow-x: hidden; */
   overscroll-behavior: none; /* 바운스 방지 */
 }
 
 body {
+  font-family: var(--font-sans);
   background: var(--background);
   color: var(--foreground);
   transition: background-color 0.3s, color 0.3s;
-  font-family: "Pretendard", system-ui, sans-serif !important;
 }
 
 body.gnb-collapsed {
@@ -134,204 +277,4 @@ aside::-webkit-scrollbar-thumb {
   width: 100%;
   z-index: 50;
   transform: translateZ(0); /* iOS에서 layout shift 방지 */
-}
-
-.prose {
-  padding-bottom: 5rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.prose h1 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-.prose h1,
-.prose h2,
-.prose h3,
-.prose h4 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  scroll-margin-top: 4rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.prose p {
-  margin: 1px 0;
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-pre code {
-  counter-reset: line;
-  padding-left: 2em;
-  font-family: "FiraCode", system-ui, sans-serif;
-  font-weight: 500;
-  overflow-x: auto;
-}
-
-pre code span[data-line] {
-  display: block;
-  padding-left: 1em;
-  position: relative;
-}
-
-/* 라인 번호 스타일 */
-pre code span[data-line]::before {
-  content: counter(line);
-  counter-increment: line;
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #888;
-  padding-right: 0.5em;
-  font-size: 0.9em;
-  text-align: right;
-  width: 2.5em;
-  line-height: 1.5em;
-  background-color: transparent;
-  margin-left: -3em;
-  padding-top: 0.2em;
-}
-
-pre code span[data-highlighted-line] {
-  @apply border-l-2 border-y-0
-  border-blue-500 bg-slate-700 pl-[calc(1rem-2px)];
-}
-
-pre code[data-line-numbers-max-digits="2"] > span[data-line]::before {
-  width: 1.25rem;
-}
-pre code[data-line-numbers-max-digits="3"] > span[data-line]::before {
-  width: 1.75rem;
-}
-
-pre code button.rehype-pretty-copy {
-  @apply w-7 h-7;
-  right: 1px;
-  padding: 0;
-  display: flex;
-  margin-top: 2px;
-  margin-right: 8px;
-  position: absolute;
-  border-radius: 25%;
-}
-
-pre code button.rehype-pretty-copy .ready {
-  @apply cursor-pointer;
-  background: url("/icons/copy.svg") no-repeat center;
-}
-
-.prose figure img {
-  @apply mx-auto block;
-}
-
-.prose figure figcaption {
-  @apply text-center text-sm text-gray-700 dark:text-gray-300;
-}
-
-figcaption[data-rehype-pretty-code-title] {
-  @apply px-5 py-3 font-mono text-sm font-bold bg-[#22272e] border-b-1 border-gray-600 rounded-t-lg text-gray-200;
-}
-figcaption[data-rehype-pretty-code-title] + pre {
-  @apply mt-0 rounded-t-none;
-}
-
-.prose info,
-.prose warn,
-.prose check,
-.prose tip,
-.prose danger {
-  margin: 1rem 0;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.prose info {
-  background-color: #bbdefb;
-  border-left: 6px solid #2196f3;
-}
-
-.prose warn {
-  background-color: #ffe0b2;
-  border-left: 6px solid #ff9800;
-}
-
-.prose check {
-  background-color: #dcedc8;
-  border-left: 6px solid #4caf50;
-}
-
-.prose tip {
-  background-color: #c8e6c9;
-  border-left: 6px solid #8bc34a;
-}
-
-.prose danger {
-  background-color: #ffcdd2;
-  border-left: 6px solid #f44336;
-}
-
-/* Dark mode (Tailwind 기준: .dark 부모 클래스 있을 때) */
-.dark .prose info {
-  background-color: #1c2b42;
-  border-left: 6px solid #1976d2;
-}
-
-.dark .prose warn {
-  background-color: #4a3725;
-  border-left: 6px solid #fb8c00;
-}
-
-.dark .prose check {
-  background-color: #2e3c29;
-  border-left: 6px solid #388e3c;
-}
-
-.dark .prose tip {
-  background-color: #2d3a2d;
-  border-left: 6px solid #689f38;
-}
-
-.dark .prose danger {
-  background-color: #442626;
-  border-left: 6px solid #d32f2f;
-}
-
-.prose info::before {
-  content: "ℹ️";
-  margin-right: 10px;
-}
-
-.prose warn::before {
-  content: "⚠️";
-  margin-right: 10px;
-}
-
-.prose check::before {
-  content: "✅";
-  margin-right: 10px;
-}
-
-.prose tip::before {
-  content: "💡";
-  margin-right: 10px;
-}
-
-.prose danger::before {
-  content: "❌";
-  margin-right: 10px;
-}
-
-.prose info p,
-.prose warn p,
-.prose check p,
-.prose tip p,
-.prose danger p {
-  @apply text-[0.875rem] font-normal text-gray-700 dark:text-gray-300;
 }

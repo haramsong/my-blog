@@ -12,6 +12,7 @@ import FloatingDevLinkButton from "@/components/FloatingDevLinkButton";
 import { PostProvider } from "@/context/PostContext";
 import { getMetadata } from "@/lib/getMetaData";
 import { getGNBTree, getTagsWithCount } from "@/lib/posts";
+import { pretendard, champignon, firaCode } from "@/lib/useFonts";
 
 export async function generateMetadata(): Promise<Metadata> {
   return getMetadata();
@@ -27,7 +28,11 @@ export default function RootLayout({
 
   return (
     <PostProvider value={{ tree, tags }}>
-      <html lang="ko" suppressHydrationWarning>
+      <html
+        lang="ko"
+        className={`${pretendard.variable} ${champignon.variable} ${firaCode.variable}`}
+        suppressHydrationWarning
+      >
         <head>
           <Script
             async

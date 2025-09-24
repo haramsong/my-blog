@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <section
       aria-labelledby="post-list-heading"
-      className="max-w-3xl w-full space-y-4"
+      className="max-w-3xl mx-auto w-full space-y-4"
     >
       <HydrateHeader title="전체 글" />
       <h1

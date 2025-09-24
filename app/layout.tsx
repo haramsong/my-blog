@@ -95,7 +95,7 @@ export default function RootLayout({
               <main
                 id="main-content"
                 role="main"
-                className="relative flex justify-center max-w-full"
+                className="relative flex-1 justify-center max-w-full"
               >
                 {children}
               </main>

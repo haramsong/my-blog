@@ -39,7 +39,7 @@ export default async function TagPage(props: { params: Params }) {
   const posts = getPostsByTag(tag);
 
   return (
-    <div className="max-w-3xl w-full space-y-4">
+    <div className="max-w-3xl mx-auto w-full space-y-4">
       <HydrateHeader title={`${removeKebab(tag)}`} type="tag" />
       <h1
         aria-label={`${removeKebab(tag)} 태그 글 모음`}

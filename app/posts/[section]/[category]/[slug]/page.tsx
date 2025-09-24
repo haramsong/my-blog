@@ -66,14 +66,14 @@ export default async function PostPage(props: { params: Params }) {
   if (!post) return notFound();
 
   return (
-    <div className="relative flex">
+    <div className="relative flex-1">
       <HydrateHeader
         title={post?.title ?? ""}
         section={post.section}
         category={post.category}
         type="detail"
       />
-      <article className="px-5 max-w-3xl">
+      <article className="px-5 mx-auto max-w-3xl">
         <div className="relative flex items-center h-55 overflow-hidden">
           <Image
             src={getWebpSrc(post.thumbnail)}

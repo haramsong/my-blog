@@ -45,7 +45,7 @@ export default async function CategoryPage(props: { params: Params }) {
   if (!posts || posts.length === 0) return notFound();
 
   return (
-    <div className="max-w-3xl w-full space-y-4">
+    <div className="max-w-3xl mx-auto w-full space-y-4">
       <HydrateHeader
         title={`${removeKebab(section)} > ${removeKebab(category)}`}
         type="category"

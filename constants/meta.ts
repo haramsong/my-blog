@@ -1,8 +1,8 @@
 export const META = {
-  title: "Frontend 개발자 Haram의 개발 블로그",
+  title: "비전공자 프론트엔드 개발자 하람의 개발 블로그",
   siteName: "Haram's 개발 블로그",
   description:
-    "Frontend 개발자 하람의 블로그입니다. Frontend 뿐만 아니라, Backend, DevOps, Infra 관련 포스팅을 주로 합니다.",
+    "비전공자 프론트엔드 개발자 하람의 블로그입니다. Frontend 뿐만 아니라, Backend, DevOps, Infra 관련 포스팅을 주로 합니다.",
   keyword: [
     "Frontend",
     "Backend",
@@ -18,6 +18,14 @@ export const META = {
     "Jenkins",
     "Github",
     "Developer",
+    "프론트엔드",
+    "백엔드",
+    "인프라",
+    "테라폼",
+    "젠킨스",
+    "개발 블로그",
+    "비전공자",
+    "개발자",
   ] as string[],
   url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
   ogImage: "/opengraph-image.png",

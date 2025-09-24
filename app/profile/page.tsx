@@ -9,14 +9,14 @@ export const dynamic = "force-static";
 export async function generateMetadata(): Promise<Metadata> {
   return getMetadata({
     title: "소개",
-    description: "안녕하세요! 개발자 송하람입니다.",
+    description: "안녕하세요! 비전공자 프론트엔드 개발자 송하람입니다.",
     asPath: "/posts/profile",
   });
 }
 
 export default function ProfilePage() {
   return (
-    <div className="p-6 max-w-3xl w-full mx-auto space-y-10">
+    <div className="p-6 max-w-4xl w-full mx-auto space-y-10">
       <HydrateHeader title="소개" />
       <section>
         <h1 className="text-3xl font-bold mb-4">소개</h1>

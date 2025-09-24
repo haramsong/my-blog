@@ -73,7 +73,7 @@ export default async function PostPage(props: { params: Params }) {
         category={post.category}
         type="detail"
       />
-      <article className="px-5 mx-auto max-w-3xl">
+      <article className="px-5 mx-auto max-w-4xl">
         <div className="relative flex items-center h-55 overflow-hidden">
           <Image
             src={getWebpSrc(post.thumbnail)}

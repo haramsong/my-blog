@@ -16,6 +16,7 @@ export const pretendard = localFont({
 
 export const champignon = localFont({
   src: "../public/fonts/Champignon.woff2",
+  display: "swap",
   weight: "400",
   style: "normal",
   variable: "--font-champignon",
@@ -23,6 +24,7 @@ export const champignon = localFont({
 
 export const firaCode = localFont({
   src: "../public/fonts/FiraCode-Medium.woff2",
+  display: "swap",
   weight: "500",
   style: "normal",
   variable: "--font-firacode",

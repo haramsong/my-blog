@@ -29,6 +29,9 @@ export const getMetadata = (metadataProps?: MetadataProps) => {
     },
     title: TITLE,
     description: DESCRIPTION,
+    applicationName: "Haram's TECH BLOG",
+    creator: "송하람",
+    publisher: "haramsong",
     keywords: KEYWORDS,
     openGraph: {
       title: TITLE,

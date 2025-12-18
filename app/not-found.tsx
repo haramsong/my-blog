@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="flex flex-col items-center justify-center text-center px-4">
+    <section className="flex flex-col items-center w-full h-full justify-center text-center px-4">
       <h1 className="text-4xl font-bold mb-4 text-gray-800 dark:text-gray-100">
         페이지를 찾을 수 없어요
       </h1>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import GNBModal from "@/components/GNBModal";
 import OutlineMenuIcon from "@/public/icons/outline-menu.svg";
@@ -19,23 +20,6 @@ export default function Header() {
   const isPostPage = /^\/posts\/[^/]+\/[^/]+\/[^/]+\/?$/.test(pathname);
 
   const { title, section, category, type } = useHeaderStore();
-
-  useEffect(() => {
-    if (!isPostPage) return;
-
-    const handleScrollBar = () => {
-      const currentY = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = Math.min((currentY / docHeight) * 100, 100);
-      const bar = document.getElementById("scroll-progress-bar");
-      if (bar) {
-        bar.style.transform = `scaleX(${scrollPercent / 100})`;
-      }
-    };
-
-    window.addEventListener("scroll", handleScrollBar);
-    return () => window.removeEventListener("scroll", handleScrollBar);
-  }, [isPostPage]);
 
   useEffect(() => {
     const lastScrollY = { current: 0 };
@@ -73,15 +57,7 @@ export default function Header() {
 
   return (
     <>
-      {isPostPage && (
-        <div className="fixed top-0 left-0 w-full h-1 bg-transparent z-[9999]">
-          <div
-            id="scroll-progress-bar"
-            className="h-full bg-orange-500 origin-left transition-transform duration-100 ease-out"
-            style={{ transform: "scaleX(0)", transformOrigin: "left" }}
-          />
-        </div>
-      )}
+      {isPostPage && <ScrollProgressBar />}
 
       <header
         aria-label="블로그 헤더"

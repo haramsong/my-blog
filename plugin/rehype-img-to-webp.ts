@@ -6,7 +6,10 @@ export default function rehypeWebp() {
     visit(tree, "element", (node: Element, index, parent) => {
       if (node.tagName === "img" && parent && index !== null) {
         const src = node.properties?.src as string | undefined;
+
         if (src && /\.(png|jpe?g)$/i.test(src)) {
+          const ext = src.match(/\.(png|jpe?g)$/i)?.[1];
+
           const picture: Element = {
             type: "element",
             tagName: "picture",
@@ -18,6 +21,15 @@ export default function rehypeWebp() {
                 properties: {
                   srcSet: src.replace(/\.(png|jpe?g)$/i, ".webp"),
                   type: "image/webp",
+                },
+                children: [],
+              },
+              {
+                type: "element",
+                tagName: "source",
+                properties: {
+                  srcSet: src,
+                  type: `image/${ext === "jpg" ? "jpeg" : ext}`,
                 },
                 children: [],
               },

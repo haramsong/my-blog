@@ -19,6 +19,7 @@
 
 # production
 /build
+/public/images/**/*.webp
 
 # misc
 .DS_Store

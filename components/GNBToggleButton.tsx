@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+
+import ChevronLeftIcon from "@/public/icons/chevron-left.svg";
+import ChevronRightIcon from "@/public/icons/chevron-right.svg";
+
 import { useGNBStore } from "@/store/gnbStore";
 
 export default function GNBToggleButton() {
@@ -23,10 +26,10 @@ export default function GNBToggleButton() {
         <button
           onClick={() => setCollapsed(!collapsed)}
           className={`w-8 h-8 rounded-full
-             bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white
-             ${collapsed ? "opacity-100" : "opacity-0 group-hover:opacity-100"} 
-             hover:bg-gray-700 dark:hover:bg-gray-200 hover:text-white dark:hover:text-gray-800 transition-opacity duration-300 cursor-pointer
-             shadow-md border border-gray-300 dark:border-gray-600`}
+            bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white
+            ${collapsed ? "opacity-100" : "opacity-0 group-hover:opacity-100"} 
+            hover:bg-gray-700 dark:hover:bg-gray-200 hover:text-white dark:hover:text-gray-800 transition-opacity duration-300 cursor-pointer
+            shadow-md border border-gray-300 dark:border-gray-600`}
           style={{
             display: "flex",
             alignItems: "center",

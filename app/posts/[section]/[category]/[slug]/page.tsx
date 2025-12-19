@@ -5,14 +5,11 @@ import Image from "next/image";
 
 import ArrowLeftIcon from "@/public/icons/arrow-left.svg";
 import ArrowRightIcon from "@/public/icons/arrow-right.svg";
-
-import {
-  FolderIcon,
-  TagIcon,
-  EyeIcon,
-  CalendarIcon,
-  ClockIcon,
-} from "@heroicons/react/24/outline";
+import CalendarIcon from "@/public/icons/calendar.svg";
+import ClockIcon from "@/public/icons/clock.svg";
+import EyeIcon from "@/public/icons/eye.svg";
+import FolderIcon from "@/public/icons/folder.svg";
+import TagIcon from "@/public/icons/tag.svg";
 
 import HydrateHeader from "@/components/HydrateHeader";
 import Giscus from "@/components/Giscus";

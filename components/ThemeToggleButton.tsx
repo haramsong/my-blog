@@ -1,6 +1,7 @@
 "use client";
 
-import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+import SunIcon from "@/public/icons/sun.svg";
+import MoonIcon from "@/public/icons/moon.svg";
 
 import { useTheme } from "@/lib/useTheme";
 

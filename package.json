@@ -11,7 +11,6 @@
     "serve": "next build && serve ./out -l 4000"
   },
   "dependencies": {
-    "@heroicons/react": "^2.2.0",
     "@next/third-parties": "^15.5.3",
     "@rehype-pretty/transformers": "^0.13.2",
     "github-slugger": "^2.0.0",

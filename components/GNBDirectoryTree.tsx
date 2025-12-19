@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FolderIcon, FolderOpenIcon } from "@heroicons/react/24/outline";
+
+import FolderIcon from "@/public/icons/folder.svg";
+import FolderOpenIcon from "@/public/icons/folder-open.svg";
 
 import { usePostContext } from "@/context/PostContext";
 import { removeKebab } from "@/lib/stringUtils";

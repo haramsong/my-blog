@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 
+import CalendarIcon from "@/public/icons/calendar.svg";
+import TagIcon from "@/public/icons/tag.svg";
+
 import { PostMeta } from "@/lib/posts";
-import { TagIcon, CalendarIcon } from "@heroicons/react/24/outline";
 
 interface PostListItemProps {
   post: PostMeta;

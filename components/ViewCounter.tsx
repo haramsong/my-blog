@@ -16,6 +16,8 @@ export default function ViewCounter({ slug }: { slug: string }) {
   }
 
   useEffect(() => {
+    if (process.env.NODE_ENV === "development") return setViews(0);
+
     async function fetchViews() {
       try {
         const currentViews = await increaseViewCount(slug);

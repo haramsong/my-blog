@@ -243,7 +243,8 @@
 html,
 body {
   height: auto;
-  overscroll-behavior: none; /* 바운스 방지 */
+  overscroll-behavior-x: auto;
+  overscroll-behavior-y: none; /* 위아래 바운스만 방지 */
 }
 
 body {

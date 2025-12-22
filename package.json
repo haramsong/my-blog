@@ -29,7 +29,7 @@
     "remark-directive-rehype": "^0.4.2",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
-    "shiki": "^3.3.0",
+    "shiki": "^3.20.0",
     "slugify": "^1.6.6",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",

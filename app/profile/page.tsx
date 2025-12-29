@@ -191,6 +191,7 @@ export default function ProfilePage() {
           <li>Terraform Associate (2025.01)</li>
           <li>AWS Solutions Architect - Professional (2025.07)</li>
           <li>AWS Certified Security - Specialty (2025.07)</li>
+          <li>CKAD: Certified Kubernetes Application Developer (2025.12)</li>
         </ul>
       </section>
 
@@ -199,6 +200,20 @@ export default function ProfilePage() {
           <span aria-hidden="true">🏅</span> 내 뱃지
         </h2>
         <div className="flex flex-wrap gap-2">
+          <a
+            href="https://www.credly.com/badges/62b31b41-87cc-4868-871f-30ca7f6b1241/public_url"
+            aria-label="CKAD: Certified Kubernetes Application Developer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/cc8adc83-1dc6-4d57-8e20-22171247e052/blob"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
           <a
             href="https://www.credly.com/badges/0019121e-58ed-44a0-b0f4-0a7d9ef7ddbc/public_url"
             aria-label="AWS Certified Security - Specialty"

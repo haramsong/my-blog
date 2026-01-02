@@ -47,7 +47,7 @@ export async function generateMetadata({
   if (!post) return notFound();
 
   return getMetadata({
-    title: post.title,
+    title: `[${removeKebab(category)}] ${post.title}`,
     asPath: `/posts/${section}/${category}/${slug}`,
     description: post.summary,
     ogImage: post.thumbnail,
@@ -79,7 +79,9 @@ export default async function PostPage(props: { params: Params }) {
             priority
             className="absolute inset-0 w-full h-full object-cover object-center opacity-10"
           />
-          <h1 className="text-4xl p-6 font-bold">{post.title}</h1>
+          <h1 className="text-4xl p-6 font-bold">{`[${removeKebab(category)}] ${
+            post.title
+          }`}</h1>
         </div>
         <div className="justify-between flex">
           <span className="flex items-center mt-5 text-xs text-gray-600 dark:text-gray-400">

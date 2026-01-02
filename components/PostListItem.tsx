@@ -6,6 +6,7 @@ import CalendarIcon from "@/public/icons/calendar.svg";
 import TagIcon from "@/public/icons/tag.svg";
 
 import { PostMeta } from "@/lib/posts";
+import { removeKebab } from "@/lib/stringUtils";
 
 interface PostListItemProps {
   post: PostMeta;
@@ -21,7 +22,7 @@ export default function PostListItem({ post }: PostListItemProps) {
       >
         <div className="relative z-10 w-full h-full flex flex-col justify-between p-4">
           <h2 className="text-3xl line-clamp-2 mb-2 font-semibold text-gray-900 dark:text-white">
-            {post.title}
+            {`[${removeKebab(post.category)}] ${post.title}`}
           </h2>
           <p className="text-md mb-2 text-gray-700 dark:text-gray-300 mt-1 line-clamp-1">
             {post.summary}

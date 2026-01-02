@@ -18,7 +18,9 @@ export const getMetadata = (metadataProps?: MetadataProps) => {
 
   const TITLE = title ? `${title} | Haram's TECH BLOG` : META.title;
   const DESCRIPTION = description || META.description;
-  const PAGE_URL = asPath ? `${META.url}${normalizePath(asPath)}` : META.url;
+  const PAGE_URL = asPath
+    ? `${META.url}${normalizePath(asPath)}/`
+    : META.url + "/";
   const OG_IMAGE = `${META.url}${ogImage || META.ogImage}`;
   const KEYWORDS = Array.from(new Set([...(keywords || []), ...META.keyword]));
 

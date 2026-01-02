@@ -192,6 +192,7 @@ export default function ProfilePage() {
           <li>AWS Solutions Architect - Professional (2025.07)</li>
           <li>AWS Certified Security - Specialty (2025.07)</li>
           <li>CKAD: Certified Kubernetes Application Developer (2025.12)</li>
+          <li>KCNA: Kubernetes and Cloud Native Associate (2026.01)</li>
         </ul>
       </section>
 
@@ -200,6 +201,20 @@ export default function ProfilePage() {
           <span aria-hidden="true">🏅</span> 내 뱃지
         </h2>
         <div className="flex flex-wrap gap-2">
+          <a
+            href="https://www.credly.com/badges/81c22b8a-4f4c-4119-843b-03005b71547f/public_url"
+            aria-label="KCNA: Kubernetes and Cloud Native Associate"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/f28f1d88-428a-47f6-95b5-7da1dd6c1000/KCNA_badge.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
           <a
             href="https://www.credly.com/badges/62b31b41-87cc-4868-871f-30ca7f6b1241/public_url"
             aria-label="CKAD: Certified Kubernetes Application Developer"

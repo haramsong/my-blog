@@ -2,14 +2,14 @@
 id: 5
 title: "Solutions Architect - Professional SAP-C02 취득 후기"
 date: "2025-12-18"
-summary: "AWS SAP-C02 자격증 취득에 관한 내용입니다."
+summary: "AWS Solutions Architect Professional(SAP-C02)을 준비하며 실제로 공부한 방법과 시험 난이도, Associate 자격증과의 차이를 정리한 합격 후기입니다."
 thumbnail: "/images/CSP/AWS/getting-sap-c02/thumbnail-SCR-20251218-nvgl.png"
 tags: ["AWS", "Certificate"]
 ---
 
 ## SAP-C02 취득 결심
 
- AWS Solutions Architect - Associate를 취득하고 나서 다음에는 무엇을 할 지 고민을 하다가 더 위에 단계인 Professional 자격에 도전해봐야 겠다고 다짐했습니다. 현재 직무인 프론트엔드인 지라 자격증 취득에 투자한 시간보다 직무와 관련된 공부를 하는게 커리어에 도움이 될까 생각도 했었습니다. 하지만 지금 AWS를 더 깊게 공부하고 싶었던 마음도 크고, Associate만 취득하기에는 너무 아까워서 바로 준비했습니다.
+AWS Solutions Architect - Associate를 취득하고 나서 다음에는 무엇을 할 지 고민을 하다가 더 위에 단계인 Professional 자격에 도전해봐야 겠다고 다짐했습니다. 현재 직무인 프론트엔드인 지라 자격증 취득에 투자한 시간보다 직무와 관련된 공부를 하는게 커리어에 도움이 될까 생각도 했었습니다. 하지만 지금 AWS를 더 깊게 공부하고 싶었던 마음도 크고, Associate만 취득하기에는 너무 아까워서 바로 준비했습니다.
 
 ## SAP-C02 준비
 
@@ -23,8 +23,20 @@ tags: ["AWS", "Certificate"]
 
 또한 덤프를 풀면서 생각이 들었던 게, Associate와는 달리 Professional은 문제 및 답안 자체도 길고, 어느정도 맞는 Architecture 구성이 있지만 문제를 잘 읽고 이에 해당하는 Best Practice를 골라야 했던 것이 더 까다로웠던 것 같습니다.
 
-## SAP-C02 취득...! 
+## SAP-C02 취득...!
 
 ![턱걸이로 합격했다...](/images/CSP/AWS/getting-sap-c02/48a04cb4-7464-47b9-a0f0-0aa845486123-image.png)
 
 4달간 그래도 성실히 공부한 덕분에 한번에 취득할 수 있었습니다...! 가격이 가격이기에 재시험은 내 사전에 없다라고 생각하고 공부했었는데, 결실을 맺은 거 같아서 기뻤습니다. 다른 자격증 후기로도 찾아뵙겠습니다!
+
+## 시험 꿀팁
+
+- AWS Skill Builder를 꼭 활용하세요. 무료인데도 강의 퀄리티가 굉장히 높고, 서비스 이해에 큰 도움이 됩니다.
+
+- 유료 강의는 Stephane Maarek님의 강의를 추천드립니다. Professional은 양도 방대하고 다뤄야 할 케이스가 많아서 필수적으로 알아야 할 점들을 대부분 짚어주는 게 도움이 많이 되었습니다.
+
+- ExamTopics도 추천드립니다. 실제와 유사한 문제들을 미리 풀어보면서 유형에 익숙해질 수 있습니다.
+
+- 시험을 영어로 신청하면 +30분의 추가 시간을 받을 수 있습니다. Exam Registration > Exam accommodations 메뉴에서 신청 가능하며, 예약 전에 반드시 신청해야 합니다.
+
+![시험시간 +30분 하는 방법](/images/CSP/AWS/getting-sap-c02/fc092025-49fe-4fdf-9992-460fbcfe3f50-SCR-20250430-mljf.png)

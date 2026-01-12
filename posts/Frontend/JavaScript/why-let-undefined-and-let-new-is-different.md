@@ -2,7 +2,7 @@
 id: 3
 title: "브라우저에서 let undefined와 let null, 오류가 다른 이유"
 date: "2025-05-19"
-summary: "let undefined와 let null의 차이를 알아보며 전역 스코프와 예약어의 차이를 알아보겠습니다."
+summary: "JavaScript에서 let undefined와 let null을 선언했을 때 서로 다른 에러가 발생하는 이유를 예약어와 전역 스코프 개념을 중심으로 정리한 글입니다."
 thumbnail: "/images/Frontend/JavaScript/why-let-undefined-and-let-new-is-different/thumbnail-SCR-20250519-lwwq.png"
 tags: ["JavaScript"]
 ---

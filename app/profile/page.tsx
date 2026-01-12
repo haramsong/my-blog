@@ -11,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "소개",
     description: "안녕하세요! 비전공자 프론트엔드 개발자 송하람입니다.",
     asPath: "/posts/profile",
+    type: "profile",
   });
 }
 

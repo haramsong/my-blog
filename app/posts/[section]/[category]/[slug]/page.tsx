@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 
 import ArrowLeftIcon from "@/public/icons/arrow-left.svg";
 import ArrowRightIcon from "@/public/icons/arrow-right.svg";
@@ -15,6 +16,7 @@ import HydrateHeader from "@/components/HydrateHeader";
 import Giscus from "@/components/Giscus";
 import PostSidebar from "@/components/PostSidebar";
 import ViewCounter from "@/components/ViewCounter";
+import { buildArticleJsonLd } from "@/lib/buildArticleJsonLd";
 import { getPostBySlugArray, getPrevNextPost } from "@/lib/posts";
 import { generatePostPageParams } from "@/lib/generateStaticParams";
 import { getMetadata } from "@/lib/getMetaData";
@@ -51,6 +53,10 @@ export async function generateMetadata({
     asPath: `/posts/${section}/${category}/${slug}`,
     description: post.summary,
     ogImage: post.thumbnail,
+    type: "article",
+    publishedTime: post.date,
+    modifiedTime: post.date,
+    tags: post.tags,
   });
 }
 
@@ -64,6 +70,23 @@ export default async function PostPage(props: { params: Params }) {
 
   return (
     <div className="relative flex-1">
+      <Script
+        id="post-article-jsonld"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildArticleJsonLd({
+              title: post.title,
+              summary: post.summary,
+              thumbnail: post.thumbnail,
+              slug: post.slug,
+              date: post.date,
+              tags: post.tags,
+            })
+          ),
+        }}
+      />
       <HydrateHeader
         title={post?.title ?? ""}
         section={post.section}
@@ -112,10 +135,15 @@ export default async function PostPage(props: { params: Params }) {
           </div>
         </div>
         {typeof post.contentHtml === "string" ? (
-          <div
-            className="prose dark:prose-invert mt-8 max-w-[calc(100vw-2.5rem)]"
-            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-          />
+          <>
+            <p className="mt-6 text-gray-600 dark:text-gray-300 text-lg font-semibold">
+              {post.summary}
+            </p>
+            <div
+              className="prose dark:prose-invert mt-8 max-w-[calc(100vw-2.5rem)]"
+              dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+            />
+          </>
         ) : (
           <div className="prose dark:prose-invert mt-8 max-w-none text-red-500">
             포스트 내용을 불러올 수 없습니다.
@@ -168,7 +196,7 @@ export default async function PostPage(props: { params: Params }) {
                   href={`/posts/${next.slug.join("/")}`}
                   aria-label="다음 글 보기"
                   className="w-60 h-20 border rounded-lg group-hover:border-orange-500 transition-colors
-                   flex flex-col justify-center items-center text-center p-2"
+                  flex flex-col justify-center items-center text-center p-2"
                 >
                   <ArrowRightIcon
                     aria-hidden="true"

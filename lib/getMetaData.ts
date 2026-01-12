@@ -8,10 +8,15 @@ interface MetadataProps {
   asPath?: string;
   ogImage?: string;
   keywords?: string[];
+  type?: "website" | "article" | "profile";
+  publishedTime?: string;
+  modifiedTime?: string;
+  tags?: string[];
 }
 
 export const getMetadata = (metadataProps?: MetadataProps) => {
-  const { title, description, asPath, ogImage, keywords } = metadataProps || {};
+  const { title, description, asPath, ogImage, keywords, type } =
+    metadataProps || {};
 
   const normalizePath = (path?: string) =>
     path ? (path.startsWith("/") ? path : `/${path}`) : "";
@@ -23,6 +28,7 @@ export const getMetadata = (metadataProps?: MetadataProps) => {
     : META.url + "/";
   const OG_IMAGE = `${META.url}${ogImage || META.ogImage}`;
   const KEYWORDS = Array.from(new Set([...(keywords || []), ...META.keyword]));
+  const TYPE = type || "website";
 
   const metadata: Metadata = {
     metadataBase: new URL(META.url),
@@ -40,13 +46,18 @@ export const getMetadata = (metadataProps?: MetadataProps) => {
       description: DESCRIPTION,
       siteName: META.siteName,
       locale: "ko_KR",
-      type: "website",
+      type: TYPE,
       url: PAGE_URL,
       images: [
         {
           url: OG_IMAGE,
         },
       ],
+      ...(TYPE === "article" && {
+        publishedTime: metadataProps?.publishedTime,
+        modifiedTime: metadataProps?.modifiedTime,
+        tags: metadataProps?.tags,
+      }),
     },
     verification: {
       google: META.googleVerification || "",

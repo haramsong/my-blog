@@ -2,14 +2,10 @@
 id: 2
 title: "개인 블로그에 필요한 AWS 인프라 몇 분만에 배포하기(with Terraform)"
 date: "2025-05-02"
-summary: "현재 제 개인 블로그의 인프라를 Terraform을 이용하여 배포한 포스트 입니다."
+summary: "Next.js 기반 개인 블로그를 운영하며 Terraform으로 S3, CloudFront, Route 53을 구성해 AWS 정적 사이트 인프라를 몇 분 만에 배포한 과정을 실전 코드와 함께 정리한 포스트입니다."
 thumbnail: "/images/DevOps/Terraform/my-blog-infrastructure-with-terraform/thumbnail-my-architecture.png"
 tags: ["Terraform", "AWS", "Blog"]
 ---
-
-## Terraform으로 개인 블로그 인프라 구축하기
-
-안녕하세요! 이 글은 개인 블로그를 운영하면서 필요한 AWS 인프라를 Terraform으로 구성한 과정을 정리한 포스트입니다. 코드로 인프라를 관리하는 방식(IaC: Infrastructure as Code)에 관심 있으신 분들이 참고하기 좋은 실전 예시입니다.
 
 ## 인프라 구성 배경
 

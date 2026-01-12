@@ -2,7 +2,7 @@
 id: 1
 title: "비전공자 AWS 까막눈의 자격증 도전기 (CLF-C02 → SAA-C03)"
 date: "2025-04-30"
-summary: "AWS를 처음 접해본 비전공자의 AWS 공인 자격증 두 개를 취득하는 과정을 담은 포스트 입니다."
+summary: "AWS를 처음 접한 비전공자가 Cloud Practitioner(CLF-C02)부터 Solutions Architect - Associate(SAA-C03)까지 두 개의 AWS 공인 자격증을 준비하고 취득한 과정을 정리한 후기입니다."
 thumbnail: "/images/CSP/AWS/my-journey-with-aws-certificates/thumbnail-saa-certificate.png"
 tags: ["AWS", "Certificate"]
 ---

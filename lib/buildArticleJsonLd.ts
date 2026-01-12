@@ -17,6 +17,10 @@ export const buildArticleJsonLd = ({
 }: BuildArticleJsonLdParams) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
+  const toKSTIsoDateTime = (date: string) => {
+    return `${date}T00:00:00+09:00`;
+  };
+
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -36,8 +40,8 @@ export const buildArticleJsonLd = ({
         url: `${baseUrl}/favicon.ico`,
       },
     },
-    datePublished: date,
-    dateModified: date,
+    datePublished: toKSTIsoDateTime(date),
+    dateModified: toKSTIsoDateTime(date),
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${baseUrl}/posts/${slug}/`,

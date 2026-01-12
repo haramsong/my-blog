@@ -77,7 +77,7 @@ export default async function PostPage(props: { params: Params }) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             buildArticleJsonLd({
-              title: post.title,
+              title: `[${removeKebab(category)}] ${post.title}`,
               summary: post.summary,
               thumbnail: post.thumbnail,
               slug: post.slug,

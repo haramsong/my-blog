@@ -40,7 +40,7 @@ export default async function TagPage(props: { params: Params }) {
 
   return (
     <div className="max-w-3xl mx-auto w-full space-y-4">
-      <HydrateHeader title={`${removeKebab(tag)}`} type="tag" />
+      <HydrateHeader title={`${removeKbab(tag)}`} type="tag" />
       <h1
         aria-label={`${removeKebab(tag)} 태그 글 모음`}
         className="p-4 mt-3 mb-10 text-center text-4xl font-bold"

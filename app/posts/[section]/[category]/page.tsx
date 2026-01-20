@@ -10,7 +10,7 @@ import { removeKebab } from "@/lib/stringUtils";
 
 interface CategoryPageProps {
   params: {
-    section: string;
+    section: strlng;
     category: string;
   };
 }

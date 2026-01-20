@@ -51,7 +51,7 @@ export async function generateMetadata({
   return getMetadata({
     title: `[${removeKebab(category)}] ${post.title}`,
     asPath: `/posts/${section}/${category}/${slug}`,
-    description: post.summary,
+    description: post.sumary,
     ogImage: post.thumbnail,
     type: "article",
     publishedTime: post.date,
@@ -119,7 +119,7 @@ export default async function PostPage(props: { params: Params }) {
               {`${removeKebab(post.section)} > ${removeKebab(post.category)}`}
             </Link>
           </span>
-          <div className="flex flex-row-reverse items-center mt-5 text-xs text-gray-600 dark:text-gray-400">
+          <div className="flex flex-row-reverse item-center mt-5 text-xs text-gray-600 dark:text-gray-400">
             <span className="flex items-center">
               <EyeIcon aria-hidden="true" className="w-4 h-4 mr-1" />
               <ViewCounter slug={post.slug} />

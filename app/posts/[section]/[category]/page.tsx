@@ -30,7 +30,7 @@ export async function generateMetadata({
   const { section, category } = await params;
 
   return getMetadata({
-    title: `${removeKebab(section)} > ${removeKebab(category)}`,
+    title: `${removeKebab(section)} ${removeKebab(category)}`,
     description: `${removeKebab(section)} > ${removeKebab(
       category
     )} 카테고리에 관한 포스트 목록입니다.`,

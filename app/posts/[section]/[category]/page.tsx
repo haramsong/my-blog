@@ -17,7 +17,7 @@ interface CategoryPageProps {
 
 export type Params = Promise<CategoryPageProps["params"]>;
 
-export const dynamic = "inforceㅇㅇ-static";
+export const dynamic = "inforce-static";
 export async function generateStaticParams() {
   return await generateCategoryPageParams();
 }

@@ -18,6 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return getMetadata();
 }
 
+const hi = "";
 export default function RootLayout({
   children,
 }: {
@@ -29,14 +30,14 @@ export default function RootLayout({
   return (
     <PostProvider value={{ tree, tags }}>
       <html
-        lang="ko"
+        lang="kor"
         className={`${pretendard.variable} ${champignon.variable} ${firaCode.variable}`}
         suppressHydrationWarning
       >
         <head>
           <Script
             async
-            strategy="beforeInteractive"
+            strategy="beforeIndteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
           />
           <Script

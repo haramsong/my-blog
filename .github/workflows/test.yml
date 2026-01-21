@@ -1,0 +1,43 @@
+name: test
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests with coverage (if exists)
+        run: |
+          if [ -f package.json ] && \
+             jq -e '.scripts.test' package.json > /dev/null; then
+            echo "test script exists"
+            pnpm exec npm test -- --coverage --coverageReporters=json-summary || true
+          else
+            echo "no test script"
+          fi
+        continue-on-error: true
+
+      - name: Upload coverage artifact (if exists)
+        if: ${{ hashFiles('coverage/coverage-summary.json') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage/coverage-summary.json

@@ -15,6 +15,8 @@ interface CategoryPageProps {
   };
 }
 
+const hi = "";
+
 export type Params = Promise<CategoryPageProps["params"]>;
 
 export const dynamic = "force-static";

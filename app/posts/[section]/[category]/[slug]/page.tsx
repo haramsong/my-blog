@@ -11,6 +11,7 @@ import ClockIcon from "@/public/icons/clock.svg";
 import EyeIcon from "@/public/icons/eye.svg";
 import FolderIcon from "@/public/icons/folder.svg";
 import TagIcon from "@/public/icons/tag.svg";
+import FloatingTopButton from "@/components/FloatingTopButton";
 
 import HydrateHeader from "@/components/HydrateHeader";
 import Giscus from "@/components/Giscus";

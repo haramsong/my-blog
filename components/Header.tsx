@@ -100,7 +100,7 @@ export default function Header() {
                 <>
                   <Link
                     href={`/posts/${section ? `${section}` : ""}/${
-                      category ? `${category}` : ""
+                      category ? `${category}/` : ""
                     }`}
                     className="hover:underline hover:text-orange-500 transition"
                     aria-label={`${category} 카테고리로 이동`}

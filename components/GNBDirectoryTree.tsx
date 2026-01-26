@@ -98,7 +98,7 @@ export default function GNBDirectoryTree() {
                       className={`font-semibold pl-1 rounded cursor-pointer`}
                     >
                       <Link
-                        href={`/posts/${section}/${category}`}
+                        href={`/posts/${section}/${category}/`}
                         aria-label={`${removeKebab(
                           section
                         )} 섹션의 ${removeKebab(category)} 카테고리 보기`}

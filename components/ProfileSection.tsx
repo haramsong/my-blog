@@ -65,7 +65,7 @@ export default function ProfileSection() {
           <LinkedinIcon className="w-4.5 h-4.5" aria-hidden="true" />
         </a>
         <Link
-          href="/profile"
+          href="/profile/"
           className="hover:scale-110 duration-150 hover:text-gray-500 dark:hover:text-gray-300 transition"
           aria-label="내 프로필 페이지로 이동"
         >

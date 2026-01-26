@@ -16,7 +16,7 @@ export default function PostListItem({ post }: PostListItemProps) {
   return (
     <article>
       <Link
-        href={`/posts/${post.slug.join("/")}`}
+        href={`/posts/${post.slug.join("/")}/`}
         aria-label={`${post.title} 게시글 이동`}
         className="relative p-1.5 inset-shadow-sm dark:inset-shadow-gray-200/10 shadow-lg dark:shadow-gray-200/10 flex items-center h-50 overflow-hidden transition hover:opacity-80 hover:bg-gray-300 dark:hover:bg-gray-700"
       >

@@ -24,7 +24,7 @@ export default function TagList() {
             className="inline-flex items-center px-3 py-1 text-sm rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
           >
             <Link
-              href={`/tags/${tag}`}
+              href={`/tags/${tag}/`}
               aria-label={`${removeKebab(tag)} 태그 보기`}
             >
               #{removeKebab(tag)}

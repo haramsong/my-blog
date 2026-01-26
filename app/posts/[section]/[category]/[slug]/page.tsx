@@ -156,7 +156,7 @@ export default async function PostPage(props: { params: Params }) {
               {post.tags.map((tag: string) => (
                 <Link
                   key={tag}
-                  href={`/tags/${tag}`}
+                  href={`/tags/${tag}/`}
                   aria-label={`${tag} 태그 보기`}
                   className="inline-flex items-center px-3 py-1 text-sm rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
                 >
@@ -172,7 +172,7 @@ export default async function PostPage(props: { params: Params }) {
             {prev ? (
               <div className="group">
                 <Link
-                  href={`/posts/${prev.slug.join("/")}`}
+                  href={`/posts/${prev.slug.join("/")}/`}
                   aria-label="이전 글 보기"
                   className="w-60 h-20 border rounded-lg group-hover:border-orange-500 transition-colors
                    flex flex-col justify-center items-center text-center p-2"
@@ -193,7 +193,7 @@ export default async function PostPage(props: { params: Params }) {
             {next ? (
               <div className="group">
                 <Link
-                  href={`/posts/${next.slug.join("/")}`}
+                  href={`/posts/${next.slug.join("/")}/`}
                   aria-label="다음 글 보기"
                   className="w-60 h-20 border rounded-lg group-hover:border-orange-500 transition-colors
                   flex flex-col justify-center items-center text-center p-2"

@@ -39,7 +39,7 @@ CKAD는 $445(한화 약 65만원...)으로 정가 주고 사기엔 너무 비싸
 
 ## CKAD 취득!
 
-![CKAD 자격증 취득!](/images/DevOps/Kubernetes/getting-ckad/cf7fd9e3-c7eb-4652-9e80-4223f685afa7-CKAD_자격증.png)
+![CKAD 자격증 취득!](/images/DevOps/Kubernetes/getting-ckad/cf7fd9e3-c7eb-4652-9e80-4223f685afa7-image.png)
 
 이렇게 해서 78점으로 커트라인 66점을 넘겨 합격을 했습니다! 확실히 난이도는 Udemy 강의에 나온 모의 시험보다는 어렵고, killer.sh 보다는 쉬웠던 것 같습니다.
 

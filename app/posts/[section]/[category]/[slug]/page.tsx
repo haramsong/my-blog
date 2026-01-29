@@ -83,7 +83,7 @@ export default async function PostPage(props: { params: Params }) {
               slug: post.slug,
               date: post.date,
               tags: post.tags,
-            })
+            }),
           ),
         }}
       />
@@ -110,9 +110,9 @@ export default async function PostPage(props: { params: Params }) {
           <span className="flex items-center mt-5 text-xs text-gray-600 dark:text-gray-400">
             <FolderIcon aria-hidden="true" className="w-4 h-4 mr-1" />
             <Link
-              href={`/posts/${post.section}/${post.category}`}
+              href={`/posts/${post.section}/${post.category}/`}
               aria-label={`${removeKebab(post.section)} 섹션의 ${removeKebab(
-                post.category
+                post.category,
               )} 카테고리 보기`}
               className="hover:underline"
             >

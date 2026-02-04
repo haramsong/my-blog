@@ -26,7 +26,7 @@ export default function InfinitePostList({
           setVisibleCount(visibleCount + CHUNK_SIZE);
         }
       },
-      { threshold: 1.0 }
+      { threshold: 1.0 },
     );
 
     const loader = loaderRef.current;
@@ -43,7 +43,10 @@ export default function InfinitePostList({
         <PostListItem key={post.slug.join("/")} post={post} />
       ))}
       {hasMore && (
-        <div ref={loaderRef} className="py-8 text-center text-sm text-gray-500">
+        <div
+          ref={loaderRef}
+          className="py-8 text-center text-sm text-gray-600 dark:text-gray-400"
+        >
           불러오는 중...
         </div>
       )}

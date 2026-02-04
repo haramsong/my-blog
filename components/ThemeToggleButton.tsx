@@ -6,7 +6,11 @@ import MoonIcon from "@/public/icons/moon.svg";
 import { useTheme } from "@/lib/useTheme";
 
 export default function ThemeToggleButton() {
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark, toggleTheme, mounted } = useTheme();
+
+  if (!mounted) {
+    return <div className="w-6 h-6" />;
+  }
 
   return (
     <button

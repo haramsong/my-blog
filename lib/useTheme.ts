@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export function useTheme() {
   const [isDark, setIsDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const updateDom = (dark: boolean) => {
     const html = document.documentElement;
@@ -29,7 +30,8 @@ export function useTheme() {
     const shouldUseDark = stored === "dark" || (!stored && prefersDark);
     updateDom(shouldUseDark);
     setIsDark(shouldUseDark);
+    setMounted(true);
   }, []);
 
-  return { isDark, toggleTheme };
+  return { isDark, toggleTheme, mounted };
 }

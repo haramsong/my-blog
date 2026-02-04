@@ -36,7 +36,7 @@ export default function GNBDirectoryTree() {
       {Object.entries(tree).map(([section, categories]) => {
         const sectionCount = Object.values(categories).reduce(
           (sum, count) => sum + count,
-          0
+          0,
         );
         const isOpen = openSections[section];
         const sectionId = `${section}-section-heading`;
@@ -100,7 +100,7 @@ export default function GNBDirectoryTree() {
                       <Link
                         href={`/posts/${section}/${category}/`}
                         aria-label={`${removeKebab(
-                          section
+                          section,
                         )} 섹션의 ${removeKebab(category)} 카테고리 보기`}
                         className={`flex text-sm items-center font-semibold mb-1 pl-3 rounded transition-colors duration-300 cursor-pointer
                           ${
@@ -111,7 +111,7 @@ export default function GNBDirectoryTree() {
                           }`}
                       >
                         {`${isLast ? "└── " : "├── "} ${removeKebab(
-                          category
+                          category,
                         )} `}
                         <span className="text-xs ml-1.5 font-normal text-gray-600 dark:text-gray-400">
                           {`(${count})`}
@@ -119,7 +119,7 @@ export default function GNBDirectoryTree() {
                       </Link>
                     </li>
                   );
-                }
+                },
               )}
             </ul>
           </li>

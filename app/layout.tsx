@@ -36,12 +36,13 @@ export default function RootLayout({
         <head>
           <Script
             async
-            strategy="beforeInteractive"
+            strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
           />
           <Script
             id="google-analytics"
-            strategy="beforeInteractive"
+            async
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -54,6 +55,7 @@ export default function RootLayout({
           />
           <Script
             id="theme-change"
+            async
             strategy="beforeInteractive"
             dangerouslySetInnerHTML={{
               __html: `

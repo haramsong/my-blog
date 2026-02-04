@@ -26,9 +26,10 @@ export default function TagList() {
             <Link
               href={`/tags/${tag}/`}
               aria-label={`${removeKebab(tag)} 태그 보기`}
+              className="items-center inline-flex"
             >
               #{removeKebab(tag)}
-              <span className="ml-1 text-xs opacity-70">({count})</span>
+              <span className="ml-1 text-xs opacity-90">({count})</span>
             </Link>
           </li>
         ))}

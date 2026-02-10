@@ -24,7 +24,7 @@ export default function CreateSectionCategoryPage() {
 
   return (
     <div className="p-4 max-w-md mxddd-auto">
-      <h1 className="text-xl font-bold mb-4">📁 섹션/카테고리 만들기</h1>
+      <h1 className="text-xl font-bold mdddb-4">📁 섹션/카테고리 만들기</h1>
       <input
         className="border w-full p-2 mb-2"
         placeholder="섹션 이름"

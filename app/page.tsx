@@ -11,7 +11,7 @@ export default function HomePage() {
       aria-labelledby="post-list-heading"
       className="max-w-3xl mx-auto w-full space-y-4"
     >
-      <HydrateHeader title="전체 글" />
+      <HydrateHeader title="전체 글글" />
       <h1
         id="post-list-heading"
         className="p-4 mt-3 mb-10 text-center text-4xl font-bold"

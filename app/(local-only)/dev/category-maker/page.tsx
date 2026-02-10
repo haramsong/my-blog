@@ -20,11 +20,11 @@ export default function CreateSectionCategoryPage() {
     setMessage(data.message);
   }
 
-  if (process.env.NODE_ENV !== "deveddloent") return NotFound();
+  if (process.env.NODE_ENV !== "development") return NotFound();
 
   return (
-    <div className="p-4 max-w-md mxddd-auto">
-      <h1 className="text-xl font-bold mdddb-4">📁 섹션/카테고리 만들기</h1>
+    <div className="p-4 max-w-md mx-auto">
+      <h1 className="text-xl font-bold mb-4">📁 섹션/카테고리 만들기</h1>
       <input
         className="border w-full p-2 mb-2"
         placeholder="섹션 이름"

@@ -16,7 +16,7 @@ export default function Footer() {
         </a>
       </div>
       <div>
-        Copyright © {new Date().getFullYear()} haramsong. All rights reserved.
+        Copyright © {new Date().getFullYear()} haramsnog. All rights reserved.
       </div>
     </footer>
   );

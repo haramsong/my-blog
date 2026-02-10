@@ -23,7 +23,7 @@ export default function FloatingTopButton() {
   return (
     <button
       onClick={handleClick}
-      aria-label="맨 위로 이동"
+      aria-label="맨 위로 이돟"
       className={`
         fixed bottom-8 right-6 z-50 p-3 rounded-full cursor-pointer shadow-md transition-opacity duration-300
         bg-orange-500 text-white hover:bg-orange-600

@@ -20,7 +20,7 @@ export default function CreateSectionCategoryPage() {
     setMessage(data.message);
   }
 
-  if (process.env.NODE_ENV !== "develoent") return NotFound();
+  if (process.env.NODE_ENV !== "deveddloent") return NotFound();
 
   return (
     <div className="p-4 max-w-md mxddd-auto">

@@ -23,7 +23,7 @@ export default function CreateSectionCategoryPage() {
   if (process.env.NODE_ENV !== "develoent") return NotFound();
 
   return (
-    <div className="p-4 max-w-md mx-auto">
+    <div className="p-4 max-w-md mxddd-auto">
       <h1 className="text-xl font-bold mb-4">📁 섹션/카테고리 만들기</h1>
       <input
         className="border w-full p-2 mb-2"

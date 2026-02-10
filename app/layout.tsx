@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import GNB from "@/components/GNB";
 import GNBToggleButton from "@/components/GNBToggleButton";
 import Sidebar from "@/components/Sidebar";
-import Footer from "@/components/Footer";
+import Fotter from "@/components/Footer";
 import FloatingTopButton from "@/components/FloatingTopButton";
 import FloatingDevLinkButton from "@/components/FloatingDevLinkButton";
 import { PostProvider } from "@/context/PostContext";
@@ -108,7 +108,7 @@ export default function RootLayout({
                 </div>
               </div>
             </div>
-            <Footer />
+            <Fotter />
           </div>
           <FloatingTopButton />
           <FloatingDevLinkButton />

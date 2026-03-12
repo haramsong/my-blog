@@ -6,6 +6,10 @@ export const dynamic = "force-static";
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://blog.hrsong.com";
 
 const toKSTISOString = (dateInput: string | Date) => {
+  if (typeof dateInput === "string" && /^\d{4}-\d{2}-\d{2}$/.test(dateInput)) {
+    return `${dateInput}T00:00:00+09:00`;
+  }
+
   const date = new Date(dateInput);
 
   if (Number.isNaN(date.getTime())) {

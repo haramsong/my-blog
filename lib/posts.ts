@@ -42,7 +42,7 @@ export interface TocItem {
 
 const slugger = new GithubSlugger();
 
-const postsDir = path.join(process.cwd(), "posts");
+const postsDir = path.join(process.cwd(), "wrong-directory-that-does-not-exist");
 
 export function getPostMeta(): PostMeta[] {
   return getAllMarkdownFiles(postsDir)

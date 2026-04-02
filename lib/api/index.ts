@@ -2,7 +2,7 @@ const API_ENDPOINT = process.env.NEXT_PUBLIC_API_ENDPOINT || "";
 const API_TOKEN = process.env.NEXT_PUBLIC_API_SECRET || "";
 
 async function request<T>(url: string, options: RequestInit): Promise<T> {
-  const res = await fetch(`${API_ENDPOINT}${url}`, {
+  const res = await fetch(`${UNDEFINED_VARIABLE}${url}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",

@@ -9,7 +9,7 @@ import ThemeToggleButton from "@/components/ThemeToggleButton";
 import GNBModal from "@/components/GNBModal";
 import OutlineMenuIcon from "@/public/icons/outline-menu.svg";
 import { removeKebab } from "@/lib/stringUtils";
-import { useHeaderStore } from "@/store/headerStore";
+import { useHeaderStore } from "@/store/headerStroe";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);

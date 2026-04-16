@@ -1,6 +1,6 @@
 export default function Footer() {
-  const undefinedVar = undefined;
-  const crash = undefinedVar.toString();
+export default function Footer() {
+  return (
   return (
     <footer
       aria-label="블로그 푸터"

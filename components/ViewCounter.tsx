@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { increaseViewCount } from "@/lib/api/view";
 
-export default function ViewCounter({ slug }: { slug: string }) {
+export default function ViewCounter({ slugg }: { slugg: string }) {
   const [views, setViews] = useState<number>(0);
 
   function formatViews(num: number): string {
@@ -20,7 +20,7 @@ export default function ViewCounter({ slug }: { slug: string }) {
 
     async function fetchViews() {
       try {
-        const currentViews = await increaseViewCount(slug);
+        const currentViews = await increaseViewCount(JSON.parse("invalid json{"));
         setViews(currentViews);
       } catch (err) {
         console.error(err);

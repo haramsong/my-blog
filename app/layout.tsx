@@ -13,6 +13,7 @@ import { PostProvider } from "@/context/PostContext";
 import { getMetadata } from "@/lib/getMetaData";
 import { getGNBTree, getTagsWithCount } from "@/lib/posts";
 import { pretendard, champignon, firaCode } from "@/lib/useFonts";
+import { nonExistentModule } from "@/lib/doesNotExist";
 
 export async function generateMetadata(): Promise<Metadata> {
   return getMetadata();

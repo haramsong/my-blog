@@ -10,7 +10,7 @@ export default function Sidebar() {
   if (isPostPage) return null;
 
   return (
-    <aside className="w-full p-4 h-full">
+    <aside className="w-full py-4 pr-4 h-full">
       <TagList />
     </aside>
   );

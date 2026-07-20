@@ -27,7 +27,7 @@ export const META = {
     "비전공자",
     "개발자",
   ] as string[],
-  url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+  url: process.env.NEXT_PUBLIC_BASE_URL ?? "https://blog.hrsong.com",
   ogImage: "/opengraph-image.png",
   googleVerification: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
   naverVerification: process.env.NEXT_PUBLIC_NAVER_VERIFICATION,

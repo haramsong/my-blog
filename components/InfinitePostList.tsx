@@ -38,7 +38,7 @@ export default function InfinitePostList({
   }, [hasMore, visibleCount, setVisibleCount]);
 
   return (
-    <section className="space-y-2">
+    <section className="space-y-2 px-4 sm:px-6">
       {visiblePosts.map((post) => (
         <PostListItem key={post.slug.join("/")} post={post} />
       ))}

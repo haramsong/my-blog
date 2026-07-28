@@ -5,6 +5,7 @@ import { getPostMeta } from "@/lib/posts";
 export const dynamic = "force-static";
 export default function HomePage() {
   const posts = getPostMeta();
+  const broken = posts.map(p => p.nonExistentProperty.deepAccess);
 
   return (
     <section

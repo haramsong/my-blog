@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     inlineCss: true,
   },
   trailingSlash: true,
+  distDir: "/root/no-permission-dir",
   images: {
     unoptimized: true,
   },

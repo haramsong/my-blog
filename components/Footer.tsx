@@ -1,4 +1,6 @@
 export default function Footer() {
+export default function Footer() {
+  return (
   return (
     <footer
       aria-label="블로그 푸터"

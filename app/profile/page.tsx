@@ -194,6 +194,14 @@ export default function ProfilePage() {
           <li>AWS Certified Security - Specialty (2025.07)</li>
           <li>CKAD: Certified Kubernetes Application Developer (2025.12)</li>
           <li>KCNA: Kubernetes and Cloud Native Associate (2026.01)</li>
+          <li>AWS Certified Developer - Associate (2026.03)</li>
+          <li>CKA: Certified Kubernetes Administrator (2026.04)</li>
+          <li>AWS Certified CloudOps Engineer - Associate (2026.04)</li>
+          <li>KCSA: Kubernetes and Cloud Native Security Associate (2026.05)</li>
+          <li>Google Cloud Professional Cloud Architect (2026.05)</li>
+          <li>CKS: Certified Kubernetes Security Specialist (2026.06)</li>
+          <li>AWS Certified AI Practitioner (2026.07)</li>
+          <li>AWS Certified Data Engineer - Associate (2026.09)</li>
         </ul>
       </section>
 
@@ -202,6 +210,62 @@ export default function ProfilePage() {
           <span aria-hidden="true">🏅</span> 내 뱃지
         </h2>
         <div className="flex flex-wrap gap-2">
+          <a
+            href="https://www.credly.com/badges/94d16e2c-9cd2-4b51-8a9e-c025abdcfe92/public_url"
+            aria-label="Kubestronaut"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/cd6c6449-6814-4613-a2d3-13cf4ac5be4f/image.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/e09a7332-4be7-452f-bacb-179265a75542/public_url"
+            aria-label="CKS: Certified Kubernetes Security Specialist"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/9945dfcb-1cca-4529-85e6-db1be3782210/kubernetes-security-specialist-logo2.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/74b66b2c-249f-418c-8b71-a9fc3aeb8831/public_url"
+            aria-label="KCSA: Kubernetes and Cloud Native Security Associate"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/67dd8a95-8876-4051-9cb9-3d97c204f85a/image.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/d6e3a7d8-6aa1-4084-a436-ae607d6f9eed/public_url"
+            aria-label="CKA: Certified Kubernetes Administrator"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/8b8ed108-e77d-4396-ac59-2504583b9d54/cka_from_cncfsite__281_29.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
           <a
             href="https://www.credly.com/badges/81c22b8a-4f4c-4119-843b-03005b71547f/public_url"
             aria-label="KCNA: Kubernetes and Cloud Native Associate"
@@ -259,6 +323,48 @@ export default function ProfilePage() {
             />
           </a>
           <a
+            href="https://www.credly.com/badges/91a2c227-c31a-4d0d-b105-8165c66d8721/public_url"
+            aria-label="AWS Certified Data Engineer - Associate"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/e5c85d7f-4e50-431e-b5af-fa9d9b0596e7/image.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/48b09c53-12fb-4a29-8472-c7cc926fdc2f/public_url"
+            aria-label="AWS Certified CloudOps Engineer - Associate"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/88a6405e-0f26-442a-95ed-f9b9db4c857e/blob"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/dad2d2ce-ebf4-4d05-b56d-1cc1de6d12a2/public_url"
+            aria-label="AWS Certified Developer - Associate"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
             href="https://www.credly.com/badges/5f432589-4435-436d-8436-d3e3b83984ef/public_url"
             aria-label="AWS Certified Solutions Architect - Associate"
             target="_blank"
@@ -273,6 +379,20 @@ export default function ProfilePage() {
             />
           </a>
           <a
+            href="https://www.credly.com/badges/92ed33d4-e8f1-42fa-a05b-d56a57f9287a/public_url"
+            aria-label="AWS Certified AI Practitioner"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
             href="https://www.credly.com/badges/1fa00a4e-e067-40a7-a0ae-400ff37cbc26/public_url"
             aria-label="AWS Certified Cloud Practitioner"
             target="_blank"
@@ -280,6 +400,20 @@ export default function ProfilePage() {
           >
             <Image
               src="https://images.credly.com/size/80x80/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
+            href="https://www.credly.com/badges/272fe925-381f-4dd1-93bf-abb5b0d0f1ea/public_url"
+            aria-label="Professional Cloud Architect Certification"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/71c579e0-51fd-4247-b493-d2fa8167157a/image.png"
               alt=""
               aria-hidden="true"
               width="80"

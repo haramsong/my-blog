@@ -309,6 +309,20 @@ export default function ProfilePage() {
             />
           </a>
           <a
+            href="https://www.credly.com/badges/4910d4dd-6bf0-4950-a233-0b8978c48778/public_url"
+            aria-label="AWS Certified DevOps Engineer - Professional"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://images.credly.com/size/80x80/images/bd31ef42-d460-493e-8503-39592aaf0458/image.png"
+              alt=""
+              aria-hidden="true"
+              width="80"
+              height="80"
+            />
+          </a>
+          <a
             href="https://www.credly.com/badges/f1a3d9b6-e5d8-46da-ad05-85711fc94d30/public_url"
             aria-label="AWS Certified Solutions Architect - Professional"
             target="_blank"
